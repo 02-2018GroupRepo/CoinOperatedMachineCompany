@@ -18,24 +18,6 @@ public class Main extends Machine {
 
         Drink drinkMachine1 = new Drink("MacMachines", "Atlanta", products);
 
-        drinkMachine1.getProduct("A1");
-        drinkMachine1.insertMoney(4, 2, 2);
-        System.out.println();
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.insertMoney(4, 2, 2);
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.purchaseProduct("A1");
-        drinkMachine1.getAllMachineMoney();
-        drinkMachine1.getMachineMoney();
+
     }
 }

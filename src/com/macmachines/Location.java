@@ -18,13 +18,13 @@ public class Location {
         this.machines = machines;
     }
 
-//    public void listMachines(Operator operator) {
-//        if(Operator.class.isInstance(operator)) {
-//            for (Machine machine: machines) {
-//                machine.();
-//            }
-//        }
-//    }
+    public void listMachines(Operator operator) {
+        if(Operator.class.isInstance(operator)) {
+            for (Machine machine: machines) {
+//                machine.
+            }
+        }
+    }
 
     public void addMachine(Operator operator, Machine machine) {
         if(Operator.class.isInstance(operator)) {

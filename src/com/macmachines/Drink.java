@@ -52,11 +52,12 @@ public class Drink extends Machine {
             System.out.printf("Your change is: " + "$%.2f\n", change);
         } else {
             System.out.println("You do not have enough money.");
+            System.out.printf("$%.2f" + " was returned.\n", this.insertedMoney);
+            this.insertedMoney = 0;
         }
     }
 
     public void getMachineMoney() {
         System.out.println(machineMoney);
     }
-
 }
