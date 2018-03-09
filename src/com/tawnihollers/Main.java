@@ -3,16 +3,20 @@ package com.tawnihollers;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
 public class Main {
 
     public static void main(String[] args) {
         BufferedReader console = new BufferedReader(new InputStreamReader((System.in)));
+
 
         try {
 
             SnackMachine snack = new SnackMachine();
             snack.getNameOfCompany();
             boolean con = true;
+
+            snack.snacksInMachine();
 
             while(con){
                 System.out.println("Please enter a number to say what kind of coin you will add: 1 for Nickel, 2 for Dime, 3 for Quarter");
