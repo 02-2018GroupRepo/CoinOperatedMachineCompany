@@ -120,6 +120,14 @@ abstract class VendingMachine implements CoinOperator {
         this.amountMoney += totalNumQuarters * QUARTER;
     }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
     public double getAmountMoney() {
         return amountMoney;
     }
