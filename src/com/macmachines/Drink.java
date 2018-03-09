@@ -43,8 +43,8 @@ public class Drink extends Machine {
             Product purchasedProduct = products.get(area).get(0);
             System.out.println("You have purchased " + purchasedProduct.getName() + ".");
 
-            this.machineMoney += (insertedMoney - purchasedProduct.getRetailPrice());
-            addToAllMachineMoney(insertedMoney - purchasedProduct.getRetailPrice());
+            this.machineMoney += purchasedProduct.getRetailPrice();
+            addToAllMachineMoney(purchasedProduct.getRetailPrice());
 
             double change = insertedMoney - purchasedProduct.getRetailPrice();
             products.get(area).remove(0);

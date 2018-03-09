@@ -6,7 +6,7 @@ public abstract class Machine {
 
     public Machine() {}
 
-    public Machine(String companyName, String machineName) {
+    public Machine(String companyName) {
         this.companyName = companyName;
     }
 
