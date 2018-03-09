@@ -7,7 +7,7 @@ public class Location {
     private String city;
     private String store;
     private String chainNumber;
-    ArrayList<AbstractMachine> machines;
+    ArrayList<AbstractMachine> machines = new ArrayList<>();
 
     public Location(String city, String store, String chainNumber) {
         this.city = city;
@@ -25,6 +25,10 @@ public class Location {
 
     public String getChain() {
         return chainNumber;
+    }
+
+    void addMachineToThisLocation(AbstractMachine machine){
+        machines.add(machine);
     }
 
 }

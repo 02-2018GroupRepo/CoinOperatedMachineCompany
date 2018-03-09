@@ -3,6 +3,7 @@ package com.Project1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.*;
 
@@ -10,9 +11,9 @@ public abstract class AbstractMachine {
 
     File log;
     Location myLocation;
-    static String lastMachineID = "12345";
+    protected static int lastMachineID = 12345;
     static ArrayList<String> validIDS = new ArrayList<>();
-    String myMachineID;
+    int myMachineID;
 
     protected LinkedList[][] machine;
 
@@ -98,7 +99,7 @@ public abstract class AbstractMachine {
                 if (col.size() > 0) {
                     Product p = (Product) col.peek();
                     System.out.print(p.name + " $" + p.retailPrice + " ");
-                }else System.out.print("\t\t");
+                } else System.out.print("\t\t");
             }
         }
     }
@@ -127,23 +128,32 @@ public abstract class AbstractMachine {
 
     }
 
-    public void getLogFile(String employeeID){
+    public void getLogFile(String employeeID) {
 
-        if(validIDS.contains(employeeID)){
-            String logPathName = "C:\\Users\\syntel\\Desktop\\indiProject\\CoinOperatedMachineCompany\\logs\\"+myMachineID+".txt";
-            log = new File(logPathName);
+        if (validIDS.contains(employeeID)) {
 
 
-            try (BufferedReader reader = Files.newBufferedReader(log.toPath())) {
+            String logPathName = "logs/" + myMachineID + ".txt";
+            //log = new File(logPathName);
+            URL url = getClass().getResource(logPathName);
+            File file = new File(url.getPath());
+
+            try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
                 String line = null;
                 while ((line = reader.readLine()) != null) {
                     System.out.println(line);
                 }
             } catch (IOException x) {
                 System.err.format("IOException: %s%n", x);
+            } catch (NullPointerException n) {
+                System.out.println("You must be using Windows you filthy animal?");
             }
 
         }
 
     }
+
+
+
+
 }
