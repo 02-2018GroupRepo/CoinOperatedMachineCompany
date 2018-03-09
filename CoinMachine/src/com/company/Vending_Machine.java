@@ -83,6 +83,7 @@ public class Vending_Machine {
 
     public void buyProduct(Products key){
 
+        System.out.println("*Vending item*\n" + key.toString() + "\n*clunk*");
         inStock.put(key, inStock.get(key) - 1);
         if(inStock.get(key) == 0)
             inStock.remove(key);
