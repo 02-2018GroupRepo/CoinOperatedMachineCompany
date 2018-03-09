@@ -19,7 +19,7 @@ public class Vending_Machine {
     Map<Products, Integer> inStock = new HashMap<Products, Integer>();
     Coins coin = new Coins();
 
-    private Vending_Machine(){};
+    public Vending_Machine(){};
 
     public Vending_Machine(String location, String company){
                 this.location = location;
