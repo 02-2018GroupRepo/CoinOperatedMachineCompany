@@ -1,5 +1,6 @@
 package com.fileCreating;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 
 public class SnackMachine extends VendingMachine{
@@ -9,6 +10,7 @@ public class SnackMachine extends VendingMachine{
     ArrayList[][] inventory = new ArrayList[SHELVES][COMPARTMENTS];
     private final int MAX_SPACES = 10;
 
+
     public void intializeInventory(){
         for(int i = 0; i < SHELVES; i++){
             for(int j = 0; j < COMPARTMENTS; j++){
@@ -17,13 +19,27 @@ public class SnackMachine extends VendingMachine{
         }
     }
 
-    public void addToInventory(int row, int col, String item){
-        inventory[row][col].add(item);
+    public void addToInventory(int row, int col, int amount, String item){
+        int inventoryLength = inventory[row][col].size();
+        for(int i = inventoryLength; (i < amount) && (inventory[row][col].size() <= MAX_SPACES); i++){
+            inventory[row][col].add(item);
+        }
     }
 
 
     @Override
-    public void selection() {
+    public void selection(int shelf, int compartment) {
 
+    }
+
+    public void printInventory(){
+        System.out.println(inventory[0][0].size());
+        for(int i = 0; i < SHELVES; i++){
+            for(int j = 0; j < COMPARTMENTS; j++){
+                for(Object str : inventory[i][j]){
+                    System.out.print(str + " - ");
+                }
+            }
+        }
     }
 }
