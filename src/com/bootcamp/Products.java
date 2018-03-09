@@ -7,14 +7,14 @@ public class Products {
     private String name;
     private String description;
     private double wholesalePrice;
-    private double resalePrice;
+    private double retailPrice;
 
     public Products(Integer id, String name, String description, double wholesalePrice, double resalePrice){
         this.id = id;
         this.name = name;
         this.description = description;
         this.wholesalePrice = wholesalePrice;
-        this.resalePrice = resalePrice;
+        this.retailPrice = resalePrice;
     }
     public int getId(){
         return id;
@@ -49,11 +49,11 @@ public class Products {
     }
 
     public double getResalePrice() {
-        return resalePrice;
+        return retailPrice;
     }
 
     public void setResalePrice(double resalePrice) {
-        this.resalePrice = resalePrice;
+        this.retailPrice = resalePrice;
     }
 
 
