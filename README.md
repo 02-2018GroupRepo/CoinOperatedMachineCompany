@@ -1,4 +1,7 @@
+testing
+
 # Coin Operated Machine Company
+Amos Gichero README subject to change
 You have just started a company that operates different types of coin operated machines. You will be writing one or more programs to perform the following activities:
 
 1. Create a unique name for your company. Every machine should provide a way to return the name of the company.
