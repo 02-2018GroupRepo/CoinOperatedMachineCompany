@@ -105,25 +105,26 @@ public class Vending_Machine {
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
 
-        if(inStock.containsKey(choice)){
             for(Products i : inStock.keySet()){
-                if(choice.toLowerCase().equals(i.getName())){
-                    if(total > i.getRetailPrice()) {
+                if(choice.toLowerCase().equals(i.getName())) {
+                    if (total > i.getRetailPrice()) {
                         addMoney(total);
                         buyProduct(i);
                         System.out.println(getChange(total - i.getRetailPrice()));
-                    }
-                    else if(total == i.getRetailPrice())
+                        break;
+                    } else if (total == i.getRetailPrice()) {
                         buyProduct(i);
-                    else
+                        break;
+                    } else{
                         System.out.println("Not Enough Currency\nReturning Money");
-
+                        break;
+                    }
+                }
+                else{
+                    System.out.println("Invalid Selection");
                 }
             }
-        }
-        else{
-            System.out.println("Invalid Selection");
-        }
+
 
     }
 

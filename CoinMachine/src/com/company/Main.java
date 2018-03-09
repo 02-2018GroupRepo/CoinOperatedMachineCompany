@@ -26,7 +26,7 @@ public class Main {
             if (choice.toLowerCase().equals("snack")) {
 
                 for (Map.Entry<Products, Integer> entry : candy.inStock.entrySet()) {
-                    System.out.print(entry.getKey() + " $" + entry.getKey().getRetailPrice());
+                    System.out.print(entry.getKey().getName() + " $" + entry.getKey().getRetailPrice());
                     if (counter < 5) {
                         System.out.print("\t");
                         counter++;
@@ -60,7 +60,8 @@ public class Main {
                 }
 
                 candy.attemptPurchase(q, d, n);
-
+                counter = 0;
+                done = false;
             } else if (choice.equals("1234")) {
                 Operator operator = new Operator();
                 while (!done) {
@@ -143,7 +144,10 @@ public class Main {
                 }
 
                 drinks.attemptPurchase(q, d, n);
+                counter = 0;
+                done = false;
             }
+
         }
     }
 
