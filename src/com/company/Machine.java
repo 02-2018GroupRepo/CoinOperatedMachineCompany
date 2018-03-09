@@ -1,17 +1,46 @@
 package com.company;
+import Coins.*;
+
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Machine {
-    private int total_coins = 0;
-    private double total_usd = 0;
-    private Map<String, Integer> coins_in_machine;
+    private ArrayList<Nickel> nickelsInMachine = new ArrayList<Nickel>();
+    private ArrayList<Quarter> quartersInMachine = new ArrayList<Quarter>();
+    private ArrayList<Dime> dimesInMachine = new ArrayList<Dime>();
+    public String name;
+    int coinCount;
+    double moneyCount;
 
-    public Machine(){
-//        coins_in_machine = new HashMap<String, Integer>();
-//
-//        coins_in_machine.put(String, Main.addcoins());
+
+    public Machine(ArrayList<Nickel> nickelsInMachine, ArrayList<Quarter> quartersInMachine,
+                   ArrayList<Dime> dimesInMachine, String name, int coinCount, double moneyCount)
+    {
+        this.nickelsInMachine = nickelsInMachine;
+        this.quartersInMachine = quartersInMachine;
+        this.dimesInMachine = dimesInMachine;
+        this.name = name;
+        this.coinCount = coinCount;
+        this.moneyCount = moneyCount;
     }
+
+    public double getTotalCoinCount(){
+
+       for(int i = 0; i < nickelsInMachine.size(); i++ ){
+           coinCount += 1;
+       }
+       for(int i = 0; i < quartersInMachine.size(); i++ ){
+           coinCount += 1;
+       }
+       for(int i = 0; i < dimesInMachine.size(); i++ ){
+           coinCount += 1;
+       }
+       return coinCount;
+    }
+
+
 
 }
