@@ -25,7 +25,7 @@ public class Config {
         snackMachine.stockProduct(reeses, 2, 2, 4);
 
 
-        DrinkMachine drinkMachine = new DrinkMachine("test");
+        DrinkMachine drinkMachine = new DrinkMachine("test1");
         Drink cocaCola = new Drink("1231232", "snickers", "test", 2.00, 2.00, true);
         Drink sprite = new Drink("1231232", "reeses", "test", 2.00, 2.00, false);
         Drink dietcoke = new Drink("1231232", "donut", "test", 2.00, 2.00, true);

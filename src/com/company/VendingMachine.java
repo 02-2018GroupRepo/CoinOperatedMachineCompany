@@ -100,7 +100,7 @@ public abstract class VendingMachine {
 
     public void insertCoin(String coin) {
         switch (coin.toLowerCase()) {
-            case "nickle":
+            case "nickel":
                 this.currentCoinInputTotal += VendingMachine.NICKEL;
                 this.currentNickleInput += VendingMachine.NICKEL;
                 break;
