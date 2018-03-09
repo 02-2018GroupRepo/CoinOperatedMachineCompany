@@ -10,7 +10,7 @@ public class DrinkMachine implements VendingMachine{
     Product a2 = new Product("Mountain Dew","Canned Soda", 1.00,.25,12);
     Product a3 = new Product("Sprite","Canned Soda", 1.00,.25,12);
     Product a4 = new Product("Pepsi Blue","Canned Soda", 1.00,.25,12);
-    Product a5 = new Product("Schwelppe's","Canned Soda", 1.00,.25,12);
+    Product a5 = new Product("Schelppe's","Canned Soda", 1.00,.25,12);
     Product a6 = new Product("Pepsi","Canned Soda", 1.00,.25,12);
 
     Product b1 = new Product("Coca Cola","Canned Soda", 1.00,.25,12);
@@ -39,6 +39,26 @@ public class DrinkMachine implements VendingMachine{
     Product e4 = new Product("Pepsi","Bottled Drink", 1.25,.50,8);
     Product e5 = new Product("Pepsi","Bottled Drink", 1.25,.50,8);
 
+    double moneyTotal = 0;
+    double moneyReceived = 0;
+    double moneyChange = 0;
+
+    // Product Quantity?
+
+
+//     if moneyReceived = moneyTotal;
+//        system.out.println("Have a Good Day");
+//        else if moneyReceived < moneyTotal;
+//        return moneyReceived;
+//
+//        else if moneyReceived > moneyTotal;
+//        return moneyChange;
+//
+//      if Product is purchased
+//        Product.inStock = Product-1;
+//              else if Product.instock<=0;
+//      system.out.println("Not Available");
+//
 
 
 }

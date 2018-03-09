@@ -50,8 +50,13 @@ public class SnackMachine implements VendingMachine {
     Product e4 = new Product("Spearmint Gum","Candy", .50,.10,10);
     Product e5 = new Product("Altoids","Candy", .50,.10,10);
 
+    double moneyTotal = 0;
+    double moneyReceived = 0;
+    double moneyChange = 0;
 
     HashMap<String,Product> snacks = new HashMap<String,Product>(25);
+
+    snacks.Entry<0,a1>;
 
 
 
