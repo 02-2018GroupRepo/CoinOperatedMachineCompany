@@ -14,4 +14,14 @@ public class Location {
     public void addMachine(VendingMachine machine){
         machineList.add(machine);
     }
+
+    public void viewMachines(){
+        if (machineList.size() < 0){
+            System.out.println("Sorry there are no machines at this location.");
+        } else {
+            for(int i=0; i < machineList.size(); i++){
+                System.out.println(machineList.get(i));
+            }
+        }
+    }
 }
