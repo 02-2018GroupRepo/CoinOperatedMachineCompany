@@ -101,7 +101,7 @@ public class Main {
                             }
                             break;
                         case 4:
-                            operator.getAllTotal(candy, drinks);
+                            System.out.println("$" + operator.getAllTotal(candy, drinks));
                             break;
                         case 5:
                             done = true;
@@ -115,7 +115,7 @@ public class Main {
 
 
                 for (Map.Entry<Products, Integer> entry : drinks.inStock.entrySet()) {
-                    System.out.print(entry.getKey() + " $" + entry.getKey().getRetailPrice());
+                    System.out.print(entry.getKey().getName() + " $" + entry.getKey().getRetailPrice());
                 }
 
                 System.out.println("Insert money before making Selection");
