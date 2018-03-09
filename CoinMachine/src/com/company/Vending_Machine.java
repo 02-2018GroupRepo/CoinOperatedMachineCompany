@@ -51,16 +51,19 @@ public class Vending_Machine {
                 numQ--;
                 q++;
                 change -= .25;
+                System.out.println(change);
             }
             else if((change - .10) >= 0.0){
                 numD--;
                 d++;
                 change -= .10;
+                System.out.println(change);
             }
             else if((change - .05) >= 0.0){
                 numN--;
                 n++;
                 change -= 0.05;
+                System.out.println(change);
             }
             else
                 done = true;
@@ -69,24 +72,10 @@ public class Vending_Machine {
         return "Your Change: " + q + " Quarters " + d + " Dimes " + n + " Nickels";
     }
 
-    public void addMoney(double moneyRecieved){
-        boolean done = false;
-        while(!done){
-            if((moneyRecieved - .25) >= 0.0){
-                numQ++;
-                moneyRecieved -= .25;
-            }
-            else if((moneyRecieved - .10) >= 0.0){
-                numD++;
-                moneyRecieved -= .10;
-            }
-            else if((moneyRecieved - .05) >= 0.0){
-                numN++;
-                moneyRecieved -= 0.05;
-            }
-            else
-                done = true;
-        }
+    public void addMoney(int q, int d, int n){
+        numQ += q;
+        numD += d;
+        numN += n;
     }
 
     public void buyProduct(Products key){
@@ -98,7 +87,7 @@ public class Vending_Machine {
 
     }
 
-    public void attemptPurchase(int Q, int N, int D){
+    public void attemptPurchase(int Q, int D, int N){
         double total = (Q* coin.QUARTER ) + (N * coin.NICKEL) + (D * coin.DIME);
 
         System.out.println("Make selection");
@@ -108,20 +97,15 @@ public class Vending_Machine {
             for(Products i : inStock.keySet()){
                 if(choice.toLowerCase().equals(i.getName())) {
                     if (total > i.getRetailPrice()) {
-                        addMoney(total);
+                        addMoney(Q, D, N);
                         buyProduct(i);
                         System.out.println(getChange(total - i.getRetailPrice()));
-                        break;
                     } else if (total == i.getRetailPrice()) {
                         buyProduct(i);
-                        break;
                     } else{
                         System.out.println("Not Enough Currency\nReturning Money");
-                        break;
                     }
-                }
-                else{
-                    System.out.println("Invalid Selection");
+                    break;
                 }
             }
 

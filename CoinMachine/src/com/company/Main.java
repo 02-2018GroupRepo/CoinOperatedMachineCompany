@@ -45,13 +45,13 @@ public class Main {
 
                     switch (selection) {
                         case 1:
-                            q++;
+                            ++q;
                             break;
                         case 2:
-                            d++;
+                            ++d;
                             break;
                         case 3:
-                            n++;
+                            ++n;
                             break;
                         case 4:
                             done = true;
@@ -72,7 +72,6 @@ public class Main {
                     switch (selection) {
                         case 1:
                             System.out.println("candy or drinks?");
-                            choice = scanner.next();
                             if(scanner.next().toLowerCase().equals("candy")){
                                 System.out.println("Enter city you are moving it too");
                                 operator.addMachine(candy, scanner.next());
@@ -85,7 +84,6 @@ public class Main {
                             break;
                         case 2:
                             System.out.println("candy or drinks?");
-                            choice = scanner.next();
                             if(scanner.next().toLowerCase().equals("candy")){
                                 operator.removeMachine(candy);
                             }
@@ -95,7 +93,6 @@ public class Main {
                             break;
                         case 3:
                             System.out.println("candy or drinks?");
-                            choice = scanner.next();
                             if(scanner.next().toLowerCase().equals("candy")){
                                 operator.getTotal(candy);
                             }
