@@ -24,11 +24,18 @@ public abstract class VendingMachine {
         return 0;
     }
 
-    public void stockProduct(Product product, int quantity, int row, int column) {
-        //Create products
-        for (int i = 0; i < quantity; i++) {
-            this.storageArray[row][column][i] = product;
+    public String stockProduct(Product product, int quantity, int row, int column) {
+
+        if (this.getClass().getName().contains(product.getClass().getName())) {
+            //Create products
+            for (int i = 0; i < quantity; i++) {
+                this.storageArray[row][column][i] = product;
+            }
+            return "Products successfully stocked";
+        } else {
+            return "Invalid product type.";
         }
+
     }
 
     public Product[][][] getStorageArray() {

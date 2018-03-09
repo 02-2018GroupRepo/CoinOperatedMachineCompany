@@ -5,17 +5,15 @@ public class Product {
     private String uuid;
     private String name;
     private String description;
-    private String productType;
     private double wholesalePrice;
     private double retailPrice;
 
-    public Product(String uuid, String name, String description, double wholesalePrice, double retailPrice, String productType) {
+    public Product(String uuid, String name, String description, double wholesalePrice, double retailPrice) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.wholesalePrice = wholesalePrice;
         this.retailPrice = retailPrice;
-        this.productType = productType;
     }
 
     public String getUuid() {
@@ -32,14 +30,6 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
     }
 
     public String getDescription() {
