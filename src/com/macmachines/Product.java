@@ -6,7 +6,6 @@ public class Product {
     private String description;
     private double wholeSalePrice;
     private double retailPrice;
-    private int qty;
 
     private Product() {}
 

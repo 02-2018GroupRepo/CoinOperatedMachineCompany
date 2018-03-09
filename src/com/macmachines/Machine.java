@@ -2,17 +2,19 @@ package com.macmachines;
 
 public abstract class Machine {
     private String companyName;
-    private String machineName;
+    private double allMachineMoney;
 
     public Machine() {}
 
-    public Machine(String companyName, String machineName) {
+    public Machine(String companyName) {
         this.companyName = companyName;
-        this.machineName = machineName;
     }
 
-    public String getMachineName() {
-        System.out.println(machineName);
-        return machineName;
+    protected void addToAllMachineMoney(double money) {
+        this.allMachineMoney += money;
     }
+    public void getAllMachineMoney() {
+        System.out.println(this.allMachineMoney);
+    }
+
 }

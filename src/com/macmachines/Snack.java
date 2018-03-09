@@ -9,8 +9,8 @@ public class Snack extends Machine {
     Map<String, ArrayList<Product>> products = new HashMap<String, ArrayList<Product>>();
     private Snack(String macMachines, String atlanta, HashMap<String, ArrayList<Product>> products) {}
 
-    public Snack(String companyName, String location, Map<String, ArrayList<Product>> products) {
-        super(companyName, location);
+    public Snack(String companyName, Map<String, ArrayList<Product>> products) {
+        super(companyName);
         this.products = products;
     }
 
