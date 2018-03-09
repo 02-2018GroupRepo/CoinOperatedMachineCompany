@@ -15,7 +15,7 @@ public class Machine {
     int coinCount;
     double moneyCount;
 
-
+//        Are these array lists necessary? Could the coin tracking just use integers? All the coin objects are the same, except for value.
     public Machine(ArrayList<Nickel> nickelsInMachine, ArrayList<Quarter> quartersInMachine,
                    ArrayList<Dime> dimesInMachine, String name, int coinCount, double moneyCount)
     {
