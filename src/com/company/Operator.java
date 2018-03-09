@@ -7,6 +7,11 @@ public class Operator {
 
     public static void main(String [] arg){
 
+        SnackMachine sharedSpaceSnackMachine = new SnackMachine ("SharedSpace", 0, 0, 0);
+        DrinkMachine sharedSpaceDrinkMachine = new DrinkMachine("SharedSpace", 0, 0, 0);
+        SnackMachine nextDoorSnackMachine = new SnackMachine("Next Door", 0,0,0);
+        DrinkMachine nextDoorDrinkMachine = new DrinkMachine ("Next Door",0,0,0);
+
 
 
         try(BufferedReader console = new BufferedReader (new InputStreamReader(System.in))){
