@@ -1,5 +1,3 @@
-qczhang18
-
 # Coin Operated Machine Company
 You have just started a company that operates different types of coin operated machines. You will be writing one or more programs to perform the following activities:
 
