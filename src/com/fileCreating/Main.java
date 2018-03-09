@@ -8,13 +8,13 @@ public class Main {
         SnackMachine vm = new SnackMachine();
         vm.intializeInventory();
         vm.addToInventory(0, 0 ,5, "Candy");
-        vm.printInventory();
+        vm.addToInventory(0, 1 ,7, "Cake");
+        vm.addToInventory(0, 2 ,9, "Chips");
 
-        DrinkMachine dm = new DrinkMachine();
-        dm.intializeInventory();
-        dm.addToInventory(0, 0, 3 ,"Pop");
-        System.out.println();
-        System.out.println();
-        dm.printInventory();
+        vm.setItem(0,0,2.00);
+        vm.setItem(0,1,2.25);
+        vm.setItem(0,2,"Jerky",1.50);
+
+        vm.printInventory();
     }
 }
