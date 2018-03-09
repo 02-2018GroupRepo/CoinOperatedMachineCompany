@@ -1,4 +1,5 @@
 package com.company;
+import Coins .*;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ public class Main {
 
 
         System.out.println(rootBeer.getUniqueID());
+        System.out.println(Coins.Quarter.getValue());
 
     }
 //
