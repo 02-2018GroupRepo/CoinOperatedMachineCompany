@@ -20,4 +20,20 @@ public class Product {
     public int getUid() {
         return uid;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getWholesalePrice() {
+        return wholesalePrice;
+    }
+
+    public double getRetailSalePrice() {
+        return retailSalePrice;
+    }
 }
