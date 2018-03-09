@@ -3,7 +3,7 @@ package com.tawnihollers;
 
 
 public class VendingMachines extends Operator{
-    public final static String company = "Tawni's Machines";
+    public final static String company = "Tawni's Machines\n";
     public final static double NICKEL = 0.05;
     public final static double DIME = 0.10;
     public final static double QUARTER = 0.25;
