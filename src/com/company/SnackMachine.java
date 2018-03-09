@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SnackMachine extends VendingMachine {
 
-    public SnackMachine() {
+    public SnackMachine(String location) {
         this.location = location;
         this.rows = 5;
         this.columns = 5;
@@ -20,4 +20,6 @@ public class SnackMachine extends VendingMachine {
             System.out.println("Invalid product type.");
         }
     }
+
+
 }

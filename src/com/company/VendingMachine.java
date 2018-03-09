@@ -11,6 +11,7 @@ public abstract class VendingMachine {
     public int spacePerCompartment;
     public Product[][][] storageArray;
     public String location;
+
     public String getLocation() {
         return location;
     }
@@ -25,8 +26,46 @@ public abstract class VendingMachine {
 
     public void stockProduct(Product product, int quantity, int row, int column) {
         //Create products
-        for (int i=0; i < quantity; i++) {
+        for (int i = 0; i < quantity; i++) {
             this.storageArray[row][column][i] = product;
         }
+    }
+
+    public Product[][][] getStorageArray() {
+        return storageArray;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void getInventory() {
+        String currentProductName = "";
+        int currentProductQty = 0;
+        //forEach shelf
+        for (int j = 0; j < this.getRows(); j++) {
+            int i = 0;
+            System.out.printf("\nShelf %d has the following items: \n", j);
+            System.out.println("---------------------------------");
+            //forEach column
+            for (Product[] column : this.getStorageArray()[j]) {
+                for (Product compartment : column) {
+
+                    if (compartment != null) {
+                        currentProductQty += 1;
+                    }
+                    try {
+                        currentProductName = compartment.getName();
+                    } catch (Exception e) {
+                       // System.out.println("null");
+                    }
+                }
+                i +=1;
+                System.out.printf("Item: %s, Quantity: %d \n", currentProductName, currentProductQty);
+            }
+            currentProductQty = 0;
+
+        }
+
     }
 }
