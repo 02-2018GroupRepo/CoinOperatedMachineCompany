@@ -4,6 +4,10 @@ public class SnackMachine extends Vending_Machine {
 
     public SnackMachine(){
         MAX_ITEM_COUNT = 250;
+
+        location = "Atlanta";
+        company = "MyCompany";
+
         //todo: add items to inStock map class
         Products chips       = new Products(1, "chips",           "potato", 0.50, 1.00);
         Products cracker     = new Products(2, "cracker",         "saltine", 0.25, 1.00);
@@ -58,5 +62,7 @@ public class SnackMachine extends Vending_Machine {
         inStock.put(toffee     ,10);
 
     }
+
+
 
 }

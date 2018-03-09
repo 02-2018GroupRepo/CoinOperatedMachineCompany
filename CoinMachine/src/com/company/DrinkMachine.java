@@ -3,6 +3,10 @@ package com.company;
 public class DrinkMachine extends Vending_Machine {
     public DrinkMachine(){
         MAX_ITEM_COUNT = 296;
+
+        location = "compton";
+        company = "MyCompany";
+
         //todo: add items to inStock map
         Products pepsi      = new Products(1, "pepsi", "pepsi    ", 0.10, 0.50);
         Products coke       = new Products(2, "coke", "coke     ", 0.10, 0.50);

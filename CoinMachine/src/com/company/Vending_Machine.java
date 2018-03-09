@@ -30,8 +30,16 @@ public class Vending_Machine {
         return location;
     }
 
+    public void setLocation(String location){
+        this.location = location;
+    }
+
     public String getCompany(){
         return company;
+    }
+
+    public void setCompany(String company){
+        this.company = company;
     }
 
     public String getChange(double change){
