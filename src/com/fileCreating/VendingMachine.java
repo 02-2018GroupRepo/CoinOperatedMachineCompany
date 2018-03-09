@@ -10,13 +10,23 @@ import static com.fileCreating.Coins.QUARTER;
 abstract class VendingMachine implements CoinOperator {
 
     private String location;
-    private int totalNumNickels = 0;
-    private int totalNumDimes = 0;
-    private int totalNumQuarters = 0;
-    private int curNumNickels = 0;
-    private int curNumDimes = 0;
-    private int curNumQuarters = 0;
-    private double amountMoney = 0;
+    private int totalNumNickels;
+    private int totalNumDimes;
+    private int totalNumQuarters;
+    private int curNumNickels;
+    private int curNumDimes;
+    private int curNumQuarters;
+    private double amountMoney;
+
+    VendingMachine(){
+        this.totalNumNickels = 0;
+        this.totalNumDimes = 0;
+        this.totalNumQuarters = 0;
+        this.curNumNickels = 0;
+        this.curNumDimes = 0;
+        this.curNumQuarters = 0;
+        this.amountMoney = 0;
+    }
 
     @Override
     public void insertion(Double coin) {
@@ -95,5 +105,23 @@ abstract class VendingMachine implements CoinOperator {
     }
 
 
+    public void setTotalNumNickels(int totalNumNickels) {
+        this.totalNumNickels += totalNumNickels;
+        this.amountMoney += totalNumNickels * NICKEL;
+    }
+
+    public void setTotalNumDimes(int totalNumDimes) {
+        this.totalNumDimes += totalNumDimes;
+        this.amountMoney += totalNumDimes * DIME;
+    }
+
+    public void setTotalNumQuarters(int totalNumQuarters) {
+        this.totalNumQuarters += totalNumQuarters;
+        this.amountMoney += totalNumQuarters * QUARTER;
+    }
+
+    public double getAmountMoney() {
+        return amountMoney;
+    }
 }
 

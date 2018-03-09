@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
+        Operator christian = new Operator();
         SnackMachine vm = new SnackMachine();
         vm.intializeInventory();
         vm.addToInventory(0, 0 ,5, "Candy");
@@ -16,5 +17,8 @@ public class Main {
         vm.setItem(0,2,"Jerky",1.50);
 
         vm.printInventory();
+
+        christian.setTotalNumCoins(25, 25, 25, vm);
+        christian.checkThisMachineTotalMoney(vm);
     }
 }

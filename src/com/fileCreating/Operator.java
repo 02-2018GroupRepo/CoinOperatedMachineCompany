@@ -10,4 +10,14 @@ public class Operator {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void checkThisMachineTotalMoney(VendingMachine machine){
+        System.out.println(machine.getAmountMoney());
+    }
+
+    public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, VendingMachine thisMachine){
+        thisMachine.setTotalNumNickels(numNickels);
+        thisMachine.setTotalNumDimes(numDimes);
+        thisMachine.setTotalNumQuarters(numQuarters);
+    }
 }
