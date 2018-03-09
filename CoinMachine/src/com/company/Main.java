@@ -58,6 +58,7 @@ public class Main {
 
         }
         else if(choice.equals("1234")){
+            Operator operator = new Operator();
 
         }
         else{

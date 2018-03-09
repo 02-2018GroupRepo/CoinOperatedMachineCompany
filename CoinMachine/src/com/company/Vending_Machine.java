@@ -83,7 +83,7 @@ public class Vending_Machine {
 
     public void buyProduct(Products key){
 
-        System.out.println("*Vending item*\n" + key.toString() + "\n*clunk*");
+        System.out.println("*Vending item*\n" + key.getName() + "\n*clunk*");
         inStock.put(key, inStock.get(key) - 1);
         if(inStock.get(key) == 0)
             inStock.remove(key);
@@ -99,7 +99,7 @@ public class Vending_Machine {
 
         if(inStock.containsKey(choice)){
             for(Products i : inStock.keySet()){
-                if(choice.toLowerCase().equals(i.toString())){
+                if(choice.toLowerCase().equals(i.getName())){
                     if(total > i.getRetailPrice()) {
                         addMoney(total);
                         buyProduct(i);
@@ -118,7 +118,5 @@ public class Vending_Machine {
         }
 
     }
-
-
 
 }
