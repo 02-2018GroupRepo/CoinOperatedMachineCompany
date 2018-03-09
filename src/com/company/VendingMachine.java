@@ -15,6 +15,9 @@ public abstract class VendingMachine {
     public double totalDimes;
     public double totalQuarters;
     public double currentCoinInputTotal;
+    public double currentNickleInput;
+    public double currentDimeInput;
+    public double currentQuarterInput;
 
     public String getLocation() {
         return location;
@@ -58,9 +61,13 @@ public abstract class VendingMachine {
         try {
             Product product = this.getStorageArray()[row][column][0];
             if (product.getRetailPrice() <= this.currentCoinInputTotal) {
-                double change = this.currentCoinInputTotal > product.getRetailPrice() ? this.currentCoinInputTotal - product.getRetailPrice()
-                                                                                      : 0;
-                
+                double changeDue = this.currentCoinInputTotal > product.getRetailPrice() ? this.currentCoinInputTotal - product.getRetailPrice()
+                                                                                         : 0;
+                this.totalDimes += this.currentDimeInput;
+                this.totalNickels += this.currentNickleInput;
+                this.totalQuarters += this.currentQuarterInput;
+                this.resetCompartment(this.getStorageArray()[row][column], row, column);
+
             } else {
                 double totalRemaining = product.getRetailPrice() - this.currentCoinInputTotal;
                 System.out.printf("Please insert $%.2f.", totalRemaining);
@@ -70,28 +77,40 @@ public abstract class VendingMachine {
         }
     }
 
+    public void resetCompartment(Product[] compartment, int row, int column) {
+        compartment[0] = null;
+        int i = 0;
+        Product[] updatedCompartment = new Product[compartment.length];
+        for (Product product : compartment) {
+            if (product != null) {
+                updatedCompartment[i] = product;
+            }
+        }
+        this.getStorageArray()[row][column] = updatedCompartment;
+    }
+
 
     public void refund() {
         System.out.printf("You have received a refund of %.2f", this.currentCoinInputTotal);
         this.currentCoinInputTotal = 0;
+        this.currentNickleInput = 0;
+        this.currentDimeInput = 0;
+        this.currentQuarterInput = 0;
     }
-
-
-
-
-
-
 
     public void insertCoin(String coin) {
         switch (coin.toLowerCase()) {
             case "nickle":
                 this.currentCoinInputTotal += VendingMachine.NICKEL;
+                this.currentNickleInput += VendingMachine.NICKEL;
                 break;
             case "dime":
                 this.currentCoinInputTotal += VendingMachine.DIME;
+                this.currentDimeInput += VendingMachine.DIME;
                 break;
             case "quarter":
                 this.currentCoinInputTotal += VendingMachine.QUARTER;
+                this.currentQuarterInput += VendingMachine.QUARTER;
                 break;
             default:
                 System.out.println("Invalid coin type.");
