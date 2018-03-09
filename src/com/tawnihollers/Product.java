@@ -25,12 +25,16 @@ public class Product {
         return name;
     }
 
-    public double getRetailSalePrice() {
-        return retailSalePrice;
+//    public double getRetailSalePrice() {
+//        return retailSalePrice;
+//    }
+
+    public String formatTheRetailStalePrice(){
+        return String.format("%.2f", retailSalePrice);
     }
 
     public String toString(){
-        return getName() + " Price: " + getRetailSalePrice();
+        return getName() + " Price: " + formatTheRetailStalePrice();
     }
 
 }

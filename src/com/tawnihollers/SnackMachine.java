@@ -17,7 +17,7 @@ public class SnackMachine extends VendingMachines {
         Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
         Product random = new Product("A5", "Random", "Minty Gum", 1.00, 1.75, 10);
 
-        //Product[] fun = {gum, recess, butterFinger, hershy, random};
+
         fun.add(gum);
         fun.add(recess);
         fun.add(butterFinger);
