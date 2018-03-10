@@ -21,6 +21,12 @@ public class VendingMachines extends Operator{
         System.out.println("The Company name is " + company);
     }
 
+    public void customerAddsMoneyToMachine(int nickels, int dimes, int quarters){
+        addNickels(nickels);
+        addDimes(dimes);
+        addQuarters(quarters);
+    }
+
 
     public void customerAddsMoneyToTheMachine(int coin){
         switch (coin){

@@ -20,33 +20,35 @@ public class Main {
 
                 snack.snacksInMachine();
                 System.out.println(" ");
-
                 while (con) {
-                    System.out.println("Please enter a number to say what kind of coin you will add: 1 for Nickel, 2 for Dime, 3 for Quarter");
-                    int coin = Integer.parseInt(console.readLine());
-                    snack.customerAddsMoneyToTheMachine(coin);
+                    System.out.println("Please enter in the number of nickels you will enter");
+                    int nickels = Integer.parseInt(console.readLine());
+                    System.out.println("Please enter in the number of dimes you will enter");
+                    int dimes = Integer.parseInt(console.readLine());
+                    System.out.println("Please enter in the number of quarters you will enter");
+                    int quarters = Integer.parseInt(console.readLine());
+                    snack.customerAddsMoneyToMachine(nickels, dimes, quarters);
                     double total = snack.getTotal();
-                    System.out.printf("new total is $%.2f\n", total);
-                    System.out.println("Would you like to continue putting in coins? Enter 1 for yes, 2 for no");
+                    System.out.printf("Amount you entered into the machine $%.2f\n", total);
+
+                    System.out.println("Using the product ID please enter the letter (A-E)");
+                    String productName = console.readLine();
+                    System.out.println("Using the product ID please enter the number (1-5)");
+                    int productNum = Integer.parseInt(console.readLine());
+                    snack.takeMoneyAndChangeQty(total, productName, productNum);
+
+                    System.out.println("Would you like to continue purchasing? Press 1 for yes, 2 for no");
                     int answer = Integer.parseInt(console.readLine());
+
                     if (answer == 1) {
                         con = Boolean.valueOf(true);
                     } else {
                         con = Boolean.valueOf(false);
                     }
                 }
-                double total = snack.getTotal();
-                System.out.println("Using the product ID please enter the letter (A-E)");
-                String productName = console.readLine();
-                System.out.println("Using the product ID please enter the number (1-5)");
-                int productNum = Integer.parseInt(console.readLine());
-                snack.takeMoneyAndChangeQty(total, productName, productNum);
-
 
 
             }
-
-
         } catch (Exception e) {
             System.out.println(e);
         } finally {
@@ -56,6 +58,6 @@ public class Main {
                 System.out.println(e);
             }
         }
-
     }
+
 }

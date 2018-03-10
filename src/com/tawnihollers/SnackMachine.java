@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class SnackMachine extends VendingMachines {
 
-    Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 0.10, 10);
+    Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 0.10, 1);
     Product recess = new Product("A2", "Recess", "Minty Gum", 1.00, 2.00, 10);
     Product butterFinger = new Product("A3", "Butter Finger", "Minty Gum", 1.00, 1.50, 10);
     Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
@@ -45,9 +45,8 @@ public class SnackMachine extends VendingMachines {
             switch (number) {
                 case 1: {
                     if (gum.getRetailSalePrice() <= moneyGiven) {
-                        gum.decreaseStock();
                         double moneyReturned = moneyGiven - gum.getRetailSalePrice();
-                        System.out.printf("Your money returned $%.2f", moneyReturned);
+                        System.out.printf("Your money returned $%.2f\n", moneyReturned);
                     }
                 }
                 case 2: {
