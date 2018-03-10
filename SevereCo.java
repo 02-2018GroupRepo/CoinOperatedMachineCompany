@@ -4,7 +4,7 @@ public class Company{
     private String name;
 
     //constructor
-    public SevereCo(String name){
+    public Company(String name){
         this.name = name;
         
     }
