@@ -21,12 +21,16 @@ public class Product {
         return qty;
     }
 
+    public String getId(){
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
     public double getRetailSalePrice(){
-        return getRetailSalePrice();
+        return retailSalePrice;
     }
 
     public String formatTheRetailStalePrice() {
@@ -35,7 +39,7 @@ public class Product {
 
     public String toString() {
         if (getQty() != 0) {
-            return getName() + " Price: " + formatTheRetailStalePrice();
+            return "Id:" + getId() + " Name: " + getName() + " Price: " + formatTheRetailStalePrice();
         }
         return "Empty Slot";
     }
@@ -44,7 +48,6 @@ public class Product {
     public void decreaseStock(){
         if(this.qty > 0) {
             this.qty--;
-            System.out.println("Stock is " + this.qty);
         }
     }
 

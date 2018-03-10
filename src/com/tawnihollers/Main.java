@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
         BufferedReader console = new BufferedReader(new InputStreamReader((System.in)));
 
-
         try {
             System.out.println("Did you want the Snack or Drink Vending Machine? Choose 1 for Snack, 2 for Drink");
             int where = Integer.parseInt(console.readLine());
@@ -35,12 +34,13 @@ public class Main {
                     } else {
                         con = Boolean.valueOf(false);
                     }
-
-                    System.out.println("What snack would you like to purchase?");
-                    String productName = console.readLine();
-                    //snack.getProductName(total, productName);
-                    //snack.takeMoneyAndChangeQty(total, productName);
                 }
+                double total = snack.getTotal();
+                System.out.println("Using the product ID please enter the letter (A-E)");
+                String productName = console.readLine();
+                System.out.println("Using the product ID please enter the number (1-5)");
+                int productNum = Integer.parseInt(console.readLine());
+                snack.takeMoneyAndChangeQty(total, productName, productNum);
 
 
 

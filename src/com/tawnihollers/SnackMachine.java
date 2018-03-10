@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class SnackMachine extends VendingMachines {
 
-    Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 1.00, 10);
+    Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 0.10, 10);
     Product recess = new Product("A2", "Recess", "Minty Gum", 1.00, 2.00, 10);
     Product butterFinger = new Product("A3", "Butter Finger", "Minty Gum", 1.00, 1.50, 10);
     Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
@@ -16,7 +16,7 @@ public class SnackMachine extends VendingMachines {
     ArrayList<Product> fun = new ArrayList<>();
     static HashMap<String, Integer> myMap = new HashMap<>();
 
-    static{
+    static {
         myMap.put("Gum", 10);
         myMap.put("Recess", 10);
         myMap.put("Butter Finger", 10);
@@ -25,14 +25,6 @@ public class SnackMachine extends VendingMachines {
     }
 
     public void snacksInMachine() {
-        ArrayList<Product> items = new ArrayList<Product>();
-        //ArrayList<Product> fun = new ArrayList<Product>();
-
-//        Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 1.00, 10);
-//        Product recess = new Product("A2", "Recess", "Minty Gum", 1.00, 2.00, 10);
-//        Product butterFinger = new Product("A3", "Butter Finger", "Minty Gum", 1.00, 1.50, 10);
-//        Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
-//        Product random = new Product("A5", "Random", "Minty Gum", 1.00, 1.75, 0);
 
         fun.add(gum);
         fun.add(recess);
@@ -41,24 +33,46 @@ public class SnackMachine extends VendingMachines {
         fun.add(random);
 
         Iterator itr = fun.iterator();
-        while(itr.hasNext()) {
+        while (itr.hasNext()) {
             Object x = itr.next();
             System.out.println(x);
         }
 
     }
 
-    public void takeMoneyAndChangeQty(double moneyGiven, String name){
+    public void takeMoneyAndChangeQty(double moneyGiven, String letter, int number) {
+        if (letter.equals("A")) {
+            switch (number) {
+                case 1: {
+                    if (gum.getRetailSalePrice() <= moneyGiven) {
+                        gum.decreaseStock();
+                        double moneyReturned = moneyGiven - gum.getRetailSalePrice();
+                        System.out.printf("Your money returned $%.2f", moneyReturned);
+                    }
+                }
+                case 2: {
+                    if (recess.getRetailSalePrice() <= moneyGiven){
+                        recess.decreaseStock();
+                    }
+                }
+                case 3: {
+                    if(butterFinger.getRetailSalePrice() <= moneyGiven){
+                        butterFinger.decreaseStock();
+                    }
+                }
+                case 4: {
+                    if(hershy.getRetailSalePrice() <= moneyGiven){
+                        hershy.decreaseStock();
+                    }
+                }
+                case 5: {
+                    if(random.getRetailSalePrice() <= moneyGiven){
+                        random.decreaseStock();
+                    }
+                }
 
-        //fun.
-            //name.decreaseStock();
-            //System.out.println(name.getQty());
-            //System.out.println("Enjoy your snack");
+            }
+        }
     }
-
-
-    //Enter the hashmap to change the quantity
-    //Find a way to change the qty of the Product by the hashmap qty
-    //or find a way to make it search the hashmap before showing the menu
 
 }
