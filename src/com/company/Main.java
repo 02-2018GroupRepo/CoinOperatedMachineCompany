@@ -1,7 +1,8 @@
 package com.company;
 
 
-import java.util.ArrayList;
+import domain.DrinkMachine;
+import domain.Coin;
 
 public class Main {
 
@@ -26,8 +27,18 @@ public class Main {
 
 
         System.out.println(rootBeer.getUniqueID());
-        System.out.println(Coins.Quarter.getValue());
+        System.out.println(domain.Coins.Quarter.getValue());
 
+        DrinkMachine somemachine = new DrinkMachine();
+        Coin somecoins = new Coin();
+        somecoins.setDimes(10);
+        somemachine.setCoins(somecoins);
+
+
+
+        long totalcoincount = somemachine.getCoins().getDimes() + somemachine.getCoins().getNickels() + somemachine.getCoins().getQuarters()
+
+        System.out.println("");
     }
 //
 
