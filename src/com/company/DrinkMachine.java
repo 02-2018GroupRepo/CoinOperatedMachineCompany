@@ -7,7 +7,7 @@ public class DrinkMachine extends VendingMachine {
         this.rows = 5;
         this.columns = 6;
         this.spacePerCompartment = 12;
-        this.storageArray = new Drink[this.rows][this.columns][this.spacePerCompartment];
+        this.storageArray = new Product[this.rows][this.columns][this.spacePerCompartment];
     }
 
     @Override

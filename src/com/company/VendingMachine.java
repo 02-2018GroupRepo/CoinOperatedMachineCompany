@@ -78,16 +78,15 @@ public abstract class VendingMachine {
     }
 
     public void resetCompartment(Product[] compartment, int row, int column) {
-        compartment[0] = null;
-        //compartment[0] = new Product("TEST", "TESTTESTTEST", "a", 0,0);
         int i = 0;
         Product[] updatedCompartment = new Product[compartment.length];
         for (Product product : compartment) {
             if (product != null) {
-                //this.getStorageArray()[row][column]
+                updatedCompartment[i] = product;
+                i++;
             }
         }
-        //System.out.println(this.getStorageArray()[row][column][0].getName());
+        this.getStorageArray()[row][column] = updatedCompartment;
     }
 
     public void setStorageArray(Product[][][] storageArray) {

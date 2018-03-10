@@ -7,7 +7,7 @@ public class SnackMachine extends VendingMachine {
         this.rows = 5;
         this.columns = 5;
         this.spacePerCompartment = 10;
-        this.storageArray = new Snack[this.rows][this.columns][this.spacePerCompartment];
+        this.storageArray = new Product[this.rows][this.columns][this.spacePerCompartment];
     }
 
 }
