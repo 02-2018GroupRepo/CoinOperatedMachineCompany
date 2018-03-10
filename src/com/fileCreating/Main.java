@@ -47,8 +47,20 @@ public class Main {
         christian.printMyVendingMachines();
 
         System.out.println();
-        System.out.println("Total Amount of Money");
+        System.out.println("Total Amount of Money across All machines");
         System.out.println(christian.totalMoneyInAllMyMachines());
 
+        christian.totalCoinsInAllMyMachines();
+        System.out.println();
+
+        System.out.println("At Location: Clemson");
+        christian.totalMoneyInThisLocation("Clemson");
+        christian.totalCoinsInThisLocation("Clemson");
+        System.out.println();
+
+        System.out.println("At Location: Atlanta");
+        christian.totalMoneyInThisLocation("Atlanta");
+        christian.totalCoinsInThisLocation("Atlanta");
+        System.out.println();
     }
 }

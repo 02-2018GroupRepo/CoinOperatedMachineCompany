@@ -44,9 +44,10 @@ public class Operator {
     }
 
     public void checkThisMachineCoins(VendingMachine machine){
-        System.out.println("Number of Nickels: " + machine.getTotalNumNickels());
-        System.out.println("Number of Dimes: " + machine.getTotalNumDimes());
-        System.out.println("Number of Quarters: " + machine.getTotalNumQuarters());
+        System.out.println("This Machine amount of Coins");
+        System.out.println("\tNumber of Nickels: " + machine.getTotalNumNickels());
+        System.out.println("\tNumber of Dimes: " + machine.getTotalNumDimes());
+        System.out.println("\tNumber of Quarters: " + machine.getTotalNumQuarters());
     }
 
     public Double totalMoneyInAllMyMachines(){
@@ -79,6 +80,40 @@ public class Operator {
         System.out.println("Number of Dimes: " + totalDime);
         System.out.println("Number of Quarters: " + totalQuarter);
 
+    }
+
+    public void totalMoneyInThisLocation(String location){
+        Double total = 0.0;
+
+        System.out.println("Total Money at location " + location);
+        if(myVMachinesList.containsKey(location)){
+            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
+            for(VendingMachine vm : machinesInThisLocation){
+                total += vm.getAmountMoney();
+            }
+        }
+
+        System.out.println("--> " + total);
+    }
+
+    public void totalCoinsInThisLocation(String location){
+        int totalNickel = 0;
+        int totalDime = 0;
+        int totalQuarter = 0;
+
+        System.out.println("Total Coins at location " + location);
+        if(myVMachinesList.containsKey(location)){
+            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
+            for(VendingMachine vm : machinesInThisLocation){
+                totalNickel += vm.getTotalNumNickels();
+                totalDime += vm.getTotalNumDimes();
+                totalQuarter += vm.getTotalNumQuarters();
+            }
+        }
+
+        System.out.println("\nNum of Nickels -> " + totalNickel);
+        System.out.println("\nNum of Dimes -> " + totalDime);
+        System.out.println("\nNum of Quarter -> " + totalQuarter);
     }
 
     public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, VendingMachine thisMachine){
