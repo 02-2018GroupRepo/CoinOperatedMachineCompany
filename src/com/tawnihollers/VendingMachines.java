@@ -3,7 +3,7 @@ package com.tawnihollers;
 
 
 public class VendingMachines extends Operator{
-    public final static String company = "Tawni's Machines\n";
+    public final static String company = "Verdy Venders & Co.\n";
     public final static double NICKEL = 0.05;
     public final static double DIME = 0.10;
     public final static double QUARTER = 0.25;
@@ -11,6 +11,10 @@ public class VendingMachines extends Operator{
     private int nickels;
     private int dimes;
     private int quarters;
+    private int nickelsGiven;
+    private int dimesGiven;
+    private int quartersGiven;
+    private int coinsInMachine;
 
 
     public void getNameOfCompany(){
@@ -72,6 +76,20 @@ public class VendingMachines extends Operator{
         return ((nickels * NICKEL) +
                 (dimes * DIME) +
                 (quarters * QUARTER));
+    }
+
+    public void countOfCoinsInTheMachine(){
+        nickelsGiven += nickels;
+        dimesGiven += dimes;
+        quartersGiven += quarters;
+    }
+
+    public void getTotalCashInMachine(){
+        double money = (nickelsGiven * NICKEL) + (dimesGiven * DIME) + (quartersGiven * QUARTER);
+        String indiviualCoins = "Nickels in machine " + nickelsGiven
+                + ". Dimes in machine " + dimesGiven + " Quarters in machine " + quartersGiven;
+        System.out.println("Total money in the machine: " + money);
+        System.out.println(indiviualCoins);
     }
 
 

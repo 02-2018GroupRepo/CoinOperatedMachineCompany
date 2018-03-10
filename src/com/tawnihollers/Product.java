@@ -17,7 +17,7 @@ public class Product {
         this.qty = qty;
     }
 
-    public int getQty(){
+    public int getQty() {
         return qty;
     }
 
@@ -25,16 +25,28 @@ public class Product {
         return name;
     }
 
-//    public double getRetailSalePrice() {
-//        return retailSalePrice;
-//    }
+    public double getRetailSalePrice(){
+        return getRetailSalePrice();
+    }
 
-    public String formatTheRetailStalePrice(){
+    public String formatTheRetailStalePrice() {
         return String.format("%.2f", retailSalePrice);
     }
 
-    public String toString(){
-        return getName() + " Price: " + formatTheRetailStalePrice();
+    public String toString() {
+        if (getQty() != 0) {
+            return getName() + " Price: " + formatTheRetailStalePrice();
+        }
+        return "Empty Slot";
     }
+
+
+    public void decreaseStock(){
+        if(this.qty > 0) {
+            this.qty--;
+            System.out.println("Stock is " + this.qty);
+        }
+    }
+
 
 }

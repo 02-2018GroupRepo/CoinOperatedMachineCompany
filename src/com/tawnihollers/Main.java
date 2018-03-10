@@ -35,7 +35,13 @@ public class Main {
                     } else {
                         con = Boolean.valueOf(false);
                     }
+
+                    System.out.println("What snack would you like to purchase?");
+                    String productName = console.readLine();
+                    //snack.getProductName(total, productName);
+                    //snack.takeMoneyAndChangeQty(total, productName);
                 }
+
 
 
             }
