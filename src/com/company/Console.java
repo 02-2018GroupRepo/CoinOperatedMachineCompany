@@ -51,6 +51,8 @@ public class Console {
 
     public static void insertCoinScreen(VendingMachine vendingMachine) {
         System.out.println("Please insert a nickel, dime, or quarter: ");
+        boolean done = false;
+
         try {
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
             vendingMachine.insertCoin(input.readLine());
@@ -58,6 +60,24 @@ public class Console {
             System.out.println(e);
         }
 
+        try {
+            System.out.println("1) Insert additional coins.");
+            System.out.println("2) Return to main screen.");
+            BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+            switch (input.readLine()) {
+                case "1":
+                    insertCoinScreen(vendingMachine);
+                    break;
+                case "2":
+                    menuScreen(vendingMachine);
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 
@@ -69,15 +89,19 @@ public class Console {
             for (Product[] column : vendingMachine.getStorageArray()[j]) {
                 try {
                     System.out.printf("%d%d : %s, $%.2f\n", j, i, column[0].getName(), column[0].getRetailPrice());
-                    i++;
                 } catch (NullPointerException e) {
 
                 }
+                i++;
             }
         }
 
-        try (BufferedReader customer = new BufferedReader(new InputStreamReader(System.in))) {
-
+        try {
+            BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
+            String input = customer.readLine();
+            int row = Integer.parseInt(input.split("")[0]);
+            int col = Integer.parseInt(input.split("")[1]);
+            vendingMachine.purchaseItem(row, col);
         } catch (Exception e) {
             System.out.println(e);
         }

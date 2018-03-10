@@ -61,34 +61,38 @@ public abstract class VendingMachine {
         try {
             Product product = this.getStorageArray()[row][column][0];
             if (product.getRetailPrice() <= this.currentCoinInputTotal) {
-                double changeDue = this.currentCoinInputTotal > product.getRetailPrice() ? this.currentCoinInputTotal - product.getRetailPrice()
-                                                                                         : 0;
+                double changeDue = this.currentCoinInputTotal > product.getRetailPrice() ? this.currentCoinInputTotal - product.getRetailPrice() : 0;
                 this.totalDimes += this.currentDimeInput;
                 this.totalNickels += this.currentNickleInput;
                 this.totalQuarters += this.currentQuarterInput;
                 this.resetCompartment(this.getStorageArray()[row][column], row, column);
-
             } else {
                 double totalRemaining = product.getRetailPrice() - this.currentCoinInputTotal;
-                System.out.printf("Please insert $%.2f.", totalRemaining);
+                System.out.printf("Please insert $%.2f.\n\n", totalRemaining);
+                Console.menuScreen(this);
             }
         } catch (Exception e) {
-            System.out.println("Invalid selection.");
+            System.out.println(e);
+            Console.menuScreen(this);
         }
     }
 
     public void resetCompartment(Product[] compartment, int row, int column) {
         compartment[0] = null;
+        //compartment[0] = new Product("TEST", "TESTTESTTEST", "a", 0,0);
         int i = 0;
         Product[] updatedCompartment = new Product[compartment.length];
         for (Product product : compartment) {
             if (product != null) {
-                updatedCompartment[i] = product;
+                //this.getStorageArray()[row][column]
             }
         }
-        this.getStorageArray()[row][column] = updatedCompartment;
+        //System.out.println(this.getStorageArray()[row][column][0].getName());
     }
 
+    public void setStorageArray(Product[][][] storageArray) {
+        this.storageArray = storageArray;
+    }
 
     public void refund() {
         System.out.printf("You have received a refund of %.2f", this.currentCoinInputTotal);
@@ -115,7 +119,7 @@ public abstract class VendingMachine {
             default:
                 System.out.println("Invalid coin type.");
         }
-        System.out.printf("Current amount: %.2f", this.currentCoinInputTotal);
+        System.out.printf("Current amount: $%.2f\n", this.currentCoinInputTotal);
     }
 
     public double getTotal() {

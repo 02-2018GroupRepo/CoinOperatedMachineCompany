@@ -12,8 +12,8 @@ public class Config {
         Snack donut = new Snack("1231232", "donut", "test", 2.00, 2.00);
         Snack snickers2 = new Snack("1231232", "snickers2", "test", 2.00, 2.00);
         Snack snickers3 = new Snack("1231232", "snickers3", "test", 2.00, 2.00);
-        Snack snickers4 = new Snack("1231232", "snickers4", "test", 2.00, 2.00);
-        Snack snickers5 = new Snack("1231232", "snickers5", "test", 2.00, 2.00);
+        Snack snickers4 = new Snack("1231232", "snickers4", "test", 0.25, 0.25);
+        Snack snickers5 = new Snack("1231232", "snickers5", "test", 0.25, 0.25);
 
 
         SnackMachine snackMachine = new SnackMachine("test");
