@@ -36,10 +36,19 @@ public class Main {
         clemsonVM2.setLocation("Clemson");
         atlantaVM1.setLocation("Atlanta");
 
-        christian.addVendingMachiceToMap(clemsonVM1);
-        christian.addVendingMachiceToMap(clemsonVM2);
-        christian.addVendingMachiceToMap(atlantaVM1);
+        christian.setTotalNumCoins(25, 25, 25, clemsonVM1);
+        christian.setTotalNumCoins(25, 25, 25, clemsonVM2);
+        christian.setTotalNumCoins(25, 25, 25, atlantaVM1);
+
+        christian.addVendingMachineToMap(clemsonVM1);
+        christian.addVendingMachineToMap(clemsonVM2);
+        christian.addVendingMachineToMap(atlantaVM1);
 
         christian.printMyVendingMachines();
+
+        System.out.println();
+        System.out.println("Total Amount of Money");
+        System.out.println(christian.totalMoneyInAllMyMachines());
+
     }
 }

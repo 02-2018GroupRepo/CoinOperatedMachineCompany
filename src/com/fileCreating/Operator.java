@@ -23,8 +23,8 @@ public class Operator {
         this.password = password;
     }
 
-    public void addVendingMachiceToMap(VendingMachine vm){
-        ArrayList<VendingMachine> machinesInThisLocation = new ArrayList<VendingMachine>();
+    public void addVendingMachineToMap(VendingMachine vm){
+        ArrayList<VendingMachine> machinesInThisLocation = new ArrayList<>();
 
         if(myVMachinesList.containsKey(vm.getLocation())) {
             machinesInThisLocation = myVMachinesList.get(vm.getLocation());
@@ -36,6 +36,18 @@ public class Operator {
 
     public void checkThisMachineTotalMoney(VendingMachine machine){
         System.out.println(machine.getAmountMoney());
+    }
+
+    public Double totalMoneyInAllMyMachines(){
+        Double total = 0.0;
+
+        for(Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()){
+            for(VendingMachine machine : map.getValue()){
+                total += machine.getAmountMoney();
+            }
+        }
+
+        return total;
     }
 
     public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, VendingMachine thisMachine){

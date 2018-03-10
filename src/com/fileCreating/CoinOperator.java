@@ -3,8 +3,9 @@ package com.fileCreating;
 import java.util.Map;
 
 public interface CoinOperator {
-    public void selection(int shelf, int comparment);
+    public Product selection(int shelf, int comparment);
     public void insertion(Double coin);
-    public void returnMoeney();
-    public Map<Double, Integer> purchased(Double price);
+    public void returnMoney();
+    public double purchased(Double price);
+    public Map<Double, Integer> returnChanges(Double price);
 }

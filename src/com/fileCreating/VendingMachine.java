@@ -1,5 +1,6 @@
 package com.fileCreating;
 
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,79 +14,76 @@ abstract class VendingMachine implements CoinOperator {
     private int totalNumNickels;
     private int totalNumDimes;
     private int totalNumQuarters;
-    private int curNumNickels;
-    private int curNumDimes;
-    private int curNumQuarters;
     private double amountMoney;
+
+    private Coins coin = new Coins();
 
     VendingMachine(){
         this.totalNumNickels = 0;
         this.totalNumDimes = 0;
         this.totalNumQuarters = 0;
-        this.curNumNickels = 0;
-        this.curNumDimes = 0;
-        this.curNumQuarters = 0;
         this.amountMoney = 0;
     }
 
     @Override
     public void insertion(Double coin) {
         if (coin == NICKEL) {
-            this.curNumNickels++;
+            this.coin.setCurNumNickels();
             this.totalNumNickels++;
-            this.amountMoney += NICKEL;
         } else if (coin == DIME) {
-            this.curNumDimes++;
+            this.coin.setCurNumDimes();
             this.totalNumDimes++;
-            this.amountMoney += DIME;
         } else if (coin == QUARTER) {
-            this.curNumQuarters++;
+            this.coin.setCurNumQuarters();
             this.totalNumQuarters++;
-            this.amountMoney += QUARTER;
-        } else {
         }
     }
 
 
     @Override
-    public void returnMoeney() {
-        this.totalNumNickels -= curNumNickels;
-        this.totalNumDimes -= curNumDimes;
-        this.totalNumQuarters -= curNumQuarters;
-        this.amountMoney -= curNumNickels + curNumDimes + curNumQuarters;
-
-        resetCurCoins();
+    public void returnMoney() {
+        this.totalNumNickels -= coin.getCurNumNickels();
+        this.totalNumDimes -= coin.getCurNumDimes();
+        this.totalNumQuarters -= coin.getCurNumQuarters();
     }
 
     @Override
-    public Map<Double, Integer> purchased(Double price) {
+    public double purchased(Double price){
+        return coin.getCurTotal() - price;
+    }
+
+    @Override
+    public Map<Double, Integer> returnChanges(Double price) {
         Map<Double, Integer> changesMap = new HashMap<Double, Integer>();
 
         if (price % QUARTER == 0) {
             if (price / QUARTER >= totalNumQuarters) {
-                totalNumQuarters -= curNumQuarters;
-                price -= curNumQuarters * QUARTER;
-                changesMap.put(QUARTER, curNumQuarters);
+                totalNumQuarters -= (price / QUARTER);
+                price = (price / QUARTER) * QUARTER;
+                changesMap.put(QUARTER, (int)(price / QUARTER));
             } else {
                 price -= totalNumQuarters * QUARTER;
                 changesMap.put(QUARTER, totalNumQuarters);
             }
-        } else if (price % DIME == 0) {
+        }
+
+        if (price % DIME == 0) {
             if (price / DIME >= totalNumDimes) {
-                totalNumDimes -= curNumDimes;
-                price -= curNumDimes * DIME;
-                changesMap.put(DIME, curNumDimes);
+                totalNumDimes -= (price / DIME);
+                price -= (price / DIME) * DIME;
+                changesMap.put(DIME, (int)(price / DIME));
 
             } else {
                 price -= totalNumDimes * DIME;
                 changesMap.put(DIME, totalNumDimes);
             }
 
-        } else {
+        }
+        if (price % NICKEL == 0){
             if (price / NICKEL >= totalNumNickels) {
-                totalNumNickels -= curNumNickels;
-                price -= curNumNickels * NICKEL;
-                changesMap.put(NICKEL, curNumNickels);
+                totalNumNickels -= (price / NICKEL);
+                price -= (price / NICKEL) * NICKEL;
+                changesMap.put(NICKEL, (int)(price / NICKEL));
             } else {
                 price -= totalNumNickels * NICKEL;
                 changesMap.put(NICKEL, totalNumNickels);
@@ -93,16 +91,9 @@ abstract class VendingMachine implements CoinOperator {
 
         }
 
-        resetCurCoins();
         return changesMap;
     }
 
-
-    public void resetCurCoins() {
-        this.curNumQuarters = 0;
-        this.curNumNickels = 0;
-        this.curNumDimes = 0;
-    }
 
 
     public void setTotalNumNickels(int totalNumNickels) {

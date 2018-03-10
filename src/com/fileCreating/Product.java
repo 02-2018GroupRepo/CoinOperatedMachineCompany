@@ -1,22 +1,26 @@
 package com.fileCreating;
 
 public class Product {
-    private Double price;
+    private Double wholesalePrice;
+    private Double retailPrice;
     private String itemName;
     private Integer stock;
+    private Integer id;
 
     public Product(){
         this.stock = 0;
     }
 
-    public Product(Double price, String itemName, Integer stock) {
-        this.price = price;
+    public Product(Double wholesalePrice, Double retailPrice, String itemName, Integer stock, Integer id) {
+        this.wholesalePrice = wholesalePrice;
+        this.retailPrice = retailPrice;
         this.itemName = itemName;
         this.stock = stock;
+        this.id = id;
     }
 
     public Double getPrice() {
-        return price;
+        return retailPrice;
     }
 
     public String getItemName() {
@@ -28,7 +32,7 @@ public class Product {
     }
 
     public void setPrice(Double price) {
-        this.price = price;
+        this.retailPrice = price;
     }
 
     public void setItemName(String itemName) {
