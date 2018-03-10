@@ -27,36 +27,18 @@ public class VendingMachines extends Operator{
         addQuarters(quarters);
     }
 
-
-    public void customerAddsMoneyToTheMachine(int coin){
-        switch (coin){
-            default : {
-                System.out.println("That is not a coin the machine can take");
-                break;
-            }
-            case 1: {
-                addNickels(1);
-                break;
-            }
-            case 2: {
-                addDimes(1);
-                break;
-            }
-            case 3: {
-                addQuarters(1);
-                break;
-            }
-
-        }
+    public void resetTotalToZero(){
+        nickels = 0;
+        dimes = 0;
+        quarters = 0;
     }
+
+
 
     public void addNickels(int nickels){
         this.nickels += nickels;
     }
 
-    public double getNickelValue(){
-        return (this.nickels * NICKEL);
-    }
 
     public void addDimes(int dimes){
         this.dimes += dimes;
@@ -66,23 +48,13 @@ public class VendingMachines extends Operator{
         this.quarters += quarters;
     }
 
-    public int getNickels() {
-        return nickels;
-    }
-
-    public int getDimes() {
-        return dimes;
-    }
-
-    public int getQuarters() {
-        return quarters;
-    }
 
     public double getTotal(){
         return ((nickels * NICKEL) +
                 (dimes * DIME) +
                 (quarters * QUARTER));
     }
+
 
     public void countOfCoinsInTheMachine(){
         nickelsGiven += nickels;
@@ -92,10 +64,10 @@ public class VendingMachines extends Operator{
 
     public void getTotalCashInMachine(){
         double money = (nickelsGiven * NICKEL) + (dimesGiven * DIME) + (quartersGiven * QUARTER);
-        String indiviualCoins = "Nickels in machine " + nickelsGiven
-                + ". Dimes in machine " + dimesGiven + " Quarters in machine " + quartersGiven;
-        System.out.println("Total money in the machine: " + money);
-        System.out.println(indiviualCoins);
+        String individualCoins = "Nickels in machine " + nickelsGiven
+                + "\nDimes in machine " + dimesGiven + "\nQuarters in machine " + quartersGiven;
+        System.out.printf("Total money in the machine: $%.2f\n", money);
+        System.out.println(individualCoins);
     }
 
 

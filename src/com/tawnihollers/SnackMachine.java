@@ -2,7 +2,6 @@ package com.tawnihollers;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class SnackMachine extends VendingMachines {
@@ -14,15 +13,6 @@ public class SnackMachine extends VendingMachines {
     Product random = new Product("A5", "Random", "Minty Gum", 1.00, 1.75, 0);
 
     ArrayList<Product> fun = new ArrayList<>();
-    static HashMap<String, Integer> myMap = new HashMap<>();
-
-    static {
-        myMap.put("Gum", 10);
-        myMap.put("Recess", 10);
-        myMap.put("Butter Finger", 10);
-        myMap.put("Hershy", 10);
-        myMap.put("Random", 0);
-    }
 
     public void snacksInMachine() {
 
@@ -45,8 +35,16 @@ public class SnackMachine extends VendingMachines {
             switch (number) {
                 case 1: {
                     if (gum.getRetailSalePrice() <= moneyGiven) {
-                        double moneyReturned = moneyGiven - gum.getRetailSalePrice();
-                        System.out.printf("Your money returned $%.2f\n", moneyReturned);
+                        if(gum.getQty() == 0){
+                            System.out.printf("Your money returned is $%.2f", moneyGiven);
+                            System.out.println(" The machine is out of that product");
+                        }
+                        else {
+                            double moneyReturned = moneyGiven - gum.getRetailSalePrice();
+                            System.out.printf("Your money returned $%.2f\n", moneyReturned);
+                            System.out.println("Please enjoy your snack!");
+                            gum.decreaseStock();
+                        }
                     }
                 }
                 case 2: {
