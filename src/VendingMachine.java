@@ -28,17 +28,6 @@ public class VendingMachine {
 
 
 
-    public void addNewItemLocation(String key, Double value) {
-
-        locationOfItem.put(key, value);
-    }
-
-
-    public String toString() {
-
-        return ("You have selected item: " + locationOfItem);
-
-    }
 
 }
 
