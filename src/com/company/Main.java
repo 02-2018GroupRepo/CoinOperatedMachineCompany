@@ -7,10 +7,12 @@ public class Main {
     public static void main(String[] arg) {
         //Customer is at location SharedSpace.
         String location = "SharedSpace";
-        SnackMachine sharedSpaceSnackMachine = new SnackMachine ("SharedSpace", 0, 0, 0);
+        SnackMachine sharedSpaceSnackMachine = new SnackMachine("SharedSpace", 0, 0, 0);
         DrinkMachine sharedSpaceDrinkMachine = new DrinkMachine("SharedSpace", 0, 0, 0);
 
-         try (BufferedReader console = new BufferedReader(new InputStreamReader(System.in))) {
+        sharedSpaceSnackMachine.loadMachine();
+
+        try (BufferedReader console = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Welcome to Noelle's COM Company. \n" + "Select 1 for Snack Machine. \n" +
                     "Select 2 for Drink Machine.");
             String machineSelect = console.readLine();
@@ -18,35 +20,79 @@ public class Main {
             if (machineSelection == 1) {
                 System.out.println("You have selected Snack Machine.");
 
+                //Insert Coins
+                System.out.println("Please insert coins.\nEnter # of quarters:");
+                String quarterInput = console.readLine();
+                int quarters = Integer.parseInt(quarterInput);
+                sharedSpaceSnackMachine.addQuarters(quarters);
+
+                System.out.println("Enter # of dimes:");
+                String dimeInput = console.readLine();
+                int dimes = Integer.parseInt(dimeInput);
+                sharedSpaceSnackMachine.addDimes(dimes);
+
+                System.out.println("Enter # of nickels:");
+                String nickelInput = console.readLine();
+                int nickels = Integer.parseInt(nickelInput);
+                sharedSpaceSnackMachine.addNickels(nickels);
+
+                //Display Total
+                System.out.printf("You have entered $" + "%.2f\n", sharedSpaceSnackMachine.getTotal());
+                double moneyCustomerEntered = sharedSpaceSnackMachine.getTotal();
+
+                //Display Vending Menu
+                sharedSpaceSnackMachine.displayVendingMenu();
+
+                //Select item
+                String itemSelect = console.readLine();
+                String[] arrayToSplitItemSelectString = itemSelect.split("");
+                // [i,.,j]=[0,.,1] i=ArrayList of first column; j=ArrayList across rows
+                int i = Integer.parseInt(arrayToSplitItemSelectString[0]);
+//
+                int j = Integer.parseInt(arrayToSplitItemSelectString[2]);
+
+                System.out.println("You have selected " + sharedSpaceSnackMachine.getProductNameFromCode(i, j) + ".\n");
+                sharedSpaceSnackMachine.coinAndItemExchange(i, j, moneyCustomerEntered);
+
             } else if (machineSelection == 2) {
                 System.out.println("You have selected Drink Machine.");
+
+                //Insert Coins
+                System.out.println("Please insert coins.\nEnter # of quarters:");
+                String quarterInput = console.readLine();
+                int quarters = Integer.parseInt(quarterInput);
+                sharedSpaceDrinkMachine.addQuarters(quarters);
+
+                System.out.println("Enter # of dimes:");
+                String dimeInput = console.readLine();
+                int dimes = Integer.parseInt(dimeInput);
+                sharedSpaceDrinkMachine.addDimes(dimes);
+
+                System.out.println("Enter # of nickels:");
+                String nickelInput = console.readLine();
+                int nickels = Integer.parseInt(nickelInput);
+                sharedSpaceDrinkMachine.addNickels(nickels);
+
+                //Display Total
+                System.out.printf("You have entered $" + "%.2f\n", sharedSpaceDrinkMachine.getTotal());
+                double moneyCustomerEntered = sharedSpaceDrinkMachine.getTotal();
+
+                //Display Vending Menu
+//                sharedSpaceDrinkMachine.displayVendingMenu();
+
+                //Select item
+                String itemSelect = console.readLine();
+                String[] arrayToSplitItemSelectString = itemSelect.split("");
+                // [i,.,j]=[0,.,1] i=ArrayList of first column; j=ArrayList across rows
+                int i = Integer.parseInt(arrayToSplitItemSelectString[0]);
+//
+                int j = Integer.parseInt(arrayToSplitItemSelectString[2]);
+
+//                System.out.println("You have selected " + sharedSpaceDrinkMachine.getProductNameFromCode(i, j) + ".\n");
+//                sharedSpaceDrinkMachine.coinAndItemExchange(i, j, moneyCustomerEntered);
             } else {
                 System.out.println("Invalid Entry");
             }
-
-            //Insert Coins
-            System.out.println("Please insert coins.\nEnter # of quarters:");
-            String quarterInput = console.readLine();
-            int quarters = Integer.parseInt(quarterInput);
-            sharedSpaceSnackMachine.addQuarters(quarters);
-
-            System.out.println("Enter # of dimes:");
-            String dimeInput = console.readLine();
-            int dimes = Integer.parseInt(dimeInput);
-            sharedSpaceSnackMachine.addDimes(dimes);
-
-            System.out.println("Enter # of nickels:");
-            String nickelInput = console.readLine();
-            int nickels = Integer.parseInt(nickelInput);
-            sharedSpaceSnackMachine.addNickels(nickels);
-
-            //Display Total
-            System.out.printf("You have entered $" + "%.2f" , sharedSpaceSnackMachine.getTotal());
-
-            //Display Vending Menu
-            sharedSpaceSnackMachine.displayVendingMenu();
-
-
 
 
         } catch (Exception e) {

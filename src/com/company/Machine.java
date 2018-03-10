@@ -16,6 +16,7 @@ public class Machine extends CoinCalculator implements Transactions {
     }
 
 
+
     //    public void printSprite(){
 //        System.out.println(sprite.getName());
 //    }
