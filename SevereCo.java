@@ -1,4 +1,4 @@
-public class SevereCo{
+public class Company{
 
     //state
     private String name;
