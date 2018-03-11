@@ -17,4 +17,12 @@ public class Operator {
     public void saveHashMap(HashMap map){
         myMap = map;
     }
+
+    public void addMachine(){
+
+    }
+
+    public void removeMachine(){
+
+    }
 }

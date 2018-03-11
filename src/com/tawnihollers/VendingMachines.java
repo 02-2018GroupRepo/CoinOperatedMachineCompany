@@ -10,9 +10,9 @@ public class VendingMachines extends Operator{
     private int nickels;
     private int dimes;
     private int quarters;
-    private int nickelsGiven;
-    private int dimesGiven;
-    private int quartersGiven;
+    int nickelsGiven;
+    int dimesGiven;
+    int quartersGiven;
 
     public void getNameOfCompany(){
         System.out.println("The Company name is " + company);
