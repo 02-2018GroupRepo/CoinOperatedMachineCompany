@@ -1,6 +1,7 @@
 package com.tawnihollers;
 
 
+import java.util.HashMap;
 
 public class VendingMachines extends Operator{
     public final static String company = "Verdy Venders & Co.\n";
@@ -15,6 +16,8 @@ public class VendingMachines extends Operator{
     private int dimesGiven;
     private int quartersGiven;
     private int coinsInMachine;
+
+    HashMap<String, Integer> coins = new HashMap<>();
 
 
     public void getNameOfCompany(){

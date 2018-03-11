@@ -5,21 +5,23 @@ import java.util.Iterator;
 
 public class DrinkMachine extends VendingMachines{
 
-    Product gum = new Product("A1", "Gum", "Minty Gum", 0.50, 0.10, 1);
-    Product recess = new Product("A2", "Recess", "Minty Gum", 1.00, 2.00, 10);
-    Product butterFinger = new Product("A3", "Butter Finger", "Minty Gum", 1.00, 1.50, 10);
-    Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
-    Product random = new Product("A5", "Random", "Minty Gum", 1.00, 1.75, 0);
-
+    Product sprite = new Product("A1", "Sprite", "Green Can", 0.50, 0.10, 1);
+    Product coke = new Product("A2", "Coke", "Red can", 1.00, 2.00, 10);
+    Product rootBeer = new Product("A3", "Root Beer", "Gross can", 1.00, 1.50, 10);
+    Product drPepper = new Product("A4", "Dr Pepper", "Alright can", 2.00, 2.80, 10);
+    Product melloYellow = new Product("A5", "Mello Yellow", "Off brand sprite can", 1.00, 1.75, 0);
+    Product dietCoke = new Product("A6", "Diet Coke", "Diet can of coke", 1.00, 1.75, 0);
+    //6 more canned drinks and then 10 bottled drinks
     ArrayList<Product> fun = new ArrayList<>();
 
     public void drinksInMachine() {
 
-        fun.add(gum);
-        fun.add(recess);
-        fun.add(butterFinger);
-        fun.add(hershy);
-        fun.add(random);
+        fun.add(sprite);
+        fun.add(coke);
+        fun.add(rootBeer);
+        fun.add(drPepper);
+        fun.add(melloYellow);
+        fun.add(dietCoke);
 
         Iterator itr = fun.iterator();
         while (itr.hasNext()) {
@@ -33,37 +35,42 @@ public class DrinkMachine extends VendingMachines{
         if (letter.equals("A")) {
             switch (number) {
                 case 1: {
-                    if (gum.getRetailSalePrice() <= moneyGiven) {
-                        if(gum.getQty() == 0){
-                            System.out.printf("Your money returned is $%.2f", moneyGiven);
+                    if (sprite.getRetailSalePrice() <= moneyGiven) {
+                        if(sprite.getQty() == 0){
+                            System.out.printf("Your money returned is $%.2f\n", moneyGiven);
                             System.out.println(" The machine is out of that product");
                         }
                         else {
-                            double moneyReturned = moneyGiven - gum.getRetailSalePrice();
+                            double moneyReturned = moneyGiven - sprite.getRetailSalePrice();
                             System.out.printf("Your money returned $%.2f\n", moneyReturned);
                             System.out.println("Please enjoy your snack!");
-                            gum.decreaseStock();
+                            sprite.decreaseStock();
                         }
                     }
                 }
                 case 2: {
-                    if (recess.getRetailSalePrice() <= moneyGiven){
-                        recess.decreaseStock();
+                    if (coke.getRetailSalePrice() <= moneyGiven){
+                        coke.decreaseStock();
                     }
                 }
                 case 3: {
-                    if(butterFinger.getRetailSalePrice() <= moneyGiven){
-                        butterFinger.decreaseStock();
+                    if(rootBeer.getRetailSalePrice() <= moneyGiven){
+                        rootBeer.decreaseStock();
                     }
                 }
                 case 4: {
-                    if(hershy.getRetailSalePrice() <= moneyGiven){
-                        hershy.decreaseStock();
+                    if(drPepper.getRetailSalePrice() <= moneyGiven){
+                        drPepper.decreaseStock();
                     }
                 }
                 case 5: {
-                    if(random.getRetailSalePrice() <= moneyGiven){
-                        random.decreaseStock();
+                    if(melloYellow.getRetailSalePrice() <= moneyGiven){
+                        melloYellow.decreaseStock();
+                    }
+                }
+                case 6: {
+                    if(dietCoke.getRetailSalePrice() <= moneyGiven){
+                        dietCoke.decreaseStock();
                     }
                 }
 

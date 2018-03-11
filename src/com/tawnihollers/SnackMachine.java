@@ -2,6 +2,7 @@ package com.tawnihollers;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class SnackMachine extends VendingMachines {
@@ -10,9 +11,12 @@ public class SnackMachine extends VendingMachines {
     Product recess = new Product("A2", "Recess", "Minty Gum", 1.00, 2.00, 10);
     Product butterFinger = new Product("A3", "Butter Finger", "Minty Gum", 1.00, 1.50, 10);
     Product hershy = new Product("A4", "Hershy", "Minty Gum", 2.00, 2.80, 10);
-    Product random = new Product("A5", "Random", "Minty Gum", 1.00, 1.75, 0);
-
+    Product twix = new Product("A5", "twix", "Minty Gum", 1.00, 1.75, 0);
+    //another 4 shelves of 5
+    //find a way for operator to be able to get the hashmap from both SnackMachine and DrinkMachine (maybe return the key vaules to the main function)
+    //find a way to save the coins as seperate coins not just the total
     ArrayList<Product> fun = new ArrayList<>();
+    HashMap<String, Double> coins = new HashMap<>();
 
     public void snacksInMachine() {
 
@@ -20,7 +24,7 @@ public class SnackMachine extends VendingMachines {
         fun.add(recess);
         fun.add(butterFinger);
         fun.add(hershy);
-        fun.add(random);
+        fun.add(twix);
 
         Iterator itr = fun.iterator();
         while (itr.hasNext()) {
@@ -36,14 +40,16 @@ public class SnackMachine extends VendingMachines {
                 case 1: {
                     if (gum.getRetailSalePrice() <= moneyGiven) {
                         if(gum.getQty() == 0){
-                            System.out.printf("Your money returned is $%.2f", moneyGiven);
-                            System.out.println(" The machine is out of that product");
+                            System.out.printf("Your money returned is $%.2f\n", moneyGiven);
+                            System.out.println("The machine is out of that product");
                         }
                         else {
                             double moneyReturned = moneyGiven - gum.getRetailSalePrice();
                             System.out.printf("Your money returned $%.2f\n", moneyReturned);
                             System.out.println("Please enjoy your snack!");
                             gum.decreaseStock();
+                            String key = gum.getName();
+                            coins.put(key, moneyGiven);
                         }
                     }
                 }
@@ -63,8 +69,8 @@ public class SnackMachine extends VendingMachines {
                     }
                 }
                 case 5: {
-                    if(random.getRetailSalePrice() <= moneyGiven){
-                        random.decreaseStock();
+                    if(twix.getRetailSalePrice() <= moneyGiven){
+                        twix.decreaseStock();
                     }
                 }
 

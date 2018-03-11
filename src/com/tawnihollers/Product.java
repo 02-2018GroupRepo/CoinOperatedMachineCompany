@@ -41,7 +41,7 @@ public class Product {
         if (getQty() != 0) {
             return "Id:" + getId() + " Name: " + getName() + " Price: " + formatTheRetailStalePrice();
         }
-        return "Empty Slot";
+        return "Empty slot";
     }
 
 

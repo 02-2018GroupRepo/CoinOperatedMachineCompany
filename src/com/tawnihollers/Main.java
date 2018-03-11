@@ -1,7 +1,6 @@
 package com.tawnihollers;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 
@@ -38,9 +37,13 @@ public class Main {
                     int productNum = Integer.parseInt(console.readLine());
                     snack.takeMoneyAndChangeQty(total, productName, productNum);
 
+                    snack.countOfCoinsInTheMachine();
+                    snack.getTotalCashInMachine();
+
                     System.out.println("Would you like to continue purchasing? Press 1 for yes, 2 for no");
                     int answer = Integer.parseInt(console.readLine());
                     snack.resetTotalToZero();
+
                     if (answer == 1) {
                         con = Boolean.valueOf(true);
                     } else {
