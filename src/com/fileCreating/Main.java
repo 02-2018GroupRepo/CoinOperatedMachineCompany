@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        test2();
+        test3();
 
     }
 
@@ -48,7 +48,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Total Amount of Money across All machines");
-        System.out.println(christian.totalMoneyInAllMyMachines());
+        christian.totalMoneyInAllMyMachines();
 
         christian.totalCoinsInAllMyMachines();
         System.out.println();
@@ -62,5 +62,45 @@ public class Main {
         christian.totalMoneyInThisLocation("Atlanta");
         christian.totalCoinsInThisLocation("Atlanta");
         System.out.println();
+    }
+
+    public static void test3(){
+        Operator christian = new Operator();
+
+        SnackMachine clemsonVM1 = new SnackMachine();
+        SnackMachine clemsonVM2 = new SnackMachine();
+        SnackMachine atlantaVM1 = new SnackMachine();
+
+        clemsonVM1.setLocation("Clemson");
+        clemsonVM2.setLocation("Clemson");
+        atlantaVM1.setLocation("Atlanta");
+
+        christian.setTotalNumCoins(25, 25, 25, clemsonVM1);
+        christian.setTotalNumCoins(25, 25, 25, clemsonVM2);
+        christian.setTotalNumCoins(25, 25, 25, atlantaVM1);
+
+        christian.addVendingMachineToMap(clemsonVM1);
+        christian.addVendingMachineToMap(clemsonVM2);
+        christian.addVendingMachineToMap(atlantaVM1);
+
+
+        System.out.print("Enter Password: ");
+        if(christian.checkPassWord(Buffer.stringBufferIO())){
+            System.out.println("----- Operator Menu -----");
+            System.out.println("1. Add/Remove a machine from a location");
+            System.out.println("2. Check money in individual machines");
+            System.out.println("3. Check money of all machines at a specific location");
+            System.out.println("4. Check money of all machines everywhere");
+            System.out.println("5. Change my password");
+            System.out.println();
+
+            int input = Buffer.intBufferIO();
+            christian.operatorUI_SwitchCase(input, clemsonVM1);
+
+        }else{
+            System.out.println("Try Again");
+        }
+
+
     }
 }

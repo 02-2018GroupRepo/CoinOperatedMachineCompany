@@ -186,7 +186,7 @@ abstract class VendingMachine implements CoinOperator {
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        this.location = location.toLowerCase();
     }
 
     public String getLocation() {
