@@ -11,6 +11,7 @@ public class Main {
         DrinkMachine sharedSpaceDrinkMachine = new DrinkMachine("SharedSpace", 0, 0, 0);
 
         sharedSpaceSnackMachine.loadMachine();
+        sharedSpaceDrinkMachine.loadMachine();
 
         try (BufferedReader console = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Welcome to Noelle's COM Company. \n" + "Select 1 for Snack Machine. \n" +
@@ -46,13 +47,16 @@ public class Main {
                 //Select item
                 String itemSelect = console.readLine();
                 String[] arrayToSplitItemSelectString = itemSelect.split("");
-                // [i,.,j]=[0,.,1] i=ArrayList of first column; j=ArrayList across rows
-                int i = Integer.parseInt(arrayToSplitItemSelectString[0]);
-//
-                int j = Integer.parseInt(arrayToSplitItemSelectString[2]);
+                // if can : [A , . , i , . , j]=[0, . , 2 , . ,4] i=ArrayList of first column; j=ArrayList across rows
+                //if bottle : [B , . , i , . , j] = [0, . , 2 , . , 4]
+                String letterIndicator = arrayToSplitItemSelectString[0];
 
-                System.out.println("You have selected " + sharedSpaceSnackMachine.getProductNameFromCode(i, j) + ".\n");
-                sharedSpaceSnackMachine.coinAndItemExchange(i, j, moneyCustomerEntered);
+                int i = Integer.parseInt(arrayToSplitItemSelectString[2]);
+//
+                int j = Integer.parseInt(arrayToSplitItemSelectString[4]);
+
+                System.out.println("You have selected " + sharedSpaceSnackMachine.getProductNameFromCode(letterIndicator, i, j) + ".\n");
+                sharedSpaceSnackMachine.coinAndItemExchange(letterIndicator, i, j, moneyCustomerEntered);
 
             } else if (machineSelection == 2) {
                 System.out.println("You have selected Drink Machine.");
@@ -78,18 +82,21 @@ public class Main {
                 double moneyCustomerEntered = sharedSpaceDrinkMachine.getTotal();
 
                 //Display Vending Menu
-//                sharedSpaceDrinkMachine.displayVendingMenu();
+                sharedSpaceDrinkMachine.displayVendingMenu();
 
                 //Select item
                 String itemSelect = console.readLine();
                 String[] arrayToSplitItemSelectString = itemSelect.split("");
-                // [i,.,j]=[0,.,1] i=ArrayList of first column; j=ArrayList across rows
-                int i = Integer.parseInt(arrayToSplitItemSelectString[0]);
-//
-                int j = Integer.parseInt(arrayToSplitItemSelectString[2]);
+                // if can : [A , . , i , . , j]=[0, . , 2 , . ,4] i=ArrayList of first column; j=ArrayList across rows
+                //if bottle : [B , . , i , . , j] = [0, . , 2 , . , 4]
+                String canOrBottleSelection = arrayToSplitItemSelectString[0];
 
-//                System.out.println("You have selected " + sharedSpaceDrinkMachine.getProductNameFromCode(i, j) + ".\n");
-//                sharedSpaceDrinkMachine.coinAndItemExchange(i, j, moneyCustomerEntered);
+                int i = Integer.parseInt(arrayToSplitItemSelectString[2]);
+//
+                int j = Integer.parseInt(arrayToSplitItemSelectString[4]);
+
+                System.out.println("You have selected " + sharedSpaceDrinkMachine.getProductNameFromCode(canOrBottleSelection, i, j) + ".\n");
+                sharedSpaceDrinkMachine.coinAndItemExchange(canOrBottleSelection, i, j, moneyCustomerEntered);
             } else {
                 System.out.println("Invalid Entry");
             }

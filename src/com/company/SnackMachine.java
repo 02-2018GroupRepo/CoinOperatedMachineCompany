@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class SnackMachine extends Machine {
+public class SnackMachine extends Machine implements MachineTransactions {
 
     Change change = new Change();
 
@@ -40,25 +40,26 @@ public class SnackMachine extends Machine {
         System.out.println("Please make your selection:");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                System.out.print( i + "." + j + " = " + products[j].getName() + " = $" + products[j].getRetailPrice() + " | ");
-                for (int k = 0; k < 10; k++) {
-                }
+                System.out.print( "A." + i + "." + j + " = " + products[j].getName() + " = $" + products[j].getRetailPrice() + " | ");
+//                for (int k = 0; k < 10; k++) {
+//                }
             }
             System.out.println();
         }
     }
 
-    public String getProductNameFromCode (int i, int j){
-        return vendingMachineContents.get(i).get(j).peekFirst().getName();
+    public String getProductNameFromCode (String letterIndicator, int i, int j){
+        return letterIndicator + i + j + " " + vendingMachineContents.get(i).get(j).peekFirst().getName();
     }
-    public void coinAndItemExchange (int i, int j, double moneyCustomerEntered){
+
+    public void coinAndItemExchange (String letterIndicator, int i, int j, double moneyCustomerEntered){
         double retailPrice = vendingMachineContents.get(i).get(j).peekFirst().getRetailPrice();
         if(retailPrice <= moneyCustomerEntered ){
             //Deliver item to customer
             System.out.println("You have received " + vendingMachineContents.get(i).get(j).peekFirst().getName() + "." + "\n");
             //Return change to customer
             double customerChange = moneyCustomerEntered - retailPrice;
-            System.out.printf("Your change is " + "%.2f" + "\n", customerChange + ".");
+            System.out.printf("Your change is " + "%.2f" + "."+ "\n" , customerChange);
             System.out.printf("%.0f" + " " + change.changeInNameOfCoin(customerChange) + " have been returned."
                     ,change.changeInNumberOfCoin(customerChange) );
             vendingMachineContents.get(i).get(j).pop();

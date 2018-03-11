@@ -1,6 +1,6 @@
 package com.company;
 
-public class Machine extends CoinCalculator implements Transactions {
+public class Machine extends CoinCalculator {
 
 
     private static String companyName = "Noelle's COM Company";
@@ -17,7 +17,5 @@ public class Machine extends CoinCalculator implements Transactions {
 
 
 
-    //    public void printSprite(){
-//        System.out.println(sprite.getName());
-//    }
+
 }
