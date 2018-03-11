@@ -33,16 +33,16 @@ public abstract class Machine {
     }
 
     public double convertCoinsToCash(int quarters, int dimes, int nickels) {
-        return Coin.QUARTER * this.machineQuarters + Coin.DIME * this.machineDimes + Coin.NICKEL * this.machineNickels;
+        return (Coin.QUARTER * quarters + Coin.DIME * dimes + Coin.NICKEL * nickels);
     }
 
-    public int[] convertCashToCoins(double money) {
-        int quarters = (int) Math.floor(money / Coin.QUARTER);
-        money = money - quarters * Coin.QUARTER;
-        int dimes = (int) Math.floor(money / Coin.DIME);
-        money = money - dimes * Coin.DIME;
-        int nickels = (int) (money / Coin.NICKEL);
-        int[] coinArray = {quarters, dimes, nickels};
-        return coinArray;
-    }
+//    public int[] convertCashToCoins(double money) {
+//        int quarters = (int) Math.floor(money / Coin.QUARTER);
+//        money = money - quarters * Coin.QUARTER;
+//        int dimes = (int) Math.floor(money / Coin.DIME);
+//        money = money - dimes * Coin.DIME;
+//        int nickels = (int) (money / Coin.NICKEL);
+//        int[] coinArray = {quarters, dimes, nickels};
+//        return coinArray;
+//    }
 }
