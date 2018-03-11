@@ -1,8 +1,16 @@
 import java.util.Random;
 
 public class RandomStuffMaker{
-    private String stuff;
+    private String strChar;
+    private int strInt;
+    private int alphabetPosition;
     private Random randomGenerator = new Random();
+
+    public RandomStuffMaker(){
+        this.alphabetPosition = 0;
+        this.strChar = "A";
+        this.strInt = 0;
+    }
 
     public String getRandom6Characters(){
         String str = "";
@@ -17,6 +25,32 @@ public class RandomStuffMaker{
             
         }
         return str;
+    }   
+    public void setNextOrderedAlphabeticalCharacter(){
+        int start = 65;
+        this.alphabetPosition++;
+        if(this.alphabetPosition > 26){
+            this.alphabetPosition = 0;   
+        }
+        int currentInt = this.alphabetPosition + start;
+        char currentChar = (char)currentInt;
+        this.strChar = Character.toString(currentChar);        
+        
     }
+
+    public String getCurrentCharacter(){
+        return this.strChar;
+    }
+
+
+    public void setNextAnOrderedNumber(){
+        this.strInt++;
+    }
+
+    public String getAnOrderedNumber(){
+        return this.strInt+"";
+    }
+
+    
 
 }

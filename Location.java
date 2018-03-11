@@ -48,8 +48,17 @@ public class Location{
         }
         str += "\n";
         return str;
-
     }
+
+    public ArrayList<SnackMachine> ListAllSnackMachines(){
+        return this.sMList;
+    }
+
+    public ArrayList<DrinkMachine> ListAllDrinkMachines(){
+        return this.dMList;
+    }
+
+
     public String toStringAllMachines(){
         String str = "";
         str = toStringAllSnackMachines() + toStringAllDrinkMachines();

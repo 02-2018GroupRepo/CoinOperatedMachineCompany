@@ -5,10 +5,16 @@ public class Tester{
 
         for( Location locationObj : severe.getLocations()){
             System.out.println(locationObj.getName());
-            System.out.println(locationObj.toStringAllMachines());
-
+    
+            for(SnackMachine smObj : locationObj.ListAllSnackMachines()){
+                System.out.println(smObj.getId());
+                System.out.println(smObj.toStringShelves());
+            }
+            for(DrinkMachine dmObj : locationObj.ListAllDrinkMachines()){
+                System.out.println(dmObj.getId());
+                System.out.println(dmObj.toStringShelves());
+            }
         }
-
     }
 }
 
