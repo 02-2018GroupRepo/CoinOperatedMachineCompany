@@ -20,8 +20,15 @@ public class VendingMachine {
     }
 
 
-    public void listOfProducts(String itemName , double retailPrice){
+    public void listOfProducts(String itemName , String description, double wholesalePrice, double retailPrice){
         this.items.put(itemName, retailPrice);
     }
+
+    public void showItems() {
+        System.out.println(this.items.toString());
+    }
+
+
+
 
 }
