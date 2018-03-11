@@ -92,9 +92,9 @@ public class Operator {
             for (VendingMachine vm : machinesInThisLocation) {
                 total += vm.getAmountMoney();
             }
-            System.out.println("--> " + total);
+            System.out.println("--> " + total +"\n");
         } else {
-            System.out.println("Invalid Location");
+            System.out.println("Invalid Location\n");
         }
 
 
@@ -114,11 +114,12 @@ public class Operator {
                 totalQuarter += vm.getTotalNumQuarters();
             }
 
-            System.out.println("\nNum of Nickels -> " + totalNickel);
-            System.out.println("\nNum of Dimes -> " + totalDime);
-            System.out.println("\nNum of Quarter -> " + totalQuarter);
+            System.out.println("\tNum of Nickels -> " + totalNickel);
+            System.out.println("\tNum of Dimes -> " + totalDime);
+            System.out.println("\tNum of Quarter -> " + totalQuarter);
+            System.out.println();
         } else {
-            System.out.println("Invalid Location");
+            System.out.println("Invalid Location\n");
         }
     }
 
@@ -206,6 +207,9 @@ public class Operator {
                     System.out.println("Enter new password: ");
                     setPassword(Buffer.stringBufferIO());
                 }
+                break;
+            case 6:
+                System.out.println("Exiting Out");
                 break;
             default:
                 System.out.println("Invalid Selection");

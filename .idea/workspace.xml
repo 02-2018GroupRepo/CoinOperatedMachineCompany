@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571a9943-1f69-4213-aa15-472378bc0b04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/fileCreating/Buffer.java" afterPath="$PROJECT_DIR$/src/com/fileCreating/Buffer.java" />
       <change beforePath="$PROJECT_DIR$/src/com/fileCreating/Main.java" afterPath="$PROJECT_DIR$/src/com/fileCreating/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/com/fileCreating/Operator.java" afterPath="$PROJECT_DIR$/src/com/fileCreating/Operator.java" />
       <change beforePath="$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java" afterPath="$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java" />
@@ -21,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="50" column="45" lean-forward="false" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+            <state relative-caret-position="1598">
+              <caret line="94" column="88" lean-forward="true" selection-start-line="94" selection-start-column="88" selection-end-line="94" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -44,8 +43,8 @@
       <file leaf-file-name="Operator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Operator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+            <state relative-caret-position="203">
+              <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Operator#0;class#Operator#0" expanded="false" />
@@ -58,7 +57,6 @@
                 <element signature="e#1294#1295#0" expanded="true" />
                 <element signature="method#checkThisMachineCoins#0;class#Operator#0" expanded="false" />
                 <element signature="method#totalCoinsInAllMyMachines#0;class#Operator#0" expanded="false" />
-                <element signature="method#totalMoneyInThisLocation#0;class#Operator#0" expanded="false" />
                 <element signature="method#totalCoinsInThisLocation#0;class#Operator#0" expanded="false" />
                 <element signature="method#setTotalNumCoins#0;class#Operator#0" expanded="false" />
                 <element signature="method#printMyVendingMachines#0;class#Operator#0" expanded="false" />
@@ -67,31 +65,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VendingMachine.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VendingMachine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="187" column="46" lean-forward="true" selection-start-line="187" selection-start-column="46" selection-end-line="187" selection-end-column="46" />
+            <state relative-caret-position="544">
+              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#insertion#0;class#VendingMachine#0" expanded="false" />
                 <element signature="method#selection#0;class#VendingMachine#0" expanded="false" />
-                <element signature="e#2381#2382#0" expanded="true" />
-                <element signature="e#2430#2431#0" expanded="true" />
+                <element signature="e#2413#2414#0" expanded="true" />
+                <element signature="e#2462#2463#0" expanded="true" />
                 <element signature="method#returnChanges#0;class#VendingMachine#0" expanded="false" />
-                <element signature="e#2562#2579#0" expanded="true" />
+                <element signature="e#2594#2611#0" expanded="true" />
                 <element signature="method#setItem#2;class#VendingMachine#0" expanded="false" />
-                <element signature="e#6157#6158#0" expanded="true" />
-                <element signature="e#6192#6193#0" expanded="true" />
-                <element signature="e#6223#6224#0" expanded="true" />
-                <element signature="e#6261#6262#0" expanded="true" />
-                <element signature="e#6295#6296#0" expanded="true" />
-                <element signature="e#6334#6335#0" expanded="true" />
-                <element signature="e#6372#6373#0" expanded="true" />
-                <element signature="e#6409#6410#0" expanded="true" />
-                <element signature="e#6445#6446#0" expanded="true" />
-                <element signature="e#6485#6486#0" expanded="true" />
-                <element signature="e#6524#6525#0" expanded="true" />
+                <element signature="e#6135#6136#0" expanded="true" />
+                <element signature="e#6189#6190#0" expanded="true" />
+                <element signature="e#6224#6225#0" expanded="true" />
+                <element signature="e#6255#6256#0" expanded="true" />
+                <element signature="e#6293#6294#0" expanded="true" />
+                <element signature="e#6327#6328#0" expanded="true" />
+                <element signature="e#6366#6367#0" expanded="true" />
+                <element signature="e#6404#6405#0" expanded="true" />
+                <element signature="e#6441#6442#0" expanded="true" />
+                <element signature="e#6477#6478#0" expanded="true" />
+                <element signature="e#6517#6518#0" expanded="true" />
+                <element signature="e#6556#6557#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,10 +190,10 @@
         <option value="$PROJECT_DIR$/src/com/fileCreating/PopCanMachine.java" />
         <option value="$PROJECT_DIR$/src/com/fileCreating/PopBottleMachine.java" />
         <option value="$PROJECT_DIR$/src/com/fileCreating/DrinkMachine.java" />
-        <option value="$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java" />
         <option value="$PROJECT_DIR$/src/com/fileCreating/Buffer.java" />
-        <option value="$PROJECT_DIR$/src/com/fileCreating/Operator.java" />
         <option value="$PROJECT_DIR$/src/com/fileCreating/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/fileCreating/Operator.java" />
+        <option value="$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java" />
       </list>
     </option>
   </component>
@@ -320,6 +319,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -329,7 +329,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12044374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -490,30 +490,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java">
+    <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Buffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="187" column="46" lean-forward="true" selection-start-line="187" selection-start-column="46" selection-end-line="187" selection-end-column="46" />
+        <state relative-caret-position="465">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#insertion#0;class#VendingMachine#0" expanded="false" />
-            <element signature="method#selection#0;class#VendingMachine#0" expanded="false" />
-            <element signature="e#2381#2382#0" expanded="true" />
-            <element signature="e#2430#2431#0" expanded="true" />
-            <element signature="method#returnChanges#0;class#VendingMachine#0" expanded="false" />
-            <element signature="e#2562#2579#0" expanded="true" />
-            <element signature="method#setItem#2;class#VendingMachine#0" expanded="false" />
-            <element signature="e#6157#6158#0" expanded="true" />
-            <element signature="e#6192#6193#0" expanded="true" />
-            <element signature="e#6223#6224#0" expanded="true" />
-            <element signature="e#6261#6262#0" expanded="true" />
-            <element signature="e#6295#6296#0" expanded="true" />
-            <element signature="e#6334#6335#0" expanded="true" />
-            <element signature="e#6372#6373#0" expanded="true" />
-            <element signature="e#6409#6410#0" expanded="true" />
-            <element signature="e#6445#6446#0" expanded="true" />
-            <element signature="e#6485#6486#0" expanded="true" />
-            <element signature="e#6524#6525#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,20 +508,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Buffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Operator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state relative-caret-position="203">
+          <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Operator#0;class#Operator#0" expanded="false" />
@@ -552,7 +524,6 @@
             <element signature="e#1294#1295#0" expanded="true" />
             <element signature="method#checkThisMachineCoins#0;class#Operator#0" expanded="false" />
             <element signature="method#totalCoinsInAllMyMachines#0;class#Operator#0" expanded="false" />
-            <element signature="method#totalMoneyInThisLocation#0;class#Operator#0" expanded="false" />
             <element signature="method#totalCoinsInThisLocation#0;class#Operator#0" expanded="false" />
             <element signature="method#setTotalNumCoins#0;class#Operator#0" expanded="false" />
             <element signature="method#printMyVendingMachines#0;class#Operator#0" expanded="false" />
@@ -562,9 +533,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fileCreating/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="50" column="45" lean-forward="false" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+        <state relative-caret-position="1598">
+          <caret line="94" column="88" lean-forward="true" selection-start-line="94" selection-start-column="88" selection-end-line="94" selection-end-column="88" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/fileCreating/VendingMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#insertion#0;class#VendingMachine#0" expanded="false" />
+            <element signature="method#selection#0;class#VendingMachine#0" expanded="false" />
+            <element signature="e#2413#2414#0" expanded="true" />
+            <element signature="e#2462#2463#0" expanded="true" />
+            <element signature="method#returnChanges#0;class#VendingMachine#0" expanded="false" />
+            <element signature="e#2594#2611#0" expanded="true" />
+            <element signature="method#setItem#2;class#VendingMachine#0" expanded="false" />
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6189#6190#0" expanded="true" />
+            <element signature="e#6224#6225#0" expanded="true" />
+            <element signature="e#6255#6256#0" expanded="true" />
+            <element signature="e#6293#6294#0" expanded="true" />
+            <element signature="e#6327#6328#0" expanded="true" />
+            <element signature="e#6366#6367#0" expanded="true" />
+            <element signature="e#6404#6405#0" expanded="true" />
+            <element signature="e#6441#6442#0" expanded="true" />
+            <element signature="e#6477#6478#0" expanded="true" />
+            <element signature="e#6517#6518#0" expanded="true" />
+            <element signature="e#6556#6557#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

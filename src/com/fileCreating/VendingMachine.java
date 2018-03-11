@@ -29,6 +29,8 @@ abstract class VendingMachine implements CoinOperator {
         this.totalNumDimes = 0;
         this.totalNumQuarters = 0;
         this.amountMoney = 0;
+
+        // Intialize inventory
     }
 
     private Coins coin = new Coins();

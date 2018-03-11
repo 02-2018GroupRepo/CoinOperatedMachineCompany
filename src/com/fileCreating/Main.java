@@ -3,22 +3,22 @@ package com.fileCreating;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         test3();
 
     }
 
-    public static void test1(){
+    public static void test1() {
         Operator christian = new Operator();
         SnackMachine vm = new SnackMachine();
         vm.intializeInventory();
-        vm.addToInventory(0, 0 ,5, "Candy");
-        vm.addToInventory(0, 1 ,7, "Cake");
-        vm.addToInventory(0, 2 ,9, "Chips");
+        vm.addToInventory(0, 0, 5, "Candy");
+        vm.addToInventory(0, 1, 7, "Cake");
+        vm.addToInventory(0, 2, 9, "Chips");
 
-        vm.setItem(0,0,2.00);
-        vm.setItem(0,1,2.25);
-        vm.setItem(0,2,"Jerky",1.50);
+        vm.setItem(0, 0, 2.00);
+        vm.setItem(0, 1, 2.25);
+        vm.setItem(0, 2, "Jerky", 1.50);
 
         vm.printInventory();
 
@@ -26,7 +26,7 @@ public class Main {
         christian.checkThisMachineTotalMoney(vm);
     }
 
-    public static void test2(){
+    public static void test2() {
         Operator christian = new Operator();
         SnackMachine clemsonVM1 = new SnackMachine();
         SnackMachine clemsonVM2 = new SnackMachine();
@@ -64,7 +64,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void test3(){
+    public static void test3() {
         Operator christian = new Operator();
 
         SnackMachine clemsonVM1 = new SnackMachine();
@@ -85,19 +85,25 @@ public class Main {
 
 
         System.out.print("Enter Password: ");
-        if(christian.checkPassWord(Buffer.stringBufferIO())){
+        int input;
+
+        if (christian.checkPassWord(Buffer.stringBufferIO())) {
+
             System.out.println("----- Operator Menu -----");
             System.out.println("1. Add/Remove a machine from a location");
             System.out.println("2. Check money in individual machines");
             System.out.println("3. Check money of all machines at a specific location");
             System.out.println("4. Check money of all machines everywhere");
             System.out.println("5. Change my password");
+            System.out.println("6. Exit out of Operator Mode");
             System.out.println();
 
-            int input = Buffer.intBufferIO();
-            christian.operatorUI_SwitchCase(input, clemsonVM1);
-
-        }else{
+            do {
+                System.out.println("Enter an input (1-6)");
+                input = Buffer.intBufferIO();
+                christian.operatorUI_SwitchCase(input, clemsonVM1);
+            } while (input != 6);
+        } else {
             System.out.println("Try Again");
         }
 
