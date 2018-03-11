@@ -129,14 +129,14 @@ public class Operator {
         thisMachine.getCoin().setTotalNumQuarters(numQuarters);
     }
 
-    public void setItem(int row, int col, String itemName, VendingMachine vm){ vm.inventory[row][col].setItemName(itemName); }
-    public void setItem(int row, int col, Double price, VendingMachine vm){
-        vm.inventory[row][col].setPrice(price);
-    }
-    public void setItem(int row, int col, String itemName, Double price, VendingMachine vm){
-        vm.inventory[row][col].setPrice(price);
-        vm.inventory[row][col].setItemName(itemName);
-    }
+//    public void setItem(int row, int col, String itemName, VendingMachine vm){ vm.inventory[row][col].setItemName(itemName); }
+//    public void setItem(int row, int col, Double price, VendingMachine vm){
+//        vm.inventory[row][col].setPrice(price);
+//    }
+//    public void setItem(int row, int col, String itemName, Double price, VendingMachine vm){
+//        vm.inventory[row][col].setPrice(price);
+//        vm.inventory[row][col].setItemName(itemName);
+//    }
 
     public void printMyVendingMachines() {
         System.out.println("My vending Machines");

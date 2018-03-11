@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SnackMachine extends VendingMachine{
+public class SnackMachine extends Inventory{
 
     public SnackMachine() {
         super(5, 5, 10);

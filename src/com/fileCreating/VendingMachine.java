@@ -1,6 +1,7 @@
 package com.fileCreating;
 
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,19 +18,21 @@ abstract class VendingMachine {
     private int numOfMaxSpace;
 
     private Coins_TotalCoinsInMachine coin = new Coins_TotalCoinsInMachine();
+    //Product[][] inventory = new Product[numOfShelves][numOfCompartments];
+    ArrayList<Product>[][] inventory;
 
     public VendingMachine(int numOfShelves, int numOfCompartments, int maxNumOfSpace) {
         this.numOfShelves = numOfShelves;
         this.numOfCompartments = numOfCompartments;
         this.numOfMaxSpace = maxNumOfSpace;
 
-    }
+        inventory = new ArrayList[numOfShelves][numOfCompartments];
 
-    Product[][] inventory = new Product[numOfShelves][numOfCompartments];
+    }
 
     public Product selection(int row, int col) {
 
-        double changes = coin.purchased(inventory[row][col].getPrice());
+        double changes = coin.purchased(inventory[row][col].get(0).getPrice());
 
         // Print Changes
         if(changes >= 0) {
@@ -43,7 +46,7 @@ abstract class VendingMachine {
             return null;
         }
 
-        return inventory[row][col];
+        return inventory[row][col].get(0);
     }
 
     public void setLocation(String location) { this.location = location.toLowerCase(); }
