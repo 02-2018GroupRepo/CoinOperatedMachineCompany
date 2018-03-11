@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -290,7 +287,10 @@ public class Main {
 
         //Snack Machine HashMap
 
-        Map<String, ArrayList<Products>> snackMachine = new HashMap<String, ArrayList<Products>>();
+//        ArrayList <ArrayList<Products>> snackMachine = new ArrayList <ArrayList<Products>>();
+//        snackMachine.add(p1List);
+
+        Map<String, ArrayList<Products>> snackMachine = new LinkedHashMap<String, ArrayList<Products>>();
         snackMachine.put("Kit Kat", p1List);
         snackMachine.put("Reese's", p2List);
         snackMachine.put("Baby Ruth", p3List);
@@ -318,7 +318,7 @@ public class Main {
         snackMachine.put("Honey Roasted Peanuts", p25List);
 
         //Drink Machine HashMap
-        Map<String, ArrayList<Products>> drinkMachine = new HashMap<String, ArrayList<Products>>();
+        Map<String, ArrayList<Products>> drinkMachine = new LinkedHashMap<String, ArrayList<Products>>();
         drinkMachine.put("Lemonade", p26List);
         drinkMachine.put("Coke", p27List);
         drinkMachine.put("Root Beer", p28List);
@@ -357,9 +357,24 @@ public class Main {
             System.out.println(VendingMachine.companyName);
             System.out.println("You have entered Snack Machine");
 
-            //print out snack hashmap here
+            int index =0;
 
-            System.out.println("Please enter 1 to 25 for the snack you would like to purchase");
+            for (String listKey: snackMachine.keySet()) {
+
+                int i = 0;
+
+                for (Products p : snackMachine.get(listKey)) {
+                    if (i == 0) {
+                        System.out.println(index + " " + p.getNamePrice());
+                    }
+                    i++;
+                }
+                index++;
+
+            }
+
+
+            System.out.println("Please enter 0 to 24 for the snack you would like to purchase");
             int snack = scan.nextInt();
             switch (snack) {
 
@@ -472,9 +487,24 @@ public class Main {
             System.out.println(VendingMachine.companyName);
             System.out.println("You have entered Drink Machine");
 
-            //print out drink hashmap here
+            int index =0;
 
-            System.out.println("Please enter 1 to 28 for the drink you would like to purchase");
+            for (String listKey: drinkMachine.keySet()) {
+
+                int i = 0;
+
+                for (Products p : drinkMachine.get(listKey)) {
+                    if (i == 0) {
+                        System.out.println(index + " " + p.getNamePrice());
+                    }
+                    i++;
+                }
+                index++;
+
+            }
+
+
+            System.out.println("Please enter 0 to 27 for the drink you would like to purchase");
             int snack = scan.nextInt();
             switch (snack) {
 
@@ -594,4 +624,5 @@ public class Main {
         }
     }
 }
+
 
