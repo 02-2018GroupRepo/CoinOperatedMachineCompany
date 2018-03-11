@@ -37,9 +37,6 @@ public class Main {
                     int productNum = Integer.parseInt(console.readLine());
                     snack.takeMoneyAndChangeQty(total, productName, productNum);
 
-                    snack.countOfCoinsInTheMachine();
-                    snack.getTotalCashInMachine();
-
                     System.out.println("Would you like to continue purchasing? Press 1 for yes, 2 for no");
                     int answer = Integer.parseInt(console.readLine());
                     snack.resetTotalToZero();
@@ -51,7 +48,7 @@ public class Main {
                     }
                 }
             }
-            else {
+            else if (where == 2){
                 DrinkMachine drink = new DrinkMachine();
                 drink.getNameOfCompany();
                 boolean con = true;
@@ -84,6 +81,12 @@ public class Main {
                         con = Boolean.valueOf(false);
                     }
                 }
+            }
+            else if (where == 8772){
+                //put operator stuff here
+            }
+            else{
+                System.out.println("Sorry that is not an option");
             }
         } catch (Exception e) {
             System.out.println(e);

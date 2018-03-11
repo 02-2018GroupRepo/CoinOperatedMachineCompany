@@ -1,8 +1,6 @@
 package com.tawnihollers;
 
 
-import java.util.HashMap;
-
 public class VendingMachines extends Operator{
     public final static String company = "Verdy Venders & Co.\n";
     public final static double NICKEL = 0.05;
@@ -15,9 +13,6 @@ public class VendingMachines extends Operator{
     private int nickelsGiven;
     private int dimesGiven;
     private int quartersGiven;
-    private int coinsInMachine;
-
-    HashMap<String, Integer> coins = new HashMap<>();
 
 
     public void getNameOfCompany(){
@@ -58,21 +53,11 @@ public class VendingMachines extends Operator{
                 (quarters * QUARTER));
     }
 
-
+// delete this because it doesnt work??
     public void countOfCoinsInTheMachine(){
         nickelsGiven += nickels;
         dimesGiven += dimes;
         quartersGiven += quarters;
     }
-
-    public void getTotalCashInMachine(){
-        double money = (nickelsGiven * NICKEL) + (dimesGiven * DIME) + (quartersGiven * QUARTER);
-        String individualCoins = "Nickels in machine " + nickelsGiven
-                + "\nDimes in machine " + dimesGiven + "\nQuarters in machine " + quartersGiven;
-        System.out.printf("Total money in the machine: $%.2f\n", money);
-        System.out.println(individualCoins);
-    }
-
-
 
 }
