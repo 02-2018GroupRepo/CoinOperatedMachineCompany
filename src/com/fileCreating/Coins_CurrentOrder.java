@@ -23,7 +23,7 @@ public class Coins_CurrentOrder {
     }
 
     public double getCurTotal(){
-        return (curNumNickels * NICKEL) + (curNumDimes * DIME) + (curNumQuarters + QUARTER);
+        return (curNumNickels * NICKEL) + (curNumDimes * DIME) + (curNumQuarters * QUARTER);
     }
 
     public void curReset(){

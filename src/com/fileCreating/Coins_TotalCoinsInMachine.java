@@ -1,5 +1,6 @@
 package com.fileCreating;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,21 +24,27 @@ public class Coins_TotalCoinsInMachine {
         this.amountMoney = 0;
     }
 
-    public double purchased(Double price){
-        return currCoins.getCurTotal() - price;
+    public double purchased(Double price, Coins_CurrentOrder myCoins){
+        DecimalFormat f = new DecimalFormat("##.00");
+        return Double.parseDouble(f.format(myCoins.getCurTotal() - price));
     }
 
-    public void insertion(Double coin) {
-        if (coin == NICKEL) {
-            this.currCoins.setCurNumNickels();
-            this.totalNumNickels++;
-        } else if (coin == DIME) {
-            this.currCoins.setCurNumDimes();
-            this.totalNumDimes++;
-        } else if (coin == QUARTER) {
-            this.currCoins.setCurNumQuarters();
-            this.totalNumQuarters++;
-        }
+    public void insertion(Coins_CurrentOrder myCurrCoins) {
+
+        this.totalNumNickels += myCurrCoins.getCurNumNickels();
+        this.totalNumDimes += myCurrCoins.getCurNumDimes();
+        this.totalNumQuarters += myCurrCoins.getCurNumQuarters();
+
+//        if (coin == NICKEL) {
+//            this.currCoins.setCurNumNickels();
+//            this.totalNumNickels++;
+//        } else if (coin == DIME) {
+//            this.currCoins.setCurNumDimes();
+//            this.totalNumDimes++;
+//        } else if (coin == QUARTER) {
+//            this.currCoins.setCurNumQuarters();
+//            this.totalNumQuarters++;
+//        }
     }
 
     public void returnMoney() {
@@ -46,42 +53,49 @@ public class Coins_TotalCoinsInMachine {
         this.totalNumQuarters -= currCoins.getCurNumQuarters();
     }
 
-    public Map<Double, Integer> returnChanges(Double price) {
+    public Map<Double, Integer> returnChanges(Double priceDifference) {
         Map<Double, Integer> changesMap = new HashMap<Double, Integer>();
+        DecimalFormat f = new DecimalFormat("##.00");
+        int numTakenOut;
 
-        if (price % QUARTER == 0) {
-            if (price / QUARTER >= totalNumQuarters) {
-                totalNumQuarters -= (price / QUARTER);
-                price = (price / QUARTER) * QUARTER;
-                changesMap.put(QUARTER, (int)(price / QUARTER));
-            } else {
-                price -= totalNumQuarters * QUARTER;
-                changesMap.put(QUARTER, totalNumQuarters);
-            }
-        }
-
-        if (price % DIME == 0) {
-            if (price / DIME >= totalNumDimes) {
-                totalNumDimes -= (price / DIME);
-                price -= (price / DIME) * DIME;
-                changesMap.put(DIME, (int)(price / DIME));
-
-            } else {
-                price -= totalNumDimes * DIME;
-                changesMap.put(DIME, totalNumDimes);
+        if(priceDifference > 0) {
+            if (priceDifference >= QUARTER) {
+                if (priceDifference / QUARTER <= totalNumQuarters) {
+                    totalNumQuarters -= (priceDifference / QUARTER);
+                    numTakenOut = (int)(priceDifference / DIME);
+                    priceDifference = (int)(priceDifference / QUARTER) * QUARTER;
+                    changesMap.put(QUARTER, numTakenOut);
+                } else {
+                    priceDifference -= totalNumQuarters * QUARTER;
+                    changesMap.put(QUARTER, totalNumQuarters);
+                }
             }
 
-        }
-        if (price % NICKEL == 0){
-            if (price / NICKEL >= totalNumNickels) {
-                totalNumNickels -= (price / NICKEL);
-                price -= (price / NICKEL) * NICKEL;
-                changesMap.put(NICKEL, (int)(price / NICKEL));
-            } else {
-                price -= totalNumNickels * NICKEL;
-                changesMap.put(NICKEL, totalNumNickels);
-            }
+            if (priceDifference >= DIME) {
+                if (priceDifference / DIME <= totalNumDimes) {
+                    totalNumDimes -= (priceDifference / DIME);
+                    numTakenOut = (int)(priceDifference / DIME);
+                    priceDifference -= (int)(priceDifference / DIME) * DIME;
+                    changesMap.put(DIME, numTakenOut);
 
+                } else {
+                    priceDifference -= totalNumDimes * DIME;
+                    changesMap.put(DIME, totalNumDimes);
+                }
+
+            }
+            if (priceDifference >= NICKEL) {
+                if (priceDifference / NICKEL <= totalNumNickels) {
+                    totalNumNickels -= (priceDifference / NICKEL);
+                    numTakenOut = (int)(priceDifference / DIME);
+                    priceDifference -= (int)(priceDifference / NICKEL) * NICKEL;
+                    changesMap.put(NICKEL, numTakenOut);
+                } else {
+                    priceDifference -= totalNumNickels * NICKEL;
+                    changesMap.put(NICKEL, totalNumNickels);
+                }
+
+            }
         }
 
         return changesMap;

@@ -30,10 +30,13 @@ abstract class VendingMachine {
 
     }
 
-    public Product selection(int row, int col) {
+    public Product selection(int row, int col, Coins_CurrentOrder myMoney) {
 
-        double changes = coin.purchased(inventory[row][col].get(0).getPrice());
+        System.out.println("Price: " + inventory[row][col].get(0).getPrice());
+        System.out.println("My money " + myMoney.getCurTotal());
+        double changes = coin.purchased(inventory[row][col].get(0).getPrice(), myMoney);
 
+        System.out.println("Changes: " + changes);
         // Print Changes
         if(changes >= 0) {
             System.out.println("Total Change is: ");

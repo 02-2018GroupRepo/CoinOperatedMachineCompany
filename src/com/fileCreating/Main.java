@@ -113,7 +113,12 @@ public class Main {
     public static void test4(){
         Operator christian = new Operator();
         SnackMachine vm = new SnackMachine();
+        christian.setTotalNumCoins(25, 25, 25, vm);
 
         vm.printInventory();
+
+        Coins_CurrentOrder myMoneyForSnacks = new Coins_CurrentOrder(1, 2, 8);
+        vm.getCoin().insertion(myMoneyForSnacks);
+        vm.selection(0,0, myMoneyForSnacks);
     }
 }
