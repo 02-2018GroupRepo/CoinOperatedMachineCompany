@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
-
 public class Main {
 
     public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class Main {
             DrinkMachine drink = new DrinkMachine();
             Operator guy = new Operator();
             HashMap<String, Double> snackMap;
-            HashMap<String, Double> drinkMap = new HashMap<>();
+            HashMap<String, Double> drinkMap;
             HashMap<String, Double> operatorMap = new HashMap<>();
 
             while (keepGoing) {
@@ -105,9 +104,26 @@ public class Main {
 
                 } else if (where == 8772) {
                     //put operator stuff here
-                    snackMap = snack.giveTheHashMapToOperator();
-                    guy.saveHashMap(snackMap);
-                    guy.showTotalCashInMachine();
+                    System.out.println("Please say which machine you would like to look at. Press 1 for Snack Machine, 2 for Drink Machine, and 3 for both" );
+                    int num = Integer.parseInt(console.readLine());
+                    if(num == 1){
+                        snackMap = snack.giveTheHashMapToOperator();
+                        guy.saveHashMap(snackMap);
+                        guy.showTotalCashInMachine();
+                    }
+                    else if(num == 2){
+                        drinkMap = drink.giveTheHashMapToOperator();
+                        guy.saveHashMap(drinkMap);
+                        guy.showTotalCashInMachine();
+                    }
+                    else if(num == 3){
+                        snackMap = snack.giveTheHashMapToOperator();
+                        drinkMap = drink.giveTheHashMapToOperator();
+                        operatorMap.putAll(snackMap);
+                        operatorMap.putAll(drinkMap);
+                        guy.saveHashMap(operatorMap);
+                        guy.showTotalCashInMachine();
+                    }
 
                 } else {
                     System.out.println("GoodBye");

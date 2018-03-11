@@ -1,6 +1,7 @@
 package com.tawnihollers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class DrinkMachine extends VendingMachines{
@@ -11,8 +12,16 @@ public class DrinkMachine extends VendingMachines{
     Product drPepper = new Product("A4", "Dr Pepper", "Alright can", 2.00, 2.80, 10);
     Product melloYellow = new Product("A5", "Mello Yellow", "Off brand sprite can", 1.00, 1.75, 0);
     Product dietCoke = new Product("A6", "Diet Coke", "Diet can of coke", 1.00, 1.75, 0);
+
+    Product mountainDew = new Product("A1", "Mountain Dew", "Green Can", 0.50, 0.10, 1);
+    Product pepsi = new Product("A2", "Pepsi", "Red can", 1.00, 2.00, 10);
+    Product dietPepsi = new Product("A3", "Diet Pepsi", "Gross can", 1.00, 1.50, 10);
+    Product dietMountainDew = new Product("A4", "Diet Mountain Dew", "Alright can", 2.00, 2.80, 10);
+    Product orangeSoda = new Product("A5", "Orange Soda", "Off brand sprite can", 1.00, 1.75, 0);
+    Product grapeSoda = new Product("A6", "Grape Soda", "Diet can of coke", 1.00, 1.75, 0);
     //6 more canned drinks and then 10 bottled drinks
     ArrayList<Product> fun = new ArrayList<>();
+    HashMap<String, Double> coins = new HashMap<>();
 
     public void drinksInMachine() {
 
@@ -31,6 +40,10 @@ public class DrinkMachine extends VendingMachines{
 
     }
 
+    public HashMap giveTheHashMapToOperator(){
+        return coins;
+    }
+
     public void takeMoneyAndChangeQty(double moneyGiven, String letter, int number) {
         if (letter.equals("A")) {
             switch (number) {
@@ -45,6 +58,8 @@ public class DrinkMachine extends VendingMachines{
                             System.out.printf("Your money returned $%.2f\n", moneyReturned);
                             System.out.println("Please enjoy your snack!");
                             sprite.decreaseStock();
+                            String key = sprite.getName();
+                            coins.put(key, moneyGiven);
                         }
                     }
                 }
