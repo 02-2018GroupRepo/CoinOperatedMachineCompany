@@ -1,11 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class SnackMachine extends VendingMachine {
-    private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
+    private static final String machineType = "Snack Machine";
 
-    public SnackMachine(ArrayList<Shelf> shelves) {
-        this.shelves = shelves;
-    }
 }
