@@ -22,6 +22,7 @@ public class Location {
         if(Operator.class.isInstance(operator)) {
             for (Machine machine: machines) {
                 machine.getMachineName();
+                System.out.println(machine.getMachineName());
             }
         }
     }
