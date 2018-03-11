@@ -1,45 +1,39 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Shelf {
-   private Map<Integer,ArrayList<Product>> shelf;
-    private  int compartmentSize;
+   private LinkedHashMap<Integer,ArrayList<Product>> shelf;//integer represents the compartmentNumber
+   // private  int compartmentSize;
     private  int spaceSize;
-    Product product;
-   // ArrayList<Product> prod;
+  private ArrayList<Product> products;
 
-    public Shelf(int compartmentSize,int spaceSize,Product product){
-        shelf = new HashMap<Integer, ArrayList<Product>>();
-       // prod = new ArrayList<Product>();
-        this.product = product;
+    public Shelf(int spaceSize,int compartmentSize){
+        shelf = new LinkedHashMap<Integer, ArrayList<Product>>();
+        products = new ArrayList<Product>(compartmentSize);
         this.spaceSize = spaceSize;
-        this.compartmentSize = compartmentSize;
+
 
     }
 
-    public void stockCompartment(int compartmentNumber){
-        int count = 0;
-        System.out.println(compartmentSize);
-        ArrayList<Product> prod = new ArrayList<Product>();//need to rework bcos arraylist of prod is always gonna be zero and wont update
-        //spaces
-        shelf.put(compartmentNumber,prod);
-        int spaceleft = spaceSize - shelf.get(compartmentNumber).size();
-        while(count < spaceleft){
+    public void stockCompartment(int compartmentNumber,Product product){
+        int emptySpaces = spaceSize - amountOfProductLeft();
 
-           prod = shelf.get(compartmentNumber);
-           prod.add(product);
-         //   System.out.println(prod.get(count).getName());
-           count++;
+        for(int i = 0; i < emptySpaces;i++){
+            products.add(product);
         }
-        shelf.put(compartmentNumber,prod);
+        shelf.put(compartmentNumber,products);
 
+    }
+
+    public int amountOfProductLeft(){
+        return products.size();
     }
 
     public void displayShelf(){
 
         for(Map.Entry<Integer,ArrayList<Product>> entry : shelf.entrySet()){
-            System.out.println("Compartment : "+entry.getKey());
+            System.out.println("Compartment  Number: "+entry.getKey());
            System.out.println("Products :");
             for (Product product: shelf.get(entry.getKey())) {
                 System.out.print( product.getName()+" ");
