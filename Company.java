@@ -23,7 +23,7 @@ public class Company{
         locList.add(loc5);
     }
 
-    public ArrayList<Location> getLocations(){
+    public ArrayList<Location> ListAllLocations(){
         return this.locList;
 
     }

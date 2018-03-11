@@ -9,7 +9,7 @@ public class RandomStuffMaker{
     public RandomStuffMaker(){
         this.alphabetPosition = 0;
         this.strChar = "A";
-        this.strInt = 0;
+        this.strInt = 1;
     }
 
     public String getRandom6Characters(){

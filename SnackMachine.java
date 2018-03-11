@@ -21,6 +21,10 @@ public class SnackMachine{
             (this.shelfList).add(new Shelf(alphabetId));
         }  
     }
+
+    public ArrayList<Shelf> ListAllShelves(){
+        return this.shelfList;
+    }
     
     public String toStringShelves(){
         String str = "";

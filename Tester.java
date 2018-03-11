@@ -3,16 +3,37 @@ public class Tester{
         
         Company severe = new Company("SevereCo");
 
-        for( Location locationObj : severe.getLocations()){
+        for(Location locationObj : severe.ListAllLocations()){
             System.out.println(locationObj.getName());
     
             for(SnackMachine smObj : locationObj.ListAllSnackMachines()){
                 System.out.println(smObj.getId());
-                System.out.println(smObj.toStringShelves());
+               
+                for(Shelf shelf : smObj.ListAllShelves()){
+
+
+                    for(Compartment comp : shelf.ListCompartments()){
+                        
+                        System.out.print(shelf.getName()+comp.getName()+" ");
+                        if(comp.getName().equals("5")){
+                            System.out.println();
+                        }
+                    }
+                }
             }
             for(DrinkMachine dmObj : locationObj.ListAllDrinkMachines()){
                 System.out.println(dmObj.getId());
-                System.out.println(dmObj.toStringShelves());
+
+                for(Shelf shelf : dmObj.ListAllShelves()){
+                    
+
+                    for(Compartment comp : shelf.ListCompartments()){
+                        System.out.print(shelf.getName()+comp.getName()+" ");
+                        if(comp.getName().equals("5")){
+                            System.out.println();
+                        }
+                    }
+                }
             }
         }
     }
