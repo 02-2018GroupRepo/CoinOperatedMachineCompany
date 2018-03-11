@@ -38,13 +38,19 @@ public class SnackMachine extends VendingMachines {
 
     }
 
-    public void printOutHashmap(){
+    public HashMap giveTheHashMapToOperator(){
+        return coins;
+    }
+
+    public HashMap printOutHashmap(){
         String builder = "";
         for (String foodName : (this.coins).keySet()) {
             builder += foodName + " Price: $" + (this.coins).get(foodName) + "\n";
 
         }
+        System.out.println("Hashmap");
         System.out.println(builder);
+        return coins;
     }
 
     public void takeMoneyAndChangeQty(double moneyGiven, String letter, int number) {

@@ -14,7 +14,6 @@ public class VendingMachines extends Operator{
     private int dimesGiven;
     private int quartersGiven;
 
-
     public void getNameOfCompany(){
         System.out.println("The Company name is " + company);
     }
@@ -59,5 +58,6 @@ public class VendingMachines extends Operator{
         dimesGiven += dimes;
         quartersGiven += quarters;
     }
+
 
 }
