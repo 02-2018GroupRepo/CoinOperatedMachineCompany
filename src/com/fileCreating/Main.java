@@ -12,7 +12,7 @@ public class Main {
         Operator christian = new Operator();
         SnackMachine vm = new SnackMachine();
         vm.intializeInventory();
-        vm.addToInventory(0, 0, 5, "Candy");
+        christian.addToInventory(0, 0, 5, "Candy");
         vm.addToInventory(0, 1, 7, "Cake");
         vm.addToInventory(0, 2, 9, "Chips");
 

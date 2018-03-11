@@ -41,14 +41,14 @@ public class Operator {
     }
 
     public void checkThisMachineTotalMoney(VendingMachine machine) {
-        System.out.println(machine.getAmountMoney());
+        System.out.println(machine.getCoin().getAmountMoney());
     }
 
     public void checkThisMachineCoins(VendingMachine machine) {
         System.out.println("This Machine amount of Coins");
-        System.out.println("\tNumber of Nickels: " + machine.getTotalNumNickels());
-        System.out.println("\tNumber of Dimes: " + machine.getTotalNumDimes());
-        System.out.println("\tNumber of Quarters: " + machine.getTotalNumQuarters());
+        System.out.println("\tNumber of Nickels: " + machine.getCoin().getTotalNumNickels());
+        System.out.println("\tNumber of Dimes: " + machine.getCoin().getTotalNumDimes());
+        System.out.println("\tNumber of Quarters: " + machine.getCoin().getTotalNumQuarters());
     }
 
     public void totalMoneyInAllMyMachines() {
@@ -56,7 +56,7 @@ public class Operator {
 
         for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
             for (VendingMachine machine : map.getValue()) {
-                total += machine.getAmountMoney();
+                total += machine.getCoin().getAmountMoney();
             }
         }
 
@@ -70,9 +70,9 @@ public class Operator {
 
         for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
             for (VendingMachine machine : map.getValue()) {
-                totalNickel += machine.getTotalNumNickels();
-                totalDime += machine.getTotalNumDimes();
-                totalQuarter += machine.getTotalNumQuarters();
+                totalNickel += machine.getCoin().getTotalNumNickels();
+                totalDime += machine.getCoin().getTotalNumDimes();
+                totalQuarter += machine.getCoin().getTotalNumQuarters();
             }
         }
 
@@ -90,7 +90,7 @@ public class Operator {
         if (myVMachinesList.containsKey(location)) {
             ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
             for (VendingMachine vm : machinesInThisLocation) {
-                total += vm.getAmountMoney();
+                total += vm.getCoin().getAmountMoney();
             }
             System.out.println("--> " + total +"\n");
         } else {
@@ -109,9 +109,9 @@ public class Operator {
         if (myVMachinesList.containsKey(location)) {
             ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
             for (VendingMachine vm : machinesInThisLocation) {
-                totalNickel += vm.getTotalNumNickels();
-                totalDime += vm.getTotalNumDimes();
-                totalQuarter += vm.getTotalNumQuarters();
+                totalNickel += vm.getCoin().getTotalNumNickels();
+                totalDime += vm.getCoin().getTotalNumDimes();
+                totalQuarter += vm.getCoin().getTotalNumQuarters();
             }
 
             System.out.println("\tNum of Nickels -> " + totalNickel);
@@ -124,18 +124,26 @@ public class Operator {
     }
 
     public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, VendingMachine thisMachine) {
-        thisMachine.setTotalNumNickels(numNickels);
-        thisMachine.setTotalNumDimes(numDimes);
-        thisMachine.setTotalNumQuarters(numQuarters);
+        thisMachine.getCoin().setTotalNumNickels(numNickels);
+        thisMachine.getCoin().setTotalNumDimes(numDimes);
+        thisMachine.getCoin().setTotalNumQuarters(numQuarters);
     }
 
+    public void setItem(int row, int col, String itemName, VendingMachine vm){ vm.inventory[row][col].setItemName(itemName); }
+    public void setItem(int row, int col, Double price, VendingMachine vm){
+        vm.inventory[row][col].setPrice(price);
+    }
+    public void setItem(int row, int col, String itemName, Double price, VendingMachine vm){
+        vm.inventory[row][col].setPrice(price);
+        vm.inventory[row][col].setItemName(itemName);
+    }
 
     public void printMyVendingMachines() {
         System.out.println("My vending Machines");
         for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
             System.out.println(map.getKey());
             for (VendingMachine machine : map.getValue()) {
-                System.out.println("\tVending Machine:" + machine.getAmountMoney());
+                System.out.println("\tVending Machine:" + machine.getCoin().getAmountMoney());
                 System.out.println();
             }
         }
