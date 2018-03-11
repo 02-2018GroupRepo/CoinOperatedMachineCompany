@@ -9,6 +9,7 @@ public class Snack extends Machine {
     private int insertedQuarters;
     private int insertedDimes;
     private int insertedNickels;
+    private int machineQuarters;
     private double insertedMoney;
 
     private Snack() {}
@@ -23,6 +24,7 @@ public class Snack extends Machine {
         this.insertedDimes = dimes;
         this.insertedNickels = nickels;
         this.insertedMoney = convertCoinsToCash(quarters, dimes, nickels);
+        System.out.println("You have inserted " + quarters + " quarters, " + dimes + " dimes, and " + nickels + " nickels.");
         System.out.printf("Total amount inserted is: " + "$%.2f\n", this.insertedMoney);
     }
 
@@ -32,24 +34,34 @@ public class Snack extends Machine {
         System.out.println("$" + products.get(area).get(0).getRetailPrice());
     }
 
-    public void purchaseProduct(String area) {
-        if (products.get(area).isEmpty()) {
+    public void purchaseProduct(String compartment) {
+        // Check if item is available
+        if (products.get(compartment).isEmpty()) {
             System.out.println("Product is out of stock");
-        } else if (this.insertedMoney >= products.get(area).get(0).getRetailPrice()) {
-
-            Product purchasedProduct = products.get(area).get(0);
+        } else if (this.insertedMoney >= products.get(compartment).get(0).getRetailPrice()) {
+            // Retrieve product from compartment
+            Product purchasedProduct = products.get(compartment).get(0);
             System.out.println("You have purchased " + purchasedProduct.getName() + ".");
 
-            addToMachineMoney(insertedQuarters, insertedDimes, insertedNickels);
+            // Add to machine money
 
+            // Calculate change and remove item from slot in compartment
             double change = insertedMoney - purchasedProduct.getRetailPrice();
-            products.get(area).remove(0);
-            this.insertedMoney = 0;
+            products.get(compartment).remove(0);
+            resetInsertedMoney();
             System.out.printf("Your change is: " + "$%.2f\n", change);
         } else {
+            // Inform user is short of money and return inserted cash
             System.out.println("You do not have enough money.");
             System.out.printf("$%.2f" + " was returned.\n", this.insertedMoney);
-            this.insertedMoney = 0;
+            resetInsertedMoney();
         }
+    }
+
+    private void resetInsertedMoney() {
+        this.insertedQuarters = 0;
+        this.insertedDimes = 0;
+        this.insertedNickels = 0;
+        this.insertedMoney = 0;
     }
 }

@@ -21,7 +21,7 @@ public class Location {
     public void listMachines(Operator operator) {
         if(Operator.class.isInstance(operator)) {
             for (Machine machine: machines) {
-//                machine.
+                machine.getMachineName();
             }
         }
     }
