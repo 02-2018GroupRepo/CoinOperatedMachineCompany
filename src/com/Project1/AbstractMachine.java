@@ -9,60 +9,66 @@ import java.util.*;
 
 public abstract class AbstractMachine {
 
-    File log;
+    static final String COMPANY = "Backpfeifengesicht";
+    Map<COINS, Integer> holdings = new HashMap<>();
     Location myLocation;
     protected static int lastMachineID = 12345;
     static ArrayList<String> validIDS = new ArrayList<>();
     int myMachineID;
-
     protected LinkedList[][] machine;
+    public enum COINS {
+        NICKEL(.05), DIME(.10), QUARTER(.25);
+        double value;
 
+        COINS(double v) {
+            value = v;
+        }
+
+        double getValue() {
+            return value;
+        }
+    }
+    CoinBuffer coinBuffer;
 
     AbstractMachine() {
+        holdings.put(COINS.NICKEL, 0);
+        holdings.put(COINS.DIME, 0);
+        holdings.put(COINS.QUARTER, 0);
+
+
     }
 
+    public Location getMyLocation() {
+        return myLocation;
+    }
 
-    AbstractMachine(int columns, int rows) {
-
-
-        validIDS.add("123");
-        machine = new LinkedList[rows][columns];
-
-
-        //instantiate every slot vector of the vending machine to size 0 instead of null
-        for (int i = 0; i < columns; i++) {
-            for (int j = 0; j < rows; j++) {
-                machine[i][j] = new LinkedList<Product>();
-                int t = 4;
-            }
+    void getMoneyAmount(){
+        double total =0;
+        for(Map.Entry<COINS, Integer> m : holdings.entrySet()){
+            System.out.println(m.getKey() + ":\t\t" + m.getValue());
+            total+= m.getKey().getValue() * m.getValue();
         }
-        hardCodedMachineFiller();
-
-    }
-
-
-    enum coins {
-        NICKEL, DIME, QUARTER
+        System.out.println("Total $:\t"+total);
     }
 
     void changeLocation(Location location) {
         this.myLocation = location;
     }
 
-    String getLocatoion() {
+    String getLocation() {
         return (myLocation.getCity() + " " + myLocation.getStore() + " " + myLocation.getChain());
     }
 
     String getAcceptedCoins() {
         StringBuilder acceptable = new StringBuilder();
-        for (coins c : coins.values()) {
+        for (COINS c : COINS.values()) {
             acceptable.append(c).append(" ");
         }
         return acceptable.toString();
     }
 
-    public void addItem(String RowColomn, Product product) throws BADENTRY {
-        char[] entry = RowColomn.toCharArray();
+    public void addItem(String RowColumn, Product product) throws BADENTRY {
+        char[] entry = RowColumn.toCharArray();
         int row;
         int col;
 
@@ -92,41 +98,52 @@ public abstract class AbstractMachine {
 
     }
 
-    public void displayInventory() {
-        for (LinkedList[] row : machine) {
-            System.out.println();
-            for (LinkedList col : row) {
-                if (col.size() > 0) {
-                    Product p = (Product) col.peek();
-                    System.out.print(p.name + " $" + p.retailPrice + " ");
-                } else System.out.print("\t\t");
+    public void removeItem(String RowColumn, double runningTotal) throws BADENTRY, INSUFFICIENTFUNDS{
+
+        char[] entry = RowColumn.toCharArray();
+        int row;
+        int col;
+
+
+        switch (entry[0]) {
+            case 'A' :
+                row = 0;
+                break;
+            case 'B':
+                row = 1;
+                break;
+            case 'C':
+                row = 2;
+                break;
+            case 'D':
+                row = 3;
+                break;
+            case 'E':
+                row = 4;
+                break;
+            default:
+                throw new BADENTRY();
+        }
+        col = Character.getNumericValue(entry[1]);
+
+
+
+        try {
+
+            if((((Product) machine[row][col].peek()).retailPrice)>runningTotal){
+                throw new INSUFFICIENTFUNDS();
             }
+
+            machine[row][col].pop();
+
+        }catch (ArrayIndexOutOfBoundsException ar){
+            throw new BADENTRY();
+
         }
     }
 
-    void hardCodedMachineFiller() {
-        Product chips = new Product("BBQ", "patao", 3.50, 4.50);
-        Product chips2 = new Product("Sea Salt", "patao", 3.50, 4.50);
-        Product chips3 = new Product("Salt and Vinegar", "patao", 3.50, 4.50);
-        Product chips4 = new Product("Pizza Chips", "patao", 3.50, 4.50);
-        Product chips5 = new Product("Honey BBQ", "patao", 3.50, 4.50);
-        Product chips6 = new Product("Plain", "patao", 3.50, 4.50);
+    abstract void displayInventory();
 
-        Product candy = new Product("Snicker", "patao", 3.50, 4.50);
-        Product candy2 = new Product("Twix", "patao", 3.50, 4.50);
-        Product candy3 = new Product("Dove", "patao", 3.50, 4.50);
-        Product candy4 = new Product("Hersey", "patao", 3.50, 4.50);
-
-
-        machine[1][3].add(chips);
-        machine[1][4].add(chips2);
-        machine[2][3].add(chips3);
-        machine[2][4].add(chips4);
-        machine[2][4].add(chips5);
-        machine[4][4].add(candy2);
-        machine[3][4].add(candy3);
-
-    }
 
     public void getLogFile(String employeeID) {
 
@@ -152,8 +169,20 @@ public abstract class AbstractMachine {
         }
 
     }
-
-
-
+    public void addQuarters(int amount){
+        int currentAmount = holdings.get(COINS.QUARTER);
+        int newAount = currentAmount + amount;
+        holdings.replace(COINS.QUARTER, newAount);
+    }
+    public void addDimes(int amount){
+        int currentAmount = holdings.get(COINS.DIME);
+        int newAount = currentAmount + amount;
+        holdings.replace(COINS.DIME, newAount);
+    }
+    public void addNickels(int amount){
+        int currentAmount = holdings.get(COINS.NICKEL);
+        int newAount = currentAmount + amount;
+        holdings.replace(COINS.NICKEL, newAount);
+    }
 
 }

@@ -16,12 +16,14 @@ public class Operator {
 
     AbstractMachine addMachine(Location location, String machineType) {
 
+
+        //location.addMachineToThisLocation(machineType, location);
         AbstractMachine newMachine;
 
         if (machineType.toUpperCase().equals("SNACKMACHINE")) {
-            newMachine = new SnackMachine(5, 5);
+            newMachine = new SnackMachine(location);
         } else if (machineType.toUpperCase().equals("DRINKMACHINE")) {
-            newMachine = new DrinkMachine();
+            newMachine = new DrinkMachine(location);
         } else {
             System.out.println("That doesnt exists");
             return null;
