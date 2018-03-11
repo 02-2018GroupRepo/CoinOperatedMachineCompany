@@ -6,8 +6,10 @@ public class Operator {
 
     public void addMachine(Vending_Machine machine, String location){
         machine.setLocation(location);
+        System.out.println("Machine placed in " + location);
     }
     public void removeMachine(Vending_Machine machine){
+        System.out.println("Machine moved to warehouse");
         machine.setLocation("Warehouse");
     }
     public double getAllTotal(Vending_Machine machine1, Vending_Machine machine2){
@@ -22,9 +24,7 @@ public class Operator {
         System.out.println("Total in this machine is $" + total);
         System.out.println("See details?");
 
-        Scanner scanner = new Scanner(System.in);
-        if(scanner.next().toLowerCase().equals("yes"))
-            getDetails(machine);
+        getDetails(machine);
 
     }
 

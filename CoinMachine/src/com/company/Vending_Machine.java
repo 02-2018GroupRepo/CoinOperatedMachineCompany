@@ -51,19 +51,16 @@ public class Vending_Machine {
                 numQ--;
                 q++;
                 change -= .25;
-                System.out.println(change);
             }
             else if((change - .10) >= 0.0){
                 numD--;
                 d++;
                 change -= .10;
-                System.out.println(change);
             }
             else if((change - .05) >= 0.0){
                 numN--;
                 n++;
                 change -= 0.05;
-                System.out.println(change);
             }
             else
                 done = true;
@@ -87,6 +84,7 @@ public class Vending_Machine {
 
     }
 
+    /*
     public void attemptPurchase(int Q, int D, int N){
         double total = (Q* coin.QUARTER ) + (N * coin.NICKEL) + (D * coin.DIME);
 
@@ -101,6 +99,7 @@ public class Vending_Machine {
                         buyProduct(i);
                         System.out.println(getChange(total - i.getRetailPrice()));
                     } else if (total == i.getRetailPrice()) {
+                        addMoney(Q,D,N);
                         buyProduct(i);
                     } else{
                         System.out.println("Not Enough Currency\nReturning Money");
@@ -108,6 +107,28 @@ public class Vending_Machine {
                     break;
                 }
             }
+
+
+    }
+*/
+    public void attemptPurchase(int Q, int D, int N, String choice){
+        double total = (Q* coin.QUARTER ) + (N * coin.NICKEL) + (D * coin.DIME);
+
+        for(Products i : inStock.keySet()){
+            if(choice.toLowerCase().equals(i.getName())) {
+                if (total > i.getRetailPrice()) {
+                    addMoney(Q, D, N);
+                    buyProduct(i);
+                    System.out.println(getChange(total - i.getRetailPrice()));
+                } else if (total == i.getRetailPrice()) {
+                    addMoney(Q,D,N);
+                    buyProduct(i);
+                } else{
+                    System.out.println("Not Enough Currency\nReturning Money");
+                }
+                break;
+            }
+        }
 
 
     }

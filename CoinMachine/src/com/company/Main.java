@@ -19,6 +19,24 @@ public class Main {
         SnackMachine candy = new SnackMachine();
         DrinkMachine drinks = new DrinkMachine();
 
+        //testing vending machines
+        candy.attemptPurchase(4, 0,0, "cracker"); //choice: cracker, exact change
+        candy.attemptPurchase(4, 0, 0, "apple"); //choice: apple, has enough money will return 2 quarters
+        candy.attemptPurchase(1,1,1, "orange"); // choice: orange, does not have enough money
+        drinks.attemptPurchase(4,0,0, "water0"); //choice water0, exact amount
+        drinks.attemptPurchase(2, 2, 2, "pepsi"); //choice pepsi, returns 30cents, 1 quarter 1 nickel
+        drinks.attemptPurchase(1, 0, 0,"water0"); //choice water0, not enough
+
+        //testing operator
+        Operator testOperator = new Operator();
+        testOperator.getTotal(candy); //yes, get total from candy machine, see details
+        testOperator.getTotal(drinks);//no, get total from machine, dont see detials
+        testOperator.getAllTotal(candy, drinks); //get total from all machines
+        testOperator.removeMachine(candy); //removing candy machine
+        testOperator.addMachine(candy, "Baltimore"); //moving it to baltimore
+
+
+/* youll need to uncomment public void attemptPurchase(int Q, int D, int N) in Vending_Machine.java
         while(!shutdown) {
             System.out.println("What kind of machine would you like? Snack or Drink or Done?");
             choice = scanner.next();
@@ -146,6 +164,7 @@ public class Main {
             }
 
         }
+        */
     }
 
 
