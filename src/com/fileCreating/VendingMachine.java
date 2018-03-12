@@ -30,36 +30,66 @@ abstract class VendingMachine {
 
     }
 
-    public Product selection(int row, int col, Coins_CurrentOrder myMoney) {
+    public void selection(int row, int col, Coins_CurrentOrder myMoney) {
 
-        System.out.println("Price: " + inventory[row][col].get(0).getPrice());
-        System.out.println("My money " + myMoney.getCurTotal());
-        double changes = coin.purchased(inventory[row][col].get(0).getPrice(), myMoney);
 
-        System.out.println("Changes: " + changes);
         // Print Changes
-        if(changes >= 0) {
-            System.out.println("Total Change is: ");
-            for (Map.Entry<String, Integer> changeReturn : coin.returnChanges(changes).entrySet()) {
-                System.out.println(changeReturn.getValue() + " " + changeReturn.getKey() + "s");
-            }
-        } else {
-            // Not enough money
-            System.out.println("Not enough money to make purchase");
-            return null;
-        }
+        if (inventory[row][col].size() > 0) {
 
-        return inventory[row][col].get(0);
+            double changes = coin.purchased(inventory[row][col].get(0).getPrice(), myMoney);
+            System.out.println("Price: " + inventory[row][col].get(0).getPrice());
+            System.out.println("My money " + myMoney.getCurTotal());
+
+            if(changes >= 0) {
+
+                giveCustomerProduct(inventory[row][col]);
+                System.out.println("Total Change is: ");
+                for (Map.Entry<String, Integer> changeReturn : coin.returnChanges(changes).entrySet()) {
+                    System.out.println(changeReturn.getValue() + " " + changeReturn.getKey() + "s");
+                }
+            } else {
+                System.out.println("Not enough money to make purchase");
+            }
+
+        } else {
+            System.out.println("Sorry Product Not Avaliable");
+            myMoney.printCustomerCoinReturn();
+            coin.returnMoney();
+            myMoney.curReset();
+        }
     }
 
-    public void setLocation(String location) { this.location = location.toLowerCase(); }
-    public String getLocation() {  return location; }
+    public void giveCustomerProduct(ArrayList<Product> itemRow) {
+        itemRow.get(0).printThisProduct();
+        itemRow.remove(0);
+    }
 
-    public void setCoin(Coins_TotalCoinsInMachine coin) { this.coin = coin; }
-    public Coins_TotalCoinsInMachine getCoin() { return coin; }
+    public void setLocation(String location) {
+        this.location = location.toLowerCase();
+    }
 
-    public int getNumOfShelves() { return numOfShelves; }
-    public int getNumOfCompartments() { return numOfCompartments; }
-    public int getNumOfMaxSpace() { return numOfMaxSpace; }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setCoin(Coins_TotalCoinsInMachine coin) {
+        this.coin = coin;
+    }
+
+    public Coins_TotalCoinsInMachine getCoin() {
+        return coin;
+    }
+
+    public int getNumOfShelves() {
+        return numOfShelves;
+    }
+
+    public int getNumOfCompartments() {
+        return numOfCompartments;
+    }
+
+    public int getNumOfMaxSpace() {
+        return numOfMaxSpace;
+    }
 }
 

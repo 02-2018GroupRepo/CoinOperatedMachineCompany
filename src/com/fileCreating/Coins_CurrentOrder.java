@@ -32,6 +32,13 @@ public class Coins_CurrentOrder {
         this.curNumQuarters = 0;
     }
 
+    public void printCustomerCoinReturn(){
+        if(curNumNickels > 0) System.out.println("\tNumber of NICKELS returned: " + curNumNickels);
+        if(curNumDimes > 0) System.out.println("\tNumber of DIMES returned: " + curNumDimes);
+        if(curNumQuarters > 0) System.out.println("\tNumber of QUARTERS returned: " + curNumQuarters);
+        System.out.println("");
+    }
+
     public void setCurNumNickels() {
         this.curNumNickels++;
     }

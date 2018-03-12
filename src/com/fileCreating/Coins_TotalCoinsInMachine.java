@@ -15,7 +15,6 @@ public class Coins_TotalCoinsInMachine {
     private int totalNumDimes;
     private int totalNumQuarters;
     private double amountMoney;
-    private static double priceDifference;
 
     private Coins_CurrentOrder currCoins = new Coins_CurrentOrder();
 

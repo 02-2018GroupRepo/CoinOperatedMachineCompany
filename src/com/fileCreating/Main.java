@@ -117,8 +117,11 @@ public class Main {
 
         vm.printInventory();
 
-        Coins_CurrentOrder myMoneyForSnacks = new Coins_CurrentOrder(9, 2, 8);
-        vm.getCoin().insertion(myMoneyForSnacks);
-        vm.selection(0,0, myMoneyForSnacks);
+        for(int i = 0; i < 8; i++) {
+            System.out.println("<------------->");
+            Coins_CurrentOrder myMoneyForSnacks = new Coins_CurrentOrder(2, 0, 8);
+            vm.getCoin().insertion(myMoneyForSnacks);
+            vm.selection(0, 0, myMoneyForSnacks);
+        }
     }
 }

@@ -19,6 +19,11 @@ public class Product {
         this.id = id;
     }
 
+    public void printThisProduct(){
+        System.out.println("You Purchased!");
+        System.out.println("\t"+itemName + " of Price: " + retailPrice);
+    }
+
     public Double getPrice() {
         return retailPrice;
     }
