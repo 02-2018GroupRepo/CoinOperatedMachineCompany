@@ -18,10 +18,6 @@ public class CoinBox {
         this.nickels += nickels;
     }
 
-    public double getNickelValue(){
-        return (this.nickels * Coins.NICKEL);
-    }
-
     public void addDimes(int dimes){
         this.dimes += dimes;
     }
@@ -40,6 +36,18 @@ public class CoinBox {
 
     public int getQuarters() {
         return quarters;
+    }
+
+    public double getNickelValue(){
+        return (this.nickels * Coins.NICKEL);
+    }
+
+    public double getDimeValue(){
+        return (this.dimes * Coins.DIME);
+    }
+
+    public double getQuarterValue(){
+        return(this.quarters * Coins.QUARTER);
     }
 
     public double getTotal(){

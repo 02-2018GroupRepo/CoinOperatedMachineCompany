@@ -5,9 +5,11 @@ import java.util.Map;
 
 public class VendingMachine {
 
-    private static int machineItemCount;
+    public Map<VendingProduct, Integer> getProductInventoryMap() {
+        return productInventoryMap;
+    }
 
-    private Map <Integer, Integer> productInventoryMap = new LinkedHashMap<Integer, Integer>(); //itemID, productStock
+    private Map <VendingProduct, Integer> productInventoryMap = new LinkedHashMap<VendingProduct, Integer>(); //item, productStock
 
 //    public double sellItem(int itemID, Map mapInventory){
 //
@@ -19,12 +21,11 @@ public class VendingMachine {
 //    }
 
     public void addItem(VendingProduct item, int stock) {
-        productInventoryMap.put(item.getItemID(), stock);
-        machineItemCount++;
+        productInventoryMap.put(item, stock);
     }
 
     public void restockItem(VendingProduct item, VendingMachine machine, int amountToAdd) {
-        //productInventoryMap.replace(item.getItemID(), VendingMachine.thisvendingmachine'splacefortheitem, amount+amounttoadd);
+        //TODO: productInventoryMap.replace(item.getItemID(), VendingMachine.thisvendingmachine'splacefortheitem, amount+amounttoadd);
         // need to access items in vending machine
     }
 
