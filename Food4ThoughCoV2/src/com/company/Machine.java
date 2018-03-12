@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Machine {
 
     private String name;
-    private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
+    private ArrayList<Shelf> shelves = new ArrayList<>();
 
     public Machine(String name){
         this.name = name;
