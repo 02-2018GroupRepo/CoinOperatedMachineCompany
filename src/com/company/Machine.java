@@ -42,17 +42,7 @@ public class Machine {
     }
 
 
-    //        Are these array lists necessary? Could the coin tracking just use doubles? All the coin objects are the same, except for value.
-//    public Machine(ArrayList<Nickel> nickelsInMachine, ArrayList<Quarter> quartersInMachine,
-//                   ArrayList<Dime> dimesInMachine, String name, int coinCount, double moneyCount)
-//    {
-//        this.nickelsInMachine = nickelsInMachine;
-//        this.quartersInMachine = quartersInMachine;
-//        this.dimesInMachine = dimesInMachine;
-//        this.name = name;
-//        this.coinCount = coinCount;
-//        this.moneyCount = moneyCount;
-//    }
+
     public String getPasscode() {
         return passcode;
     }
