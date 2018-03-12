@@ -1,52 +1,46 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SnackMachine implements VendingMachine {
+public class VendingMachine {
 
     private String location;
     private int numberOfMachines;
-    private int[] shelves = new int[5];
-    private int[] compartments = new int[5];
-    private int[] spaces = new int[10];
-    private List<Products> items = new ArrayList<Products>();
+    private List<Product> items = new ArrayList<Product>();
 
 
 
-    public void initializeSnackMachine(Products product){
 
+    public void viewItemsInVendingMachine(){
+        for(Product p : items) {
+            System.out.println("Item ID: " + p.getId());
+            System.out.println("Name: " + p.getName());
+            System.out.println("Description: " + p.getDescription());
+            System.out.println("Price: " + p.getRetailPrice() + "\n");
+        }
 
     }
-    public void addItemIdToMachine(Products p){
+    public void addItemToMachine(Product p){
         items.add(p);
     }
 
 
-    @Override
-    public void insertCoin() {
 
-    }
 
-    @Override
+
+
     public void addLocation() {
 
     }
 
-    @Override
-    public void selectItem() {
 
-    }
 
-    @Override
-    public void dispenseItem() {
 
-    }
-    public void displayItems(){
-        for(Products p : items){
-            System.out.println(p.getId());
-            System.out.println(p.getName());
-            System.out.println(p.getDescription());
-            System.out.println(p.getRetailPrice());
 
-        }
-    }
+
+
+
+
+
+
+
 }

@@ -30,6 +30,6 @@ You have just started a company that operates different types of coin operated m
 ###  Drink machine
    The drink machine provides bottle and canned drinks for sale.  There are 3 shelves with 6 compartments on each shelf with 12 individual spaces for canned drinks.  There are 2 shelves with 5 compartments on each shelf with 8 individual spaces for bottled drinks.
     
-###  Products for sale
+###  Product for sale
    Each product should have a unique id, a name, a description, a wholesale price, and a retail sale price.  The vending machines will use the retail price for all items provided for sale
    

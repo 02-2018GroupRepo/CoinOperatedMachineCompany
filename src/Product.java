@@ -1,16 +1,16 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Products {
+public class Product {
 
-    private int id;
+    private String id;
     private String name;
     private String description;
     private double wholeSalePrice;
     private double retailPrice;
 
 
-    public Products(int id, String name, String description, double wholeSalePrice, double retailPrice) {
+    public Product(String id, String name, String description, double wholeSalePrice, double retailPrice) {
 
         this.id = id;
         this.name = name;
@@ -19,7 +19,7 @@ public class Products {
         this.retailPrice = retailPrice;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
