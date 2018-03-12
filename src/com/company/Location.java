@@ -11,6 +11,10 @@ public class Location {
         ArrayList<VendingMachine> machineList = new ArrayList<VendingMachine>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addMachine(VendingMachine machine){
         machineList.add(machine);
     }
