@@ -6,6 +6,7 @@ public class Wallet {
     private int dimes;
     private int quarters;
 
+
     public Wallet(){}
 
     public Wallet(int nickels, int dimes, int quarters){
@@ -19,6 +20,14 @@ public class Wallet {
 
     public double getNickelValue(){
         return (this.nickels * Coins.NICKEL);
+    }
+
+    public double getDimeValue(){
+        return (this.dimes * Coins.DIME);
+    }
+
+    public double getQuarterValue() {
+        return (this.quarters * Coins.QUARTER);
     }
 
     public void addDimes(int dimes){

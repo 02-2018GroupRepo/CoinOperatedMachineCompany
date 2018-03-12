@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class Shelf {
     Map<Integer, ArrayList<Product>> shelf;
-    public int spaces;
-    public int compartments;
+    private int spaces;
+    private int compartments;
 
     public Shelf(int spaces, int compartments) {
         this.shelf = new HashMap<Integer, ArrayList<Product>>();
@@ -17,11 +17,15 @@ public class Shelf {
         generateShelf(compartments);
     }
 
-    public void generateShelf(int compartments){
+    private void generateShelf(int compartments){
         for(int i=0; i < compartments; i++) {
             ArrayList<Product> productList = new ArrayList<Product>();
             shelf.put(i, productList);
         }
+    }
+
+    public Product getSpecificProduct(int compartment){
+        return this.shelf.get(compartment).get(0);
     }
 
     public void stockCompartment(int compartment, Product product){
@@ -39,10 +43,13 @@ public class Shelf {
 
     public void viewShelf(){
         for(Map.Entry<Integer, ArrayList<Product>> entry : shelf.entrySet()){
-            System.out.printf("Compartment" + entry.getKey() + ": ");
+            System.out.printf("Compartment " + entry.getKey() + ": ");
             for (int i =0; i < entry.getValue().size(); i++){
                 Product product = entry.getValue().get(i);
                 System.out.printf( product.getName() + " ");
+                if(i == 0){
+                    System.out.printf("|");
+                }
             }
             System.out.println("");
         }
