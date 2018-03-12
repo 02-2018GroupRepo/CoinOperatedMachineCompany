@@ -1,10 +1,10 @@
 package com.company;
 
 public class DrinkMachine extends Vending_Machine {
-    public DrinkMachine(){
+    public DrinkMachine(String location){
         MAX_ITEM_COUNT = 296;
 
-        location = "compton";
+        this.location = location;
         company = "MyCompany";
 
         //todo: add items to inStock map

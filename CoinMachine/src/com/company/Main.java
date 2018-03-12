@@ -16,8 +16,8 @@ public class Main {
         String choice;
 
         Scanner scanner = new Scanner(System.in);
-        SnackMachine candy = new SnackMachine();
-        DrinkMachine drinks = new DrinkMachine();
+        SnackMachine candy = new SnackMachine("Smyrna, Shared Space Building");
+        DrinkMachine drinks = new DrinkMachine("Smyrna, Shared Space Building");
 
         //testing vending machines
         candy.attemptPurchase(4, 0,0, "cracker"); //choice: cracker, exact change
@@ -32,11 +32,11 @@ public class Main {
         testOperator.getTotal(candy); //yes, get total from candy machine, see details
         testOperator.getTotal(drinks);//no, get total from machine, dont see detials
         testOperator.getAllTotal(candy, drinks); //get total from all machines
-        testOperator.removeMachine(candy); //removing candy machine
+        testOperator.removeMachine(candy); //removing candy machine, changes location to warehouse
         testOperator.addMachine(candy, "Baltimore"); //moving it to baltimore
 
 
-/* youll need to uncomment public void attemptPurchase(int Q, int D, int N) in Vending_Machine.java
+      /*youll need to uncomment public void attemptPurchase(int Q, int D, int N) in Vending_Machine.java
         while(!shutdown) {
             System.out.println("What kind of machine would you like? Snack or Drink or Done?");
             choice = scanner.next();
