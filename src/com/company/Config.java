@@ -25,15 +25,14 @@ public class Config {
         snackMachine.stockProduct(reeses, 2, 2, 4);
 
 
-        DrinkMachine drinkMachine = new DrinkMachine("test1");
-        Drink cocaCola = new Drink("1231232", "snickers", "test", 2.00, 2.00, true);
-        Drink sprite = new Drink("1231232", "reeses", "test", 2.00, 2.00, false);
-        Drink dietcoke = new Drink("1231232", "donut", "test", 2.00, 2.00, true);
-        Drink dietPepsi = new Drink("1231232", "snickers2", "test", 2.00, 2.00, false);
-        Drink drPepper = new Drink("1231232", "snickers3", "test", 2.00, 2.00, true);
-        Drink dietDrPepper = new Drink("1231232", "snickers4", "test", 2.00, 2.00, true);
-        Drink drink5 = new Drink("1231232", "snickers5", "test", 2.00, 2.00, false);
-        Drink pepsi = new Drink("1231232", "snickers5", "test", 2.00, 2.00, true);
+        DrinkMachine drinkMachine = new DrinkMachine("addawd");
+        Drink cocaCola = new Drink("1231232", "Coca-cola", "test", 2.00, 2.00, true);
+        Drink sprite = new Drink("1231232", "Sprite", "test", 2.00, 2.00, false);
+        Drink dietcoke = new Drink("1231232", "Diet Coke", "test", 2.00, 2.00, true);
+        Drink dietPepsi = new Drink("1231232", "Diet Pepsi", "test", 2.00, 2.00, false);
+        Drink drPepper = new Drink("1231232", "Dr.Pepper", "test", 2.00, 2.00, true);
+        Drink dietDrPepper = new Drink("1231232", "Diet Dr.Pepper", "test", 2.00, 2.00, true);
+        Drink pepsi = new Drink("1231232", "Pepsi", "test", 2.00, 2.00, true);
 
         drinkMachine.stockProduct(cocaCola, 10, 0, 0);
         drinkMachine.stockProduct(sprite, 5, 0, 1);

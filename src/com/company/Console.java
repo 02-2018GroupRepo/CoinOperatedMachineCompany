@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Console {
 
     public static void locationScreen(ArrayList<VendingMachine> vendingMachines) {
-        String locationSelection = "";
+        String locationSelection;
         try {
             BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
             locationSelection = customer.readLine();
@@ -22,16 +22,19 @@ public class Console {
     }
 
     public static void menuScreen(VendingMachine vendingMachine) {
-        System.out.println("1) View items.");
-        System.out.println("2) Insert coin.");
-        System.out.println("3) Purchase item.");
+        System.out.println("1) View items");
+        System.out.println("2) Insert coin");
+        System.out.println("3) Purchase item");
+        System.out.println("4) Refund");
+        System.out.println("5) Exit");
 
         try {
             BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
             String input = customer.readLine();
             switch (input) {
                 case "1":
-                    //viewItems
+                    viewItemsScreen(vendingMachine);
+                    menuScreen(vendingMachine);
                     break;
                 case "2":
                     insertCoinScreen(vendingMachine);
@@ -39,14 +42,37 @@ public class Console {
                 case "3":
                     itemSelectionScreen(vendingMachine);
                     break;
+                case "4":
+                    vendingMachine.refund();
+                    menuScreen(vendingMachine);
+                    break;
+                case "5":
+                    System.exit(0);
                 default:
                     System.out.println("Invalid input.");
+                    menuScreen(vendingMachine);
                     break;
             }
         } catch (Exception e) {
             System.out.println(e);
         }
 
+    }
+
+    public static void viewItemsScreen(VendingMachine vendingMachine) {
+        for (int j = 0; j < vendingMachine.getRows(); j++) {
+            int i = 0;
+            //forEach column
+            for (Product[] column : vendingMachine.getStorageArray()[j]) {
+                try {
+                    System.out.printf("Item: %s\nDescription: %s\nPrice: $%.2f\n", column[0].getName(), column[0].getDescription(), column[0].getRetailPrice());
+                    System.out.println("----------------------------------------------------------------");
+                } catch (NullPointerException e) {
+
+                }
+                i++;
+            }
+        }
     }
 
     public static void insertCoinScreen(VendingMachine vendingMachine) {

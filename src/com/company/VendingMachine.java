@@ -66,6 +66,8 @@ public abstract class VendingMachine {
                 this.totalNickels += this.currentNickleInput;
                 this.totalQuarters += this.currentQuarterInput;
                 this.resetCompartment(this.getStorageArray()[row][column], row, column);
+                System.out.printf("Change due: $%.2f\n", changeDue);
+                Console.menuScreen(this);
             } else {
                 double totalRemaining = product.getRetailPrice() - this.currentCoinInputTotal;
                 System.out.printf("Please insert $%.2f.\n\n", totalRemaining);
@@ -94,7 +96,7 @@ public abstract class VendingMachine {
     }
 
     public void refund() {
-        System.out.printf("You have received a refund of %.2f", this.currentCoinInputTotal);
+        System.out.printf("You have received a refund of %.2f\n", this.currentCoinInputTotal);
         this.currentCoinInputTotal = 0;
         this.currentNickleInput = 0;
         this.currentDimeInput = 0;
