@@ -28,9 +28,16 @@ public class Main extends Machine {
         drinkMachine1.insertMoney(4, 2, 2);
         drinkMachine1.purchaseProduct("A1");
         drinkMachine1.getProduct("B1");
+        drinkMachine1.getMachineMoney();
+        drinkMachine1.insertMoney(3, 2, 1);
+        drinkMachine1.purchaseProduct("A1");
+        drinkMachine1.getMachineMoney();
 
         drinkMachine2.insertMoney(4, 2, 2);
         drinkMachine2.purchaseProduct("B1");
+
+        drinkMachine1.getAllMachineMoney();
+        atlanta.getAllMachineMoney(sam);
 
 //        System.out.println("Are you an operator or a customer?");
 //        Scanner console = new Scanner(System.in);

@@ -3,9 +3,7 @@ package com.macmachines;
 public abstract class Machine {
     private String companyName;
     private String machineName;
-    private int machineQuarters;
-    private int machineDimes;
-    private int machineNickels;
+    private double machineMoney;
 
     public Machine() {}
 
@@ -14,14 +12,22 @@ public abstract class Machine {
         this.machineName = machineName;
     }
 
-    public void addToMachineMoney(int quarters, int dimes, int nickels) {
-        this.machineQuarters = quarters;
-        this.machineDimes = dimes;
-        this.machineNickels = nickels;
+    public void addToMachineMoney(double money) {
+        this.machineMoney += money;
     }
 
     public double getMachineMoney() {
-        return convertCoinsToCash(this.machineQuarters, this.machineDimes, this.machineNickels);
+        System.out.printf("Total machine cash: $%.2f\n", this.machineMoney);
+        int[] coinArray = convertCashToCoins(this.machineMoney);
+        System.out.println("Machine cash by coin type: " + coinArray[0] + " quarters, " + coinArray[1] + " dimes, and " + coinArray[2] + " nickels.");
+        return this.machineMoney;
+    }
+
+    public double getAllMachineMoney() {
+        System.out.println("Total money for all machines: $" + MachineTotals.allMachineMoney);
+        int[] coinArray = convertCashToCoins(MachineTotals.allMachineMoney);
+        System.out.println("All machine cash by coin type: " + coinArray[0] + " quarters, " + coinArray[1] + " dimes, and " + coinArray[2] + " nickels.");
+        return  MachineTotals.allMachineMoney;
     }
 
     public String getCompanyName() {
@@ -36,13 +42,14 @@ public abstract class Machine {
         return (Coin.QUARTER * quarters + Coin.DIME * dimes + Coin.NICKEL * nickels);
     }
 
-//    public int[] convertCashToCoins(double money) {
-//        int quarters = (int) Math.floor(money / Coin.QUARTER);
-//        money = money - quarters * Coin.QUARTER;
-//        int dimes = (int) Math.floor(money / Coin.DIME);
-//        money = money - dimes * Coin.DIME;
-//        int nickels = (int) (money / Coin.NICKEL);
-//        int[] coinArray = {quarters, dimes, nickels};
-//        return coinArray;
-//    }
+    public int[] convertCashToCoins(double money) {
+        int quarters = (int) Math.floor(money / Coin.QUARTER);
+        money = money - quarters * Coin.QUARTER;
+        int dimes = (int) Math.floor(money / Coin.DIME);
+        money = money - dimes * Coin.DIME;
+        int nickels = (int) (money / Coin.NICKEL);
+        int[] coinArray = {quarters, dimes, nickels};
+        return coinArray;
+    }
+
 }

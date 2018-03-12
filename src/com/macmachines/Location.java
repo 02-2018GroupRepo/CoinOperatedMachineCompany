@@ -40,4 +40,14 @@ public class Location {
         }
     }
 
+    public void getAllMachineMoney(Operator operator) {
+        if (Operator.class.isInstance(operator)) {
+            double total = 0;
+            for(Machine machine: machines) {
+                total += machine.getMachineMoney();
+            }
+            System.out.printf("Total machine money for " + this.locationName + ": $%.2f", total);
+        }
+    }
+
 }

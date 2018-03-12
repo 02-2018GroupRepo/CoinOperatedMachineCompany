@@ -37,13 +37,15 @@ public class Snack extends Machine {
     public void purchaseProduct(String compartment) {
         // Check if item is available
         if (products.get(compartment).isEmpty()) {
-            System.out.println("Product is out of stock");
+            System.out.println("Product is out of stock.");
         } else if (this.insertedMoney >= products.get(compartment).get(0).getRetailPrice()) {
             // Retrieve product from compartment
             Product purchasedProduct = products.get(compartment).get(0);
             System.out.println("You have purchased " + purchasedProduct.getName() + ".");
 
-            // Add to machine money
+            // Add to machine money and all machine money
+            addToMachineMoney(purchasedProduct.getRetailPrice());
+            MachineTotals.allMachineMoney += purchasedProduct.getRetailPrice();
 
             // Calculate change and remove item from slot in compartment
             double change = insertedMoney - purchasedProduct.getRetailPrice();
