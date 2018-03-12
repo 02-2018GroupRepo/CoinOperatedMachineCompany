@@ -2,7 +2,12 @@ package com.ML;
 
 abstract public class VendingMachine {
 
-    String company = "Thank you for using Lino's Coin Vending Inc.";
+    public static void main(String[] args) {
+
+        String company = "Thank you for using Lino's Coin Vending Inc.";
+        System.out.println(company);
+
+    }
 
 
     public void dispenseItem (String item){
@@ -15,6 +20,8 @@ abstract public class VendingMachine {
     public void moveNextItem(){
 
     }
+
+
 //    public void setLocation (String location);
 //
 //

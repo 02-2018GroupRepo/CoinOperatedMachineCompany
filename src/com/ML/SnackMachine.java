@@ -2,18 +2,18 @@ package com.ML;
 import java.util.HashMap;
 public class SnackMachine extends VendingMachine{
 
-    String company = "Thank you for using Lino's Coin Vending Inc.";
+
 
 
 
     // ArrayList snacks = new ArrayList<String>(25);
     //
 
-    Product a1 = new Product("Resse's","chocalate", .75, .25,10);
-    Product a2 = new Product("Hershey's","chocalate", .75, .25,10);
-    Product a3 = new Product("Milky Way","chocalate", .75, .25,10);
-    Product a4 = new Product("Butterfingers","chocalate", .75, .25,10);
-    Product a5 = new Product("Almond Joys","chocalate", .75, .25,10);
+    Product a1 = new Product("Resse's","Chocolate", .75, .25,10);
+    Product a2 = new Product("Hershey's","Chocolate", .75, .25,10);
+    Product a3 = new Product("Milky Way","Chocolate", .75, .25,10);
+    Product a4 = new Product("Butterfingers","Chocolate", .75, .25,10);
+    Product a5 = new Product("Almond Joys","Chocolate", .75, .25,10);
 
     Product b1 = new Product("Trail Mix","Nuts", 1.25,.50,10);
     Product b2 = new Product("Nature Valley Bar","bar", 1.25,.50,10);
