@@ -1,14 +1,11 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class SnackMachine extends VendingMachine {
-
-
+public class SnackDistributor {
     ArrayList<Products> snacks = new ArrayList<Products>();
-    ArrayList < ArrayList <Compartment>> inventory = new ArrayList < ArrayList<Compartment>>();
+    ArrayList <Compartment> inventory = new ArrayList <Compartment>();
 
 
-    public SnackMachine(){
+    public SnackDistributor(){
         setSnacks();
     }
 
@@ -45,39 +42,22 @@ public class SnackMachine extends VendingMachine {
 
     public void addCompartments() {
         int count = 0;
-        //columns
+        //rows
         for (int j = 0; j <5; j++) {
-            //rows
-            ArrayList<Compartment> shelf = new ArrayList<Compartment>();
             for (int i = 0; i <= 5; i++) {
                 Products snack = (this.snacks).get(count);
-                shelf.add(new Compartment(10, snack));
+                inventory.add(new Compartment(10, snack));
             }
 
-            inventory.add(shelf);
-            shelf = null;
-
         }
+
     }
 
-
-    public String getInventory(){
-        String str = "";
-        for(ArrayList<Compartment> shelf : this.inventory){
-            str +=  "a";
-//            for(Compartment compartment : shelf){
-//                str +=  "b";
-//                for(Products product : compartment.getProductList()){
-//                    str +=  "a";//product.getId() + ": " + product.getName() + " = " + product.getRetailPrice()+"\n";
-//                }
-//
-//            }
-//
-        }
-        return str;
-    }
+    //public ArrayList<Products> getSnacks(){
+    //    return this.snacks;
 
 
+    //}
 
 
 

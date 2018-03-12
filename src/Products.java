@@ -3,14 +3,14 @@ public class Products {
     //Each product should have a unique id, a name, a description, a wholesale price, and a retail sale price
 
     private String name;
-    private int id;
+    private String id;
     private String description;
     private double wholesalePrice;
     private double retailPrice;
 
     //if you make your constructor private, you can't create objects in main only in the current class
 
-    public Products(String name, String description, int id, double wholesalePrice, double retailPrice) {
+    public Products(String name, String description, String id, double wholesalePrice, double retailPrice) {
         this.name = name;
         this.description = description;
         this.id = id;
@@ -26,7 +26,7 @@ public class Products {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
