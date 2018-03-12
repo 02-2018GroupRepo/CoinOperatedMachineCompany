@@ -40,7 +40,7 @@ abstract class VendingMachine {
         // Print Changes
         if(changes >= 0) {
             System.out.println("Total Change is: ");
-            for (Map.Entry<Double, Integer> changeReturn : coin.returnChanges(changes).entrySet()) {
+            for (Map.Entry<String, Integer> changeReturn : coin.returnChanges(changes).entrySet()) {
                 System.out.println(changeReturn.getValue() + " " + changeReturn.getKey() + "s");
             }
         } else {
