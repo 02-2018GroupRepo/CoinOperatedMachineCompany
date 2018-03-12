@@ -1,5 +1,7 @@
 package com.fileCreating;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class Main {
     }
 
     public static void test1() {
-        Operator christian = new Operator();
+        Oraganization myStore = new Oraganization();
         SnackMachine vm = new SnackMachine();
 //        vm.intializeInventory();
 //        christian.addToInventory(0, 0, 5, "Candy");
@@ -22,12 +24,12 @@ public class Main {
 //
 //        vm.printInventory();
 
-        christian.setTotalNumCoins(25, 25, 25, vm);
-        christian.checkThisMachineTotalMoney(vm);
+        myStore.setTotalNumCoins(25, 25, 25, vm);
+        myStore.checkThisMachineTotalMoney(vm);
     }
 
     public static void test2() {
-        Operator christian = new Operator();
+        Oraganization christian = new Oraganization();
         SnackMachine clemsonVM1 = new SnackMachine();
         SnackMachine clemsonVM2 = new SnackMachine();
         SnackMachine atlantaVM1 = new SnackMachine();
@@ -65,7 +67,7 @@ public class Main {
     }
 
     public static void test3() {
-        Operator christian = new Operator();
+        Oraganization christian = new Oraganization();
 
         SnackMachine clemsonVM1 = new SnackMachine();
         SnackMachine clemsonVM2 = new SnackMachine();
@@ -111,7 +113,7 @@ public class Main {
     }
 
     public static void test4(){
-        Operator christian = new Operator();
+        Oraganization christian = new Oraganization();
         SnackMachine vm = new SnackMachine();
         christian.setTotalNumCoins(25, 25, 25, vm);
 

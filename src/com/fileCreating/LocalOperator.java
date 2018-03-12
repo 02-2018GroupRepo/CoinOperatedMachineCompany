@@ -2,9 +2,9 @@ package com.fileCreating;
 
 import java.util.ArrayList;
 
-public class Inventory extends VendingMachine {
+public class LocalOperator extends VendingMachine {
 
-    public Inventory(int numOfShelves, int numOfCompartments, int maxNumOfSpace) {
+    public LocalOperator(int numOfShelves, int numOfCompartments, int maxNumOfSpace) {
         super(numOfShelves, numOfCompartments, maxNumOfSpace);
 
         System.out.println("Int: " + inventory.length);

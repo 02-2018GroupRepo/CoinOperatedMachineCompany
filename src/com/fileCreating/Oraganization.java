@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Operator {
+public class Oraganization {
 
     private String password;
     private Map<String, ArrayList<VendingMachine>> myVMachinesList;
 
-    Operator() {
+    Oraganization() {
         this.password = "password";
         this.myVMachinesList = new HashMap<String, ArrayList<VendingMachine>>();
     }
