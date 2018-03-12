@@ -6,9 +6,15 @@ public class VendingMachine {
     private String location;
     private int numberOfMachines;
     private List<Product> items = new ArrayList<Product>();
+    private List<String> locationList = new ArrayList<String>();
+    private Company company;
+    private Coin coin;
+    private Product product;
+    private double selectionPrice;
+    private double totalAmount;
 
 
-    public VendingMachine(String s){
+    public VendingMachine(String s) {
         if (s.equalsIgnoreCase("snack")) {
             items.add(new Product("A1", "Cheetos", "Cheddar Jalapeno", .75, 1.25));
             items.add(new Product("A2", "Fritos", "Honey BBQ", .75, 1.25));
@@ -34,7 +40,7 @@ public class VendingMachine {
             items.add(new Product("E3", "Plain M&M's", "Chocolate", .75, 1.25));
             items.add(new Product("E4", "Baby Ruth", "Chocolate with Nuts", .75, 1.25));
             items.add(new Product("E5", "Butterfinger", "Crunchy Peanut Butter", .75, 1.25));
-        }else if(s.equalsIgnoreCase("drink")){
+        } else if (s.equalsIgnoreCase("drink")) {
             items.add(new Product("A1", "Coke", "Can", .25, .75));
             items.add(new Product("A2", "Diet Coke", "Can", .25, .75));
             items.add(new Product("A3", "Dr.Pepper", "Can", .25, .75));
@@ -66,47 +72,74 @@ public class VendingMachine {
         }
     }
 
+    // returns Company name
+    public String getCompany() {
+        return company.getCompanyName();
+    }
 
+    // Sets the company name for a machine.
+    public void setCompany(String company) {
+        Company c = new Company(company);
+        this.company = c;
+    }
 
+    // Displays Products in vending machine.
     public void displayItems() {
         for (Product p : items) {
             System.out.println("[ ID: " + p.getId() + " ] " +
-                    "[ Name: " +p.getName() + ", " +
+                    "[ Name: " + p.getName() + ", " +
                     ", " + p.getDescription() + " ] " +
                     "[ Price: " + p.getRetailPrice());
         }
     }
-    public void viewItemsInVendingMachine(){
-        for(Product p : items) {
-            System.out.println("Item ID: " + p.getId());
-            System.out.println("Name: " + p.getName());
-            System.out.println("Description: " + p.getDescription());
-            System.out.println("Price: " + p.getRetailPrice() + "\n");
+
+    // Gives the machine a location
+    public void addLocation(String location) {
+        locationList.add(location);
+        System.out.println(location + " Location added");
+    }
+
+    // Insert Coin in Machine ** ?? Does the coin class need to be used for this?
+    public void insertCoin(double coin) {
+        if (coin == getSelectionPrice()){
+            System.out.println("Item dispensed");
+        } else {
+            System.out.println("Not Enough Money");
         }
-
-    }
-    public void addItemToMachine(Product p){
-        items.add(p);
     }
 
-
-
-
-
-
-    public void addLocation() {
-
+    //Dispenses item from machine **
+    public void dispenseItem() {
+        if (getTotalAmount() == getSelectionPrice()) {
+            System.out.println(product.getName() + " Dispensed!");
+        }else if(getTotalAmount() > getSelectionPrice()){
+            double surplus = getTotalAmount() - getSelectionPrice();
+            System.out.println("Item dispensed.  Your change is: $" + surplus);
+        }else {
+            System.out.println("Your money has been returned.");
+        }
     }
 
+    // Returns the retail price for the product selected.
+    public double getSelectionPrice() {
+        return selectionPrice;
+    }
 
-
-
-
-
-
-
-
-
+    // Selects item from Vending machine by Product ID
+    public void selectItem(String item) {
+        double amount = 0;
+        for (Product p : items) {
+            if (item.equalsIgnoreCase(p.getId())) {
+                System.out.println("You Selected: " + p.getName() + ", " + p.getDescription() + ". \n" +
+                        "Please insert $" + p.getRetailPrice());
+                amount = p.getRetailPrice();
+            }
+        }
+        this.selectionPrice = amount;
+    }
+    public double getTotalAmount(){
+        return totalAmount;
+    }
 
 
 }
