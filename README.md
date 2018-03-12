@@ -1,7 +1,9 @@
-# Coin Operated Machine Company
-You have just started a company that operates different types of coin operated machines. You will be writing one or more programs to perform the following activities:
+test changes
 
-1. Create a unique name for your company. Every machine should provide a way to return the name of the company.
+# Coin Operated Machine Company
+You have just started a com.company that operates different types of coin operated machines. You will be writing one or more programs to perform the following activities:
+
+1. Create a unique name for your com.company. Every machine should provide a way to return the name of the com.company.
 
 2. All machines are coin operated and will accept one or more of the following coins: nickels, dimes, and quarters.  Each machine description will define the coins accepted by that machine.
 
