@@ -9,7 +9,6 @@ public class Drink extends Machine {
     private int insertedQuarters;
     private int insertedDimes;
     private int insertedNickels;
-    private int machineQuarters;
     private double insertedMoney;
 
     private Drink() {}
