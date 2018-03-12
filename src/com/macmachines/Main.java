@@ -2,19 +2,28 @@ package com.macmachines;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Main extends Machine {
 
     public static void main(String[] args) {
         Operator sam = new Operator();
+        Operator ralph = new Operator();
         HashMap<String, ArrayList<Product>> drinkProducts = createDrinkProducts();
 
         Drink drinkMachine1 = new Drink("MacMachines", "Bleep", drinkProducts);
         Drink drinkMachine2 = new Drink("MacMachines", "Bloop", drinkProducts);
+        Drink drinkMachine3 = new Drink("MacMachines", "Whirr", drinkProducts);
+        Drink drinkMachine4 = new Drink("MacMachines", "Zoom", drinkProducts);
         Location atlanta = new Location("Atlanta");
+        Location smyrna = new Location("Smyrna");
         atlanta.addMachine(sam, drinkMachine1);
         atlanta.addMachine(sam, drinkMachine2);
+        smyrna.addMachine(ralph, drinkMachine3);
+        smyrna.addMachine(ralph, drinkMachine4);
+        atlanta.removeMachine(sam, 0);
         atlanta.listMachines(sam);
+        smyrna.listMachines(ralph);
 
         drinkMachine1.insertMoney(4, 2, 2);
         drinkMachine1.purchaseProduct("A1");
@@ -23,6 +32,30 @@ public class Main extends Machine {
         drinkMachine2.insertMoney(4, 2, 2);
         drinkMachine2.purchaseProduct("B1");
 
+//        System.out.println("Are you an operator or a customer?");
+//        Scanner console = new Scanner(System.in);
+//        String user = console.next();
+//        if (user.equalsIgnoreCase("customer")) {
+//            boolean customerDone = true;
+//            do {
+//                System.out.println("Which action would you like to perform? \n" +
+//                        "1 Product information \n" +
+//                        "2 Purchase item");
+//                int action = console.nextInt();
+//                switch (action) {
+//                    case 1:
+//                        System.out.println("Please input compartment for item information. ex.A1");
+//                        String compartment = console.next();
+//
+//                    case 2:
+//                }
+//            } while (customerDone);
+//
+//        } else if (user.equalsIgnoreCase("operator")) {
+//
+//        } else {
+//            System.out.println("Not valid user type.  Please try again.");
+//        }
     }
 
     public static HashMap<String, ArrayList<Product>> createDrinkProducts() {

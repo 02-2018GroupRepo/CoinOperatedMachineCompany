@@ -35,6 +35,7 @@ public class Location {
 
     public void removeMachine(Operator operator, int index) {
         if(Operator.class.isInstance(operator)) {
+            System.out.println(machines.get(0).getMachineName() + " was removed.");
             machines.remove(index);
         }
     }
