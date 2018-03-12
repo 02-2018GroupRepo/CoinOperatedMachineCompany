@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -19,13 +18,16 @@ public class Main {
         SnackMachine candy = new SnackMachine("Smyrna, Shared Space Building");
         DrinkMachine drinks = new DrinkMachine("Smyrna, Shared Space Building");
 
+        //candy.showMenu();
+        //drinks.showMenu();
+
         //testing vending machines
-        candy.attemptPurchase(4, 0,0, "cracker"); //choice: cracker, exact change
-        candy.attemptPurchase(4, 0, 0, "apple"); //choice: apple, has enough money will return 2 quarters
-        candy.attemptPurchase(1,1,1, "orange"); // choice: orange, does not have enough money
-        drinks.attemptPurchase(4,0,0, "water0"); //choice water0, exact amount
-        drinks.attemptPurchase(2, 2, 2, "pepsi"); //choice pepsi, returns 30cents, 1 quarter 1 nickel
-        drinks.attemptPurchase(1, 0, 0,"water0"); //choice water0, not enough
+        candy.attemptPurchase(4, 0,0, "A2"); //choice: cracker, exact change
+        candy.attemptPurchase(4, 0, 0, "E1"); //choice: apple, has enough money will return 2 quarters
+        candy.attemptPurchase(1,1,1, "E2");  // choice: orange, does not have enough money
+        drinks.attemptPurchase(4,0,0, "D1"); //choice water0, exact amount
+        drinks.attemptPurchase(2, 2, 2, "A1"); //choice pepsi, returns 30cents, 1 quarter 1 nickel
+        drinks.attemptPurchase(1, 0, 0,"D1"); //choice water0, not enough
 
         //testing operator
         Operator testOperator = new Operator();
@@ -43,17 +45,7 @@ public class Main {
 
             if (choice.toLowerCase().equals("snack")) {
 
-                for (Map.Entry<Products, Integer> entry : candy.inStock.entrySet()) {
-                    System.out.print(entry.getKey().getName() + " $" + entry.getKey().getRetailPrice());
-                    if (counter < 5) {
-                        System.out.print("\t");
-                        counter++;
-                    } else {
-                        System.out.println("");
-                        counter = 0;
-                    }
-
-                }
+                candy.showMenu();
 
                 System.out.println("Insert money before making Selection");
 
@@ -132,9 +124,7 @@ public class Main {
             } else {
 
 
-                for (Map.Entry<Products, Integer> entry : drinks.inStock.entrySet()) {
-                    System.out.print(entry.getKey().getName() + " $" + entry.getKey().getRetailPrice());
-                }
+                drinks.showMenu();
 
                 System.out.println("Insert money before making Selection");
 

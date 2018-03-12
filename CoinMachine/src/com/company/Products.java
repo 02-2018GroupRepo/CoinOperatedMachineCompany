@@ -2,13 +2,13 @@ package com.company;
 
 public class Products {
 
-    private int id; //needs to be unique
+    private String id; //needs to be unique
     private String name;
     private String description;
     private double salePrice; //cost of item to venching machine company
     private double retailPrice; //price vending machine is using
 
-    public Products(int id, String name, String description, double salePrice, double retailPrice){
+    public Products(String id, String name, String description, double salePrice, double retailPrice){
         this.id = id;
         this.name = name;
         this.description = description;
@@ -16,7 +16,7 @@ public class Products {
         this.retailPrice = retailPrice;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

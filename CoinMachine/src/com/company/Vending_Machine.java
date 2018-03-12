@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Vending_Machine {
 
@@ -40,6 +38,20 @@ public class Vending_Machine {
 
     public void setCompany(String company){
         this.company = company;
+    }
+
+    public void showMenu(){
+        ArrayList<String> candySort = new ArrayList<String>();
+
+        for (Map.Entry<Products, Integer> entry : inStock.entrySet()) {
+            candySort.add(entry.getKey().getId() + " " + entry.getKey().getName() + " $" + entry.getKey().getRetailPrice());
+        }
+
+        Collections.sort(candySort);
+
+        for(String i: candySort) {
+            System.out.println(i);
+        }
     }
 
     public String getChange(double change){
@@ -115,7 +127,7 @@ public class Vending_Machine {
         double total = (Q* coin.QUARTER ) + (N * coin.NICKEL) + (D * coin.DIME);
 
         for(Products i : inStock.keySet()){
-            if(choice.toLowerCase().equals(i.getName())) {
+            if(choice.equals(i.getId())) {
                 if (total > i.getRetailPrice()) {
                     addMoney(Q, D, N);
                     buyProduct(i);
@@ -129,6 +141,7 @@ public class Vending_Machine {
                 break;
             }
         }
+
 
 
     }
