@@ -15,10 +15,13 @@ public abstract class VendingMachine {
         this.wallet = wallet;
     }
 
+    public ArrayList<Shelf> getShelves() {
+        return shelves;
+    }
+
     public String getCompany() {
         return company;
     }
-
 
     public void purchaseProduct(){
         System.out.println("How many Nickles do you want to enter?");
@@ -66,7 +69,5 @@ public abstract class VendingMachine {
                 (dimes * Coins.DIME) +
                 (quarters * Coins.QUARTER));
     }
-
-
 
 }

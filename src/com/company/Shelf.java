@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Shelf {
@@ -10,7 +9,7 @@ public class Shelf {
     private int spaces;
     private int compartments;
 
-    public Shelf(int spaces, int compartments) {
+    public Shelf(int compartments, int spaces) {
         this.shelf = new HashMap<Integer, ArrayList<Product>>();
         this.spaces = spaces;
         this.compartments = compartments;
