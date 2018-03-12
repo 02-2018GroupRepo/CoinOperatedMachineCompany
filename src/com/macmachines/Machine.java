@@ -3,31 +3,51 @@ package com.macmachines;
 public abstract class Machine {
     private String companyName;
     private String machineName;
-    private double machineMoney;
+    private int machineQuarters = 100;
+    private int machineDimes = 100;
+    private int machineNickels = 100;
 
     public Machine() {}
 
     public Machine(String companyName, String machineName) {
         this.companyName = companyName;
         this.machineName = machineName;
+        MachineTotals.allMachineQuarters += this.machineQuarters;
+        MachineTotals.allMachineDimes += this.machineDimes;
+        MachineTotals.allMachineNickels += this.machineNickels;
     }
 
-    public void addToMachineMoney(double money) {
-        this.machineMoney += money;
+    public void addToMachineMoney(int quarters, int dimes, int nickels) {
+        this.machineQuarters += quarters;
+        this.machineDimes += dimes;
+        this.machineNickels += nickels;
+        MachineTotals.allMachineQuarters += quarters;
+        MachineTotals.allMachineDimes += dimes;
+        MachineTotals.allMachineNickels += nickels;
+    }
+
+    public void removeMachineMoney(int quarters, int dimes, int nickels) {
+        this.machineQuarters -= quarters;
+        this.machineDimes -= dimes;
+        this.machineNickels -= nickels;
+        MachineTotals.allMachineQuarters -= quarters;
+        MachineTotals.allMachineDimes -= dimes;
+        MachineTotals.allMachineNickels -= nickels;
     }
 
     public double getMachineMoney() {
-        System.out.printf("Total machine cash: $%.2f\n", this.machineMoney);
-        int[] coinArray = convertCashToCoins(this.machineMoney);
-        System.out.println("Machine cash by coin type: " + coinArray[0] + " quarters, " + coinArray[1] + " dimes, and " + coinArray[2] + " nickels.");
-        return this.machineMoney;
+        double machineMoney = convertCoinsToCash(this.machineQuarters, this.machineDimes, this.machineNickels);
+        System.out.printf("Total machine cash: $%.2f\n", machineMoney);
+        int[] coinArray = convertCashToCoins(machineMoney);
+        System.out.println("Machine cash by coin type: " + this.machineQuarters + " quarters, " + this.machineDimes + " dimes, and " + this.machineNickels + " nickels.");
+        return machineMoney;
     }
 
     public double getAllMachineMoney() {
-        System.out.println("Total money for all machines: $" + MachineTotals.allMachineMoney);
-        int[] coinArray = convertCashToCoins(MachineTotals.allMachineMoney);
-        System.out.println("All machine cash by coin type: " + coinArray[0] + " quarters, " + coinArray[1] + " dimes, and " + coinArray[2] + " nickels.");
-        return  MachineTotals.allMachineMoney;
+        double allMachineMoneyCash = convertCoinsToCash(MachineTotals.allMachineQuarters, MachineTotals.allMachineDimes, MachineTotals.allMachineNickels);
+        System.out.println("Total money for all machines: $" + allMachineMoneyCash);
+        System.out.println("All machine cash by coin type: " + MachineTotals.allMachineQuarters + " quarters, " + MachineTotals.allMachineDimes + " dimes, and " + MachineTotals.allMachineNickels + " nickels.");
+        return  allMachineMoneyCash;
     }
 
     public String getCompanyName() {

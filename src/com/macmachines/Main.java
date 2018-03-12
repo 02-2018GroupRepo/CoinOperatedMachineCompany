@@ -22,10 +22,10 @@ public class Main extends Machine {
         smyrna.addMachine(sam, drinkMachine2);
         smyrna.addMachine(sam, snackMachine2);
 
-//        drinkMachine1.insertMoney(4, 2, 2);
-//        drinkMachine1.purchaseProduct("A1");
+        drinkMachine1.insertMoney(4, 2, 2);
+        drinkMachine1.purchaseProduct("A1");
 //        drinkMachine1.getProduct("B1");
-//        drinkMachine1.getMachineMoney();
+        drinkMachine1.getMachineMoney();
 //        drinkMachine1.insertMoney(3, 2, 1);
 //        drinkMachine1.purchaseProduct("A1");
 //        drinkMachine1.getMachineMoney();
@@ -36,30 +36,31 @@ public class Main extends Machine {
 //        drinkMachine1.getAllMachineMoney();
 //        atlanta.getAllMachineMoney(sam);
 
-        System.out.println("Are you an operator or a customer?");
-        Scanner console = new Scanner(System.in);
-        String user = console.next();
-        if (user.equalsIgnoreCase("customer")) {
-            boolean customerDone = true;
-            do {
-                System.out.println("Which action would you like to perform? \n" +
-                        "1 Product information \n" +
-                        "2 Purchase item");
-                int action = console.nextInt();
-                switch (action) {
-                    case 1:
-                        System.out.println("Please input compartment for item information. ex.A1");
-                        String compartment = console.next();
-
-                    case 2:
-                }
-            } while (customerDone);
-
-        } else if (user.equalsIgnoreCase("operator")) {
-
-        } else {
-            System.out.println("Not valid user type.  Please try again.");
-        }
+//        System.out.println("Are you an operator or a customer?");
+//        Scanner console = new Scanner(System.in);
+//        String user = console.next();
+//        if (user.equalsIgnoreCase("customer")) {
+//
+//            boolean customerDone = true;
+//            do {
+//                System.out.println("Which action would you like to perform? \n" +
+//                        "1 Product information \n" +
+//                        "2 Purchase item");
+//                int action = console.nextInt();
+//                switch (action) {
+//                    case 1:
+//                        System.out.println("Please input compartment for item information. ex.A1");
+//                        String compartment = console.next();
+//
+//                    case 2:
+//                }
+//            } while (customerDone);
+//
+//        } else if (user.equalsIgnoreCase("operator")) {
+//
+//        } else {
+//            System.out.println("Not valid user type.  Please try again.");
+//        }
     }
 
     public static HashMap<String, ArrayList<Product>> createDrinkProducts() {

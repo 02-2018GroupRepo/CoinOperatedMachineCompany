@@ -44,11 +44,12 @@ public class Drink extends Machine {
             System.out.println("You have purchased " + purchasedProduct.getName() + ".");
 
             // Add to machine money and all machine money
-            addToMachineMoney(purchasedProduct.getRetailPrice());
-            MachineTotals.allMachineMoney += purchasedProduct.getRetailPrice();
+            addToMachineMoney(this.insertedQuarters, this.insertedDimes, this.insertedNickels);
 
-            // Calculate change and remove item from slot in compartment
+            // Calculate change, coins to remove, and remove item from slot in compartment
             double change = insertedMoney - purchasedProduct.getRetailPrice();
+            int[] coinsToRemove = convertCashToCoins(change);
+            removeMachineMoney(coinsToRemove[0], coinsToRemove[1], coinsToRemove[2]);
             products.get(compartment).remove(0);
             resetInsertedMoney();
             System.out.printf("Your change is: " + "$%.2f\n", change);
