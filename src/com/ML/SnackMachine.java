@@ -1,20 +1,9 @@
 package com.ML;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.AbstractMap;
-
-public class SnackMachine implements VendingMachine {
-
+public class SnackMachine extends VendingMachine{
 
     String company = "Thank you for using Lino's Coin Vending Inc.";
 
-    public void setLocation (String location);
-
-    public void dispenseItem (String item);
-
-    public void returnChange (String change);
 
 
     // ArrayList snacks = new ArrayList<String>(25);
@@ -56,12 +45,11 @@ public class SnackMachine implements VendingMachine {
 
     HashMap<String,Product> snacks = new HashMap<String,Product>(25);
 
-    snacks.Entry<0,a1>;
+    //snacks.Entry<0,a1>;
 
 
 
-
-
+//
 
 
 }

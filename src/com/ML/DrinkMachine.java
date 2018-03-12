@@ -1,8 +1,6 @@
 package com.ML;
 
-import java.util.ArrayList;
-
-public class DrinkMachine implements VendingMachine{
+public class DrinkMachine extends VendingMachine{
 
     //ArrayList drinks = new ArrayList(28);
 
