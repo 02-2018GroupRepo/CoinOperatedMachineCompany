@@ -27,18 +27,25 @@ public class Main {
 
 
         System.out.println(rootBeer.getUniqueID());
-        System.out.println(domain.Coins.Quarter.getValue());
 
+/*
         DrinkMachine somemachine = new DrinkMachine();
         Coin somecoins = new Coin();
         somecoins.setDimes(10);
-        somemachine.setCoins(somecoins);
+        somemachine.setCoins(somecoins);*/
+
+        DrinkMachine Drink_M_ATL = new DrinkMachine();
+        Coin Drink_M_ATL_coin = new Coin();
+        Drink_M_ATL_coin.setDimes(20);
+        Drink_M_ATL_coin.setNickels(30);
+        Drink_M_ATL_coin.setQuarters(25);
 
 
 
-        long totalcoincount = somemachine.getCoins().getDimes() + somemachine.getCoins().getNickels() + somemachine.getCoins().getQuarters()
+//        long somemachinetotalcoincount = somemachine.getCoins().getDimes() + somemachine.getCoins().getNickels() + somemachine.getCoins().getQuarters()
 
-        System.out.println("");
+        long testervar = Drink_M_ATL.getTotalCoinCount(Drink_M_ATL_coin);
+        System.out.println("look here asshole "+ testervar);
     }
 //
 

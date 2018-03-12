@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.UUID;
 
 public class Product {
     private final int uniqueID;
