@@ -19,11 +19,8 @@ public abstract class VendingMachine {
         return company;
     }
 
-    public void purchaseProduct(){
-        getPayment();
-    }
 
-    public void getPayment(){
+    public void purchaseProduct(){
         System.out.println("How many Nickles do you want to enter?");
         Scanner nin = new Scanner(System.in);
         int nickels = nin.nextInt();
