@@ -2,12 +2,14 @@ package com.company;
 
 public class DrinkMachine extends VendingMachine {
 
-    public DrinkMachine (String location) {
+    public DrinkMachine (String location, String company) {
+        this.machineType = "Drink Machine";
         this.location = location;
         this.rows = 5;
         this.columns = 6;
         this.spacePerCompartment = 12;
         this.storageArray = new Product[this.rows][this.columns][this.spacePerCompartment];
+        this.companyName = company;
     }
 
     @Override

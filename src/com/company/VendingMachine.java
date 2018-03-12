@@ -11,6 +11,7 @@ public abstract class VendingMachine {
     public int spacePerCompartment;
     public Product[][][] storageArray;
     public String location;
+    public String machineType;
     public double totalNickels;
     public double totalDimes;
     public double totalQuarters;
@@ -18,9 +19,18 @@ public abstract class VendingMachine {
     public double currentNickleInput;
     public double currentDimeInput;
     public double currentQuarterInput;
+    public String companyName;
+
+    public String getCompanyName() {
+        return companyName;
+    }
 
     public String getLocation() {
         return location;
+    }
+
+    public String getMachineType() {
+        return machineType;
     }
 
     public void setLocation(String location) {

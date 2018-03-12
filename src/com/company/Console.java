@@ -1,24 +1,57 @@
 package com.company;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Console {
 
     public static void locationScreen(ArrayList<VendingMachine> vendingMachines) {
         String locationSelection;
+        Map<Integer, VendingMachine> vendingMachineSelectionMap = new HashMap<>();
+        int i = 1;
         try {
             BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
             locationSelection = customer.readLine();
             for (VendingMachine vendingMachine : vendingMachines) {
                 if (vendingMachine.getLocation().equals(locationSelection)) {
-                    menuScreen(vendingMachine);
+                    System.out.printf("%d) %s\n", i, vendingMachine.getMachineType());
+                    vendingMachineSelectionMap.put(i, vendingMachine);
+                    i++;
                 }
             }
+            vendingMachineSelectionScreen(vendingMachineSelectionMap);
+
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static void vendingMachineSelectionScreen(Map<Integer, VendingMachine> vendingMachineMap) {
+        System.out.println("Please select a vending machine at this location: ");
+        for (int i=0; i <= vendingMachineMap.size(); i++) {
+            System.out.printf("%d) %s\n", i + 1, vendingMachineMap.get(i + 1).getMachineType());
+        }
+
+        try {
+            BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
+            String machineSelection = customer.readLine();
+
+            if (vendingMachineMap.containsKey(Integer.parseInt(machineSelection))) {
+                menuScreen(vendingMachineMap.get(Integer.parseInt(machineSelection)));
+            } else {
+                System.out.println("Invalid input");
+                vendingMachineSelectionScreen(vendingMachineMap);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 
     public static void menuScreen(VendingMachine vendingMachine) {
@@ -26,7 +59,9 @@ public class Console {
         System.out.println("2) Insert coin");
         System.out.println("3) Purchase item");
         System.out.println("4) Refund");
-        System.out.println("5) Exit");
+        System.out.println("5) Company Info");
+        System.out.println("6) Operator Console");
+        System.out.println("7) Exit");
 
         try {
             BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
@@ -47,12 +82,32 @@ public class Console {
                     menuScreen(vendingMachine);
                     break;
                 case "5":
+                    System.out.println(vendingMachine.getCompanyName());
+                case "6":
+                    //Access Operator Info
+                    System.out.println(vendingMachine.getCompanyName());
+                case "7":
                     System.exit(0);
                 default:
                     System.out.println("Invalid input.");
                     menuScreen(vendingMachine);
                     break;
             }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public static void operatorScreen() {
+        System.out.println("Enter password: ");
+        try {
+            BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
+            String machineSelection = customer.readLine();
+
+            
+
+
         } catch (Exception e) {
             System.out.println(e);
         }
