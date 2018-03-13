@@ -6,6 +6,7 @@ public class SnackMachine {
 
     private String machineId;
     private ArrayList<Shelf> snackShelf = new ArrayList<Shelf>();
+    private RandomCharGenerator randomly = new RandomCharGenerator();
 
 
     public SnackMachine(String machineId){
