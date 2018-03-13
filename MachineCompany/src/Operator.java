@@ -25,8 +25,10 @@ public class Operator {
 
     }
     public void getAmtOfIndividualCoinFromMachine(VendingMachine vendingMachine){
-        System.out.println("Num of quarters in machine "+vendingMachine.getNumOfQuartersInMachine()+" Num of Dimes in machine "+vendingMachine.getNumOfDimesInMachine()+
-        " Num of nickels "+vendingMachine.getNumOfNickelinMachine());
+        System.out.println("Num of quarters in machine  = "+vendingMachine.getNumOfQuartersInMachine()+" Num of Dimes in machine = "+vendingMachine.getNumOfDimesInMachine()+
+        " Num of nickels in machine = "+vendingMachine.getNumOfNickelinMachine());
+        double total = vendingMachine.getQuarterValue() + vendingMachine.getNickelValue() + vendingMachine.getDimeValue();
+        System.out.println("Total amount by individual coins "+total);
 
     }
     public double getTotalFromAllMachines(){
