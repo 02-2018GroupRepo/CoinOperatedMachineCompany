@@ -16,7 +16,7 @@ public class Config {
         Snack mm = new Snack("7", "M&Ms", "M&Ms", 0.25, 0.25);
 
 
-        SnackMachine snackMachine = new SnackMachine("Atlanta");
+        SnackMachine snackMachine = new SnackMachine("Atlanta", "The VendingMachine Company");
         snackMachine.stockProduct(snickers, 10, 0, 0);
         snackMachine.stockProduct(crunchbar, 10, 1, 0);
         snackMachine.stockProduct(potatoChips, 5, 0, 1);
@@ -26,7 +26,7 @@ public class Config {
         snackMachine.stockProduct(reeses, 2, 2, 4);
 
 
-        DrinkMachine drinkMachine = new DrinkMachine("Atlanta");
+        DrinkMachine drinkMachine = new DrinkMachine("Atlanta", "The VendingMachine Company");
         Drink cocaCola = new Drink("8", "Coca-cola", "Coca-cola", 2.00, 2.00, true);
         Drink sprite = new Drink("9", "Sprite", "Sprite", 2.00, 2.00, false);
         Drink dietcoke = new Drink("10", "Diet Coke", "Diet Coke", 2.00, 2.00, true);
@@ -49,7 +49,7 @@ public class Config {
         vendingMachines.add(drinkMachine);
         vendingMachines.add(snackMachine);
 
-        Company company = new Company("The VendingMachine Company", vendingMachines);
+        Company company = new Company("The VendingMachine Company", "123", vendingMachines);
 
         return vendingMachines;
     }

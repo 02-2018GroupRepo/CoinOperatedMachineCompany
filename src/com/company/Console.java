@@ -19,7 +19,6 @@ public class Console {
             locationSelection = customer.readLine();
             for (VendingMachine vendingMachine : vendingMachines) {
                 if (vendingMachine.getLocation().equals(locationSelection)) {
-                    System.out.printf("%d) %s\n", i, vendingMachine.getMachineType());
                     vendingMachineSelectionMap.put(i, vendingMachine);
                     i++;
                 }
@@ -33,8 +32,8 @@ public class Console {
 
     public static void vendingMachineSelectionScreen(Map<Integer, VendingMachine> vendingMachineMap) {
         System.out.println("Please select a vending machine at this location: ");
-        for (int i=0; i <= vendingMachineMap.size(); i++) {
-            System.out.printf("%d) %s\n", i + 1, vendingMachineMap.get(i + 1).getMachineType());
+        for (int i=1; i <= vendingMachineMap.size(); i++) {
+            System.out.printf("%d) %s\n", i, vendingMachineMap.get(i).getMachineType());
         }
 
         try {
@@ -83,11 +82,13 @@ public class Console {
                     break;
                 case "5":
                     System.out.println(vendingMachine.getCompanyName());
+                    break;
                 case "6":
-                    //Access Operator Info
-                    System.out.println(vendingMachine.getCompanyName());
+                    operatorScreen(vendingMachine);
+                    break;
                 case "7":
                     System.exit(0);
+                    break;
                 default:
                     System.out.println("Invalid input.");
                     menuScreen(vendingMachine);
@@ -99,13 +100,32 @@ public class Console {
 
     }
 
-    public static void operatorScreen() {
+    public static void operatorScreen(VendingMachine vendingMachine) {
         System.out.println("Enter password: ");
         try {
             BufferedReader customer = new BufferedReader(new InputStreamReader(System.in));
-            String machineSelection = customer.readLine();
+            String password = customer.readLine();
+            if (password.equals(new String("123"))) {
+                System.out.println("1) View coin information.");
+                System.out.println("2) View inventory.");
+                customer = new BufferedReader(new InputStreamReader(System.in));
+                switch (customer.readLine()) {
+                    case "1":
+                        System.out.printf("%.2f\n", vendingMachine.getTotal());
+                        break;
+                    case "2":
+                        vendingMachine.getInventory();
+                        break;
+                    default:
+                        System.out.println("Invalid selection.");
+                }
 
-            
+            } else {
+                System.out.println("Invalid password");
+
+            }
+
+
 
 
         } catch (Exception e) {

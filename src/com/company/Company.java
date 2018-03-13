@@ -6,18 +6,25 @@ import java.util.List;
 public class Company {
     private String name;
     private List<VendingMachine> vendingMachines;
+    private String password;
 
-    public Company(String name) {
+    public Company(String name, String password) {
         this.name = name;
+        this.password = password;
     }
 
-    public Company(String name, List<VendingMachine> vendingMachines) {
+    public Company(String name, String password, List<VendingMachine> vendingMachines) {
         this.name = name;
         this.vendingMachines = vendingMachines;
+        this.password = password;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setName(String name) {
