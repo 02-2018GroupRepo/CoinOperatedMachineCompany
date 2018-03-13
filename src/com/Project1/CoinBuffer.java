@@ -19,20 +19,6 @@ public class CoinBuffer {
         int d = 9;
     }
 
-    enum COINS {
-        NICKEL(.05), DIME(.10), QUARTER(.25);
-        double value;
-
-        COINS(double v) {
-            value = v;
-        }
-
-        double getValue() {
-
-            return value;
-        }
-    }
-
     private void flush() {
         parentMachine.addQuarters(holdings.get(AbstractMachine.COINS.QUARTER));
         parentMachine.addDimes(holdings.get(AbstractMachine.COINS.DIME));
@@ -43,8 +29,6 @@ public class CoinBuffer {
         holdings.replace(AbstractMachine.COINS.NICKEL, 0);
 
         total = 0;
-
-
     }
 
     public void initiateInterface() {
@@ -76,23 +60,22 @@ public class CoinBuffer {
                         break;
                     case "SELECT":
                         try {
-                            parentMachine.removeItem(fullInput[1], total);
+                            double difference = parentMachine.removeItem(fullInput[1], total);
+                            if(difference>0)
+                                System.out.println("Your Change is $" + difference);
+                            //todo: greedy-algorithm(difference) for coins to return to user
                             flush();
                         } catch (BADENTRY b) {
-                            System.out.println("That entry does not exist");
+                            System.out.println("That entry does not exist or is out of stock");
                         } catch (INSUFFICIENTFUNDS in) {
                             System.out.println("Not enough money");
                         }
                         parentMachine.displayInventory();
                 }
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 
     private void addQuarterToBuffer() {
@@ -107,7 +90,6 @@ public class CoinBuffer {
         holdings.replace(AbstractMachine.COINS.DIME, more + 1);
         total += .1;
         System.out.println(total);
-
     }
 
     private void addNickelToBuffer() {
@@ -115,7 +97,5 @@ public class CoinBuffer {
         holdings.replace(AbstractMachine.COINS.NICKEL, more + 1);
         total += .05;
         System.out.println(total);
-
     }
-
 }

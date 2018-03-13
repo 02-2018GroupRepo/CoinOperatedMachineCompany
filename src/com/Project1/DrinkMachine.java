@@ -6,14 +6,17 @@ public class DrinkMachine extends AbstractMachine {
 
     protected LinkedList[][] machine;
 
-
     DrinkMachine(Location location) {
         myLocation =location;
+        createRows();
+        coinBuffer = new CoinBuffer(this);
+        coinBuffer.initiateInterface();
+    }
+
+    void createRows(){
         machine = new LinkedList[5][];
-
-        int columns = 0;
+        int columns;
         columns = 6;
-
         for (int i = 0; i < machine.length; i++) {
             if (i < 3) {
                 machine[i] = new LinkedList[columns];
@@ -25,19 +28,9 @@ public class DrinkMachine extends AbstractMachine {
             for (int j = 0; j < columns; j++) {
                 machine[i][j] = new LinkedList<Product>();
             }
-
-
         }
-
-        coinBuffer = new CoinBuffer(this);
-        coinBuffer.initiateInterface();
-
     }
-
-
-
     public void displayInventory(){
-
         for (LinkedList[] row : machine) {
             System.out.println();
             for (LinkedList col : row) {
@@ -48,7 +41,5 @@ public class DrinkMachine extends AbstractMachine {
             }
         }
         System.out.println();
-
     }
-
 }

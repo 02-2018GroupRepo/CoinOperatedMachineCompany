@@ -28,7 +28,19 @@ public class SnackMachine extends AbstractMachine {
     public void createLogFile(){
         String machineStringID = Integer.toString(myMachineID);
 
-        URL logFolder = getClass().getResource("logs/");
+
+        String log;
+        String OS = System.getProperty("os.name").toLowerCase();
+        if(OS.contains("windows")){
+            log="logs\\";
+        }else
+        {
+            log = "logs/";
+
+        }
+
+
+        URL logFolder = getClass().getResource(log);
         String machineLogPath = logFolder.getPath() + machineStringID + ".txt";
 
         File file = new File(machineLogPath);
@@ -62,7 +74,6 @@ public class SnackMachine extends AbstractMachine {
         System.out.println();
 
     }
-
     void hardCodedMachineFiller() {
         Product chips = new Product("BBQ", "patao", 3.50, .50);
         Product chips2 = new Product("Sea Salt", "patao", 3.50, .50);
@@ -86,11 +97,9 @@ public class SnackMachine extends AbstractMachine {
         machine[3][4].add(candy3);
 
     }
-
     private void createRows(){
         int rows =5;
         int columns =5;
-        //validIDS.add("123");
         machine = new LinkedList[rows][columns];
 
 
@@ -98,7 +107,6 @@ public class SnackMachine extends AbstractMachine {
         for (int i = 0; i < columns; i++) {
             for (int j = 0; j < rows; j++) {
                 machine[i][j] = new LinkedList<Product>();
-                int t = 4;
             }
         }
     }

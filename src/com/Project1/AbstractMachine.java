@@ -9,13 +9,14 @@ import java.util.*;
 
 public abstract class AbstractMachine {
 
+
     static final String COMPANY = "Backpfeifengesicht";
     Map<COINS, Integer> holdings = new HashMap<>();
     Location myLocation;
     protected static int lastMachineID = 12345;
     static ArrayList<String> validIDS = new ArrayList<>();
     int myMachineID;
-    protected LinkedList[][] machine;
+    LinkedList[][] machine;
     public enum COINS {
         NICKEL(.05), DIME(.10), QUARTER(.25);
         double value;
@@ -35,7 +36,7 @@ public abstract class AbstractMachine {
         holdings.put(COINS.DIME, 0);
         holdings.put(COINS.QUARTER, 0);
 
-
+        getLogFile("123");
     }
 
     public Location getMyLocation() {
@@ -98,7 +99,7 @@ public abstract class AbstractMachine {
 
     }
 
-    public void removeItem(String RowColumn, double runningTotal) throws BADENTRY, INSUFFICIENTFUNDS{
+    public double removeItem(String RowColumn, double runningTotal) throws BADENTRY, INSUFFICIENTFUNDS{
 
         char[] entry = RowColumn.toCharArray();
         int row;
@@ -126,11 +127,14 @@ public abstract class AbstractMachine {
         }
         col = Character.getNumericValue(entry[1]);
 
+        if((( machine[row][col].isEmpty()))){
+            throw new BADENTRY();
+        }
 
+        double price = (((Product) machine[row][col].peek()).retailPrice);
 
         try {
-
-            if((((Product) machine[row][col].peek()).retailPrice)>runningTotal){
+            if(price>runningTotal){
                 throw new INSUFFICIENTFUNDS();
             }
 
@@ -140,18 +144,26 @@ public abstract class AbstractMachine {
             throw new BADENTRY();
 
         }
+        return runningTotal-price;
     }
 
     abstract void displayInventory();
-
 
     public void getLogFile(String employeeID) {
 
         if (validIDS.contains(employeeID)) {
 
+            String log;
+            String OS = System.getProperty("os.name").toLowerCase();
+            if(OS.contains("windows")){
+                log="logs\\";
+            }else
+            {
+                log = "logs/";
 
-            String logPathName = "logs/" + myMachineID + ".txt";
-            //log = new File(logPathName);
+            }
+            String logPathName = log + myMachineID + ".txt";
+
             URL url = getClass().getResource(logPathName);
             File file = new File(url.getPath());
 
