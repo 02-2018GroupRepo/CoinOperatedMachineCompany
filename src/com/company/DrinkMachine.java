@@ -7,7 +7,7 @@ public class DrinkMachine extends VendingMachine{
             getShelves().add(drinkShelf);
         }
         for(int i=0; i < 2; i++){
-            Shelf drinkShelf = new Shelf(5, 10);
+            Shelf drinkShelf = new Shelf(5, 8);
             getShelves().add(drinkShelf);
         }
     }
