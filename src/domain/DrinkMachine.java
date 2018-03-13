@@ -1,28 +1,36 @@
 package domain;
 
 import com.company.Machine;
-import com.company.Product;
 
-import java.util.ArrayList;
 
 public class DrinkMachine extends Machine{
-    Product[] canshelf1 = new Product[12];
-    Product[] canshelf2 = new Product[12];
-    Product[] canshelf3 = new Product[12];
-
-
-    ArrayList<Product> bottleshelf1 = new ArrayList<>();
-    ArrayList<Product> bottleshelf2 = new ArrayList<>();
-    ArrayList<Product> bottleshelf3 = new ArrayList<>();
-
     public DrinkMachine(String name, int coinCount, double moneyCount, String location, String passcode, Coin coins) {
         super(name, coinCount, moneyCount, location, passcode, coins);
     }
-//        each shelf is an array list
+
+//    how can I create this constructor so that I do not have to pass a coin object when creating a new Machine?
+
+    //        each shelf is an array list
+    ////    the integer represents how many items there are in that row in the shelf
+
+//drinks
+//    cans
+    //    12 | 12 | 12 | 12 |12 | 12
+    //    12 | 12 | 12 | 12 |12 | 12
+    //    12 | 12 | 12 | 12 |12 | 12
+//    bottles
+//        8 | 8 | 8 | 8 | 8
+//        8 | 8 | 8 | 8 | 8
 //    write a method to add integers in each array
-////    the integer represents how many items there are in that row in the shelf
-//    maybe these should be normal arrays
-//
+
+    int[] canshelf1 = new int[12];
+    int[] canshelf2 = new int[12];
+    int[] canshelf3 = new int[12];
+    int[] bottleshelf1 = new int[8];
+    int[] bottleshelf2 = new int[8];
+
+
+
 
 
 

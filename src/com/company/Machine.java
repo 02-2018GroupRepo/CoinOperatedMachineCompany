@@ -14,23 +14,15 @@ public class Machine {
         return name;
     }
 
-    public int getCoinCount() {
-        return coinCount;
-    }
 
-    public double getMoneyCount() {
-        return moneyCount;
-    }
 
     public String getLocation() {
         return location;
     }
 
-//    is this getCoins method needed?
 
-//    public Coin getCoins() {
-//        return coins;
-//    }
+
+
 
     public Machine(String name, int coinCount, double moneyCount, String location, String passcode, Coin coins) {
         this.name = name;

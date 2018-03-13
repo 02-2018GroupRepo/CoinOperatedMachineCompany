@@ -3,6 +3,7 @@ package com.company;
 
 import domain.DrinkMachine;
 import domain.Coin;
+import domain.SnackMachine;
 
 public class Main {
 
@@ -26,26 +27,31 @@ public class Main {
         Product mints = new Product(10, "Mints", "they're minty", .05, 1.25);
 
 
-        System.out.println(rootBeer.getUniqueID());
 
-/*
-        DrinkMachine somemachine = new DrinkMachine();
-        Coin somecoins = new Coin();
-        somecoins.setDimes(10);
-        somemachine.setCoins(somecoins);*/
 
-        DrinkMachine Drink_M_ATL = new DrinkMachine();
+
+
+        DrinkMachine Drink_M_ATL = new DrinkMachine("Drink_M_ATL", 0, 0,
+                "atlanta", "1234", new Coin());
         Coin Drink_M_ATL_coin = new Coin();
         Drink_M_ATL_coin.setDimes(20);
         Drink_M_ATL_coin.setNickels(30);
         Drink_M_ATL_coin.setQuarters(25);
 
+        SnackMachine Snack_M_ATL = new SnackMachine("Snack_M_ATL", 0, 0, "atlanta", "4321", new Coin());
+
+        Coin Snack_M_ATL_coin = new Coin();
+        Snack_M_ATL_coin.setDimes(30);
+        Snack_M_ATL_coin.setNickels(40);
+        Snack_M_ATL_coin.setQuarters(40);
 
 
-//        long somemachinetotalcoincount = somemachine.getCoins().getDimes() + somemachine.getCoins().getNickels() + somemachine.getCoins().getQuarters()
 
-        long testervar = Drink_M_ATL.getTotalCoinCount(Drink_M_ATL_coin);
-        System.out.println("look here asshole "+ testervar);
+
+        long drinkcoin = Drink_M_ATL.getCoinCount(Drink_M_ATL_coin);
+        long snackcoin = Snack_M_ATL.getCoinCount(Snack_M_ATL_coin);
+        System.out.println("here go some coins the drinks machine has"+ drinkcoin);
+        System.out.println("here go some coins the snack machine has"+ snackcoin);
     }
 //
 
