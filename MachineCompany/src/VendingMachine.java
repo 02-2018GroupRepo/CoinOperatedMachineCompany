@@ -86,7 +86,15 @@ public class VendingMachine {
     public int getNumOfDimesInMachine() {
         return numOfDimesInMachine;
     }
-
+    public double getQuarterValue(){
+        return this.getNumOfQuartersInMachine()*Coins.QUARTER;
+    }
+    public double getNickelValue(){
+        return this.getNumOfNickelinMachine()*Coins.NICKEL;
+    }
+    public double getDimeValue(){
+        return  this.getNumOfDimesInMachine()*Coins.DIME;
+    }
     public void balanceOfToTotalAmtAvailableInMachine(double amt){
         total+=getTotal();
         total-=amt;
