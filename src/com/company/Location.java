@@ -19,13 +19,20 @@ public class Location {
         machineList.add(machine);
     }
 
-    public void viewMachines(){
-        if (machineList.size() < 0){
+    public void removeMachine(int rem){
+        machineList.remove(rem);
+    }
+
+    public ArrayList<VendingMachine> getMachines(){
+        if (machineList.size() <= 0){
             System.out.println("Sorry there are no machines at this location.");
-        } else {
-            for(int i=0; i < machineList.size(); i++){
-                System.out.println(machineList.get(i));
-            }
+        }
+            return machineList;
+    }
+
+    public void printMachines(){
+        for(int i=0; i < machineList.size(); i++){
+            System.out.println(i + ": " + machineList.get(i).getMachineType());
         }
     }
 }

@@ -7,16 +7,26 @@ public abstract class VendingMachine {
     private final String company = "BigVendorBrand";
     private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
     private Wallet wallet = new Wallet();
+    private String machineType;
 
     public VendingMachine(){};
 
-    public VendingMachine(ArrayList<Shelf> shelves, Wallet wallet) {
+    public VendingMachine(ArrayList<Shelf> shelves, Wallet wallet, String machineType) {
         this.shelves = shelves;
         this.wallet = wallet;
+        this.machineType = machineType;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
     }
 
     public ArrayList<Shelf> getShelves() {
         return shelves;
+    }
+
+    public String getMachineType(){
+        return machineType;
     }
 
     public String getCompany() {
@@ -51,7 +61,7 @@ public abstract class VendingMachine {
     }
 
     public void checkMoney(int numShelf, int compartment, int nickels, int dimes, int quarters){
-        double total = getTotal(nickels, dimes, quarters);
+        double total = getCurrentTotal(nickels, dimes, quarters);
         Product productToPurchase = shelves.get(numShelf).getSpecificProduct(compartment);
         if(total >= productToPurchase.getRetailSalePrice()){
             System.out.println("Thank you, enjoy your " + productToPurchase.getName());
@@ -64,7 +74,7 @@ public abstract class VendingMachine {
         }
     }
 
-    public double getTotal(int nickels, int dimes, int quarters){
+    public double getCurrentTotal(int nickels, int dimes, int quarters){
         return ((nickels * Coins.NICKEL) +
                 (dimes * Coins.DIME) +
                 (quarters * Coins.QUARTER));
