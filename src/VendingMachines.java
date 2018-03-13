@@ -1,15 +1,11 @@
-import java.util.ArrayList;
-
 
 public class VendingMachines {
 
 //Created 2 static strings that each VendingMachine object will display upon being called
-    String companyTitle ="Sugar Shack District";
+    private String companyTitle ="Sugar Daddy District";
     private String machineDescription;
     private String machineLocation="";
     private int machineIdNum;
-
-
 
     //coins
     private final int nickel = 5;
@@ -18,7 +14,12 @@ public class VendingMachines {
 
 
 //Creating a VendingMachine constructor to set each VendingMachine object with unique attributes
-    public VendingMachine( int machineIdNum, String machineLocation), String machine;{
+
+    public String getCompanyTitle(){
+        return this.companyTitle;
+    }
+
+    public VendingMachine( int machineIdNum, String machineLocation){
 
         this.machineIdNum=machineIdNum;
         this.machineLocation=machineLocation;
@@ -29,7 +30,7 @@ public class VendingMachines {
     }
 
     public int getMachineIdNum(){
-        return machineIdNum;
+        return this.machineIdNum;
     }
 
     public void setMachineLocation(String machineLocation){
@@ -37,15 +38,15 @@ public class VendingMachines {
     }
 
     public String getMachineLocation(){
-        return machineLocation;
+        return this.machineLocation;
     }
 
-    public String setMachineDescription(String machineDescrption){
+    public void setMachineDescription(String machineDescrption){
         this.machineDescription=machineDescription;
     }
 
     public String getMachineDescription(){
-        return machineDescription;
+        return this.machineDescription;
     }
 
 
