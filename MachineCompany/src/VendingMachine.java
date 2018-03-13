@@ -140,7 +140,7 @@ public class VendingMachine {
              while(change > 0){
                  if(change >= Coins.QUARTER){
                      change-=Coins.QUARTER;
-                     int availableQ = getQuarters()- 1;
+                     
                      countQ++;
                      //numOfQuatersInMachine()
 
