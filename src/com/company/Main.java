@@ -3,6 +3,14 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        
+        SnackMachine snacks = new SnackMachine();
+        DrinkMachine drinks = new DrinkMachine();
+        Operator machine = new Operator();
+
+        System.out.println(machine.individualVendingMachineTotal(snacks));
+        System.out.println(machine.allVendingMachineTotal(snacks, drinks));
+        machine.getCoinCount(snacks);
 
 
 
@@ -12,21 +20,5 @@ public class Main {
 
 
 
-
-//        VendingMachine vending = new DrinkMachine();
-//        vending.vmPrices();
-//        vending.vmQuantity();
-       VendingMachine vend = new SnackMachine();
-        vend.vmQuantity();
-        vend.vmPrices();
-
-
-        Coin nickel = new Coin("Nickel", .05);
-        Coin dime = new Coin("Dime", .10);
-        Coin quarter = new Coin("Quarter", .25);
-
-
-        Products Snickers = new Products("Snickers","01", "Snack", .25, .50);
-        Products Coke = new Products("Coke", "02", "Drink", .45, .80);
     }
 }

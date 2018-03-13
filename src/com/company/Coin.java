@@ -1,10 +1,9 @@
 package com.company;
 
 public class Coin {
-    String name;
-    double value;
-    public Coin(String coinName, double coinValue){
-        this.name = coinName;
-        this.value = coinValue;
-    }
+
+    final double nickel = .05;
+    final double dime = .10;
+    final double quarter = .25;
+
 }
