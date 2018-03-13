@@ -1,8 +1,5 @@
 package com.fileCreating;
 
-import sun.security.provider.VerificationProvider;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,38 +7,46 @@ import java.util.Map;
 public class Oraganization {
 
     private String password;
-    private Map<String, ArrayList<VendingMachine>> myVMachinesList;
+    private Map<String, ArrayList<VendingMachine>> myVMachinesMap;
 
     Oraganization() {
         this.password = "password";
-        this.myVMachinesList = new HashMap<String, ArrayList<VendingMachine>>();
+        this.myVMachinesMap = new HashMap<String, ArrayList<VendingMachine>>();
     }
 
-    public boolean checkPassWord(String password) {
-        return this.password.equals(password);
-    }
-
+    public boolean checkPassWord(String password) { return this.password.equals(password); }
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void changeLocation(VendingMachine vm, String newLocation) {
-        vm.setLocation(newLocation);
-    }
 
     public void addVendingMachineToMap(VendingMachine vm) {
         ArrayList<VendingMachine> machinesInThisLocation = new ArrayList<>();
 
-        if (myVMachinesList.containsKey(vm.getLocation())) {
-            machinesInThisLocation = myVMachinesList.get(vm.getLocation());
+        if (myVMachinesMap.containsKey(vm.getLocation())) {
+            machinesInThisLocation = myVMachinesMap.get(vm.getLocation());
         }
 
         machinesInThisLocation.add(vm);
-        myVMachinesList.put(vm.getLocation(), machinesInThisLocation);
+        myVMachinesMap.put(vm.getLocation(), machinesInThisLocation);
+    }
+    public void removeVendingMachineFromMap(VendingMachine vm, String machine_id){
+
+        if(myVMachinesMap.containsKey(vm.getLocation())){
+            ArrayList<VendingMachine> locationList = myVMachinesMap.get(vm.getLocation());
+            for(VendingMachine machine : locationList) {
+                if(machine.getMachine_id().equalsIgnoreCase(machine_id)) {
+                    locationList.remove(machine);
+                    if(locationList.size() == 0){
+                        myVMachinesMap.remove(locationList);
+                    }
+                }
+            }
+        }
     }
 
     public void checkThisMachineTotalMoney(VendingMachine machine) {
-        System.out.println(machine.getCoin().getAmountMoney());
+        System.out.printf("Total cash in" + machine.getMachine_id()+ ": %.pa02f\n\n", machine.getCoin().getTotalAmountMoney());
     }
 
     public void checkThisMachineCoins(VendingMachine machine) {
@@ -54,9 +59,9 @@ public class Oraganization {
     public void totalMoneyInAllMyMachines() {
         Double total = 0.0;
 
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
+        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
             for (VendingMachine machine : map.getValue()) {
-                total += machine.getCoin().getAmountMoney();
+                total += machine.getCoin().getTotalAmountMoney();
             }
         }
 
@@ -68,7 +73,7 @@ public class Oraganization {
         int totalDime = 0;
         int totalQuarter = 0;
 
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
+        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
             for (VendingMachine machine : map.getValue()) {
                 totalNickel += machine.getCoin().getTotalNumNickels();
                 totalDime += machine.getCoin().getTotalNumDimes();
@@ -87,10 +92,10 @@ public class Oraganization {
         Double total = 0.0;
 
         System.out.println("Total Money at location " + location);
-        if (myVMachinesList.containsKey(location)) {
-            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
+        if (myVMachinesMap.containsKey(location)) {
+            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesMap.get(location);
             for (VendingMachine vm : machinesInThisLocation) {
-                total += vm.getCoin().getAmountMoney();
+                total += vm.getCoin().getTotalAmountMoney();
             }
             System.out.println("--> " + total +"\n");
         } else {
@@ -106,8 +111,8 @@ public class Oraganization {
         int totalQuarter = 0;
 
         System.out.println("Total Coins at location " + location);
-        if (myVMachinesList.containsKey(location)) {
-            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesList.get(location);
+        if (myVMachinesMap.containsKey(location)) {
+            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesMap.get(location);
             for (VendingMachine vm : machinesInThisLocation) {
                 totalNickel += vm.getCoin().getTotalNumNickels();
                 totalDime += vm.getCoin().getTotalNumDimes();
@@ -129,21 +134,12 @@ public class Oraganization {
         thisMachine.getCoin().setTotalNumQuarters(numQuarters);
     }
 
-//    public void setItem(int row, int col, String itemName, VendingMachine vm){ vm.inventory[row][col].setItemName(itemName); }
-//    public void setItem(int row, int col, Double price, VendingMachine vm){
-//        vm.inventory[row][col].setPrice(price);
-//    }
-//    public void setItem(int row, int col, String itemName, Double price, VendingMachine vm){
-//        vm.inventory[row][col].setPrice(price);
-//        vm.inventory[row][col].setItemName(itemName);
-//    }
-
     public void printMyVendingMachines() {
         System.out.println("My vending Machines");
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
+        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
             System.out.println(map.getKey());
             for (VendingMachine machine : map.getValue()) {
-                System.out.println("\tVending Machine:" + machine.getCoin().getAmountMoney());
+                System.out.println("\tVending Machine: [" +machine.getMachine_id()+"] " + machine.getCoin().getTotalAmountMoney());
                 System.out.println();
             }
         }
@@ -151,7 +147,7 @@ public class Oraganization {
 
     public void printLocations() {
         System.out.println("Locations where I have machines");
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesList.entrySet()) {
+        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
             System.out.println("\t" + map.getKey());
         }
     }
@@ -165,8 +161,14 @@ public class Oraganization {
                 str = Buffer.stringBufferIO().toLowerCase();
                 switch (str) {
                     case "add":
+                        addVendingMachineToMap(vm);
                         break;
                     case "remove":
+                        System.out.println();
+                        printMyVendingMachines();
+                        System.out.println("Enter machine id to remove");
+                        removeVendingMachineFromMap(vm, Buffer.stringBufferIO().toLowerCase());
+                        printMyVendingMachines();
                         break;
                     default:
                 }
@@ -210,11 +212,14 @@ public class Oraganization {
                 }
                 break;
             case 5:
-                System.out.println("Enter previous password: ");
+                System.out.print("Enter previous password: ");
                 if (checkPassWord(Buffer.stringBufferIO())) {
-                    System.out.println("Enter new password: ");
+                    System.out.print("Enter new password: ");
                     setPassword(Buffer.stringBufferIO());
+                } else {
+                    System.out.println("Sorry Wrong Password.");
                 }
+                System.out.println();
                 break;
             case 6:
                 System.out.println("Exiting Out");

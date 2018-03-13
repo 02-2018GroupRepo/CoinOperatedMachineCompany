@@ -6,13 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        test4();
+        test3();
 
     }
 
     public static void test1() {
         Oraganization myStore = new Oraganization();
-        SnackMachine vm = new SnackMachine();
+        SnackMachine vm = new SnackMachine("clemson", "clemsonVM1");
 //        vm.intializeInventory();
 //        christian.addToInventory(0, 0, 5, "Candy");
 //        vm.addToInventory(0, 1, 7, "Cake");
@@ -30,13 +30,9 @@ public class Main {
 
     public static void test2() {
         Oraganization christian = new Oraganization();
-        SnackMachine clemsonVM1 = new SnackMachine();
-        SnackMachine clemsonVM2 = new SnackMachine();
-        SnackMachine atlantaVM1 = new SnackMachine();
-
-        clemsonVM1.setLocation("Clemson");
-        clemsonVM2.setLocation("Clemson");
-        atlantaVM1.setLocation("Atlanta");
+        SnackMachine clemsonVM1 = new SnackMachine("clemson", "clemsonVM1");
+        SnackMachine clemsonVM2 = new SnackMachine("clemson", "clemsonVM2");
+        SnackMachine atlantaVM1 = new SnackMachine("atlanta", "atlantaVM1");
 
         christian.setTotalNumCoins(25, 25, 25, clemsonVM1);
         christian.setTotalNumCoins(25, 25, 25, clemsonVM2);
@@ -69,13 +65,9 @@ public class Main {
     public static void test3() {
         Oraganization christian = new Oraganization();
 
-        SnackMachine clemsonVM1 = new SnackMachine();
-        SnackMachine clemsonVM2 = new SnackMachine();
-        SnackMachine atlantaVM1 = new SnackMachine();
-
-        clemsonVM1.setLocation("Clemson");
-        clemsonVM2.setLocation("Clemson");
-        atlantaVM1.setLocation("Atlanta");
+        SnackMachine clemsonVM1 = new SnackMachine("clemson", "clemsonVM1");
+        SnackMachine clemsonVM2 = new SnackMachine("clemson", "clemsonVM2");
+        SnackMachine atlantaVM1 = new SnackMachine("atlanta", "atlantaVM1");
 
         christian.setTotalNumCoins(25, 25, 25, clemsonVM1);
         christian.setTotalNumCoins(25, 25, 25, clemsonVM2);
@@ -101,7 +93,7 @@ public class Main {
             System.out.println();
 
             do {
-                System.out.println("Enter an input (1-6)");
+                System.out.print("Enter an input (1-6): ");
                 input = Buffer.intBufferIO();
                 christian.operatorUI_SwitchCase(input, clemsonVM1);
             } while (input != 6);
@@ -114,7 +106,7 @@ public class Main {
 
     public static void test4(){
         Oraganization christian = new Oraganization();
-        SnackMachine vm = new SnackMachine();
+        SnackMachine vm = new SnackMachine("clemson", "clemsonVM1");
         christian.setTotalNumCoins(25, 25, 25, vm);
 
         vm.printInventory();

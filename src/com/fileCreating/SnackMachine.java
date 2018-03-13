@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class SnackMachine extends LocalOperator{
 
-    public SnackMachine() {
-        super(5, 5, 10);
+    public SnackMachine(String location, String location_id) {
+        super(5, 5, 10, location, location_id);
     }
 }

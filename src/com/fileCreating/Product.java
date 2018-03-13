@@ -19,7 +19,7 @@ public class Product {
         this.id = id;
     }
 
-    public void printThisProduct(){
+    public void printThisPurchaseProduct(){
         System.out.println("You Purchased!");
         System.out.println("\t"+itemName + " of Price: " + retailPrice);
     }

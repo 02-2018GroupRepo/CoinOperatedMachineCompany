@@ -12,7 +12,8 @@ public class Buffer {
             return console.readLine();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Invalid Input.  Please enter a String.");
             return null;
         }
     }
@@ -24,7 +25,8 @@ public class Buffer {
             return Double.parseDouble(console.readLine());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Invalid Input.  Please enter a double");
             return 0.0;
         }
     }
@@ -36,7 +38,8 @@ public class Buffer {
             return Integer.parseInt(console.readLine());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Invalid Input.  Please enter an Integer.");
             return -1;
         }
     }

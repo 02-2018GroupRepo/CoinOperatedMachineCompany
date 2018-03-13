@@ -1,7 +1,7 @@
 package com.fileCreating;
 
 public class PopBottleMachine extends LocalOperator{
-    public PopBottleMachine(){
-        super(2, 5, 8);
+    public PopBottleMachine(String location, String location_id){
+        super(2, 5, 8, location, location_id);
     }
 }
