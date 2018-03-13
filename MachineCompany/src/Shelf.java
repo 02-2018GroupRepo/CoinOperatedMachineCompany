@@ -29,6 +29,7 @@ public class Shelf {
               products.add(product);
           }
           shelf.put(compartmentNumber, products);
+          products = new ArrayList<Product>();
       }else {
           System.out.println("Compartment is already full no need to stock ");
       }
@@ -43,19 +44,22 @@ public class Shelf {
 
         for(Map.Entry<Integer,ArrayList<Product>> entry : shelf.entrySet()){
             System.out.println("Compartment  Number: "+entry.getKey());
-           System.out.println("Products :");
 
+            System.out.println("Price :"+entry.getValue().get(0).getRetail_price());
+            //System.out.println();
+            System.out.printf("Products :");
             for (Product product: shelf.get(entry.getKey())) {
 
-                System.out.print( product.getName());
+                System.out.print( product.getName()+" ");
 
             }
+
+            System.out.println();
         }
     }
 
     public LinkedHashMap<Integer, ArrayList<Product>> getShelf() {
         return shelf;
     }
-
 
 }
