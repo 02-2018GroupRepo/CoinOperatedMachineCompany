@@ -58,9 +58,11 @@ public class Operator {
     public void checkTotalCoins(){
         locationsArr = getLocationsArr();
         for (int i=0; i <locationsArr.size(); i++){
+            System.out.println("Location: " + locationsArr.get(i).getName());
+            System.out.println("================================");
             for(int j=0; j < locationsArr.get(i).getMachines().size(); j++) {
                 VendingMachine vMachine = locationsArr.get(i).getMachines().get(j);
-                System.out.println("Location: " + locationsArr.get(i).getName());
+                System.out.println(vMachine.getMachineType());
                 System.out.println("Nickels: " + vMachine.getWallet().getNickels());
                 System.out.println("Dimes: " + vMachine.getWallet().getDimes());
                 System.out.println("Quarters: " + vMachine.getWallet().getQuarters());
