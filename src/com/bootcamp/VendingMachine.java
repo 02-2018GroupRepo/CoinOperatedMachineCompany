@@ -15,12 +15,10 @@ import java.util.Map;
 public class VendingMachine {
     private Map<String, Double> items = new LinkedHashMap<>();
 
-    public Map<String, Double> getItems(){
-        return items;
-    }
 
 
-    public void listOfProducts(String itemName , String description, double wholesalePrice, double retailPrice){
+
+    public void listOfProducts(String id, String itemName , String description, double wholesalePrice, double retailPrice){
         this.items.put(itemName, retailPrice);
     }
 
@@ -28,6 +26,11 @@ public class VendingMachine {
         System.out.println(this.items.toString());
     }
 
+
+    public double getPrice(){
+        System.out.println();
+        return 0;
+    }
 
 
 
