@@ -29,12 +29,22 @@ public class Coins_TotalCoinsInMachine {
         return Double.parseDouble(f.format(myCoins.getCurTotal() - price));
     }
 
+    public void insertion(Double coin){
+        if(NICKEL == coin){
+            currCoins.setCurNumNickels();
+            this.totalNumNickels++;
+        } else if(DIME == coin){
+            currCoins.setCurNumDimes();
+            this.totalNumDimes++;
+        } else if(QUARTER == coin) {
+            currCoins.setCurNumQuarters();
+            this.totalNumQuarters++;
+        }
+    }
     public void insertion(Coins_CurrentOrder myCurrCoins) {
-
         this.totalNumNickels += myCurrCoins.getCurNumNickels();
         this.totalNumDimes += myCurrCoins.getCurNumDimes();
         this.totalNumQuarters += myCurrCoins.getCurNumQuarters();
-
     }
 
     public void returnMoney() {

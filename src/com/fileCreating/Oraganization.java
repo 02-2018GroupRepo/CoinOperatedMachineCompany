@@ -7,21 +7,24 @@ import java.util.Map;
 public class Oraganization {
 
     private String password;
-    private Map<String, ArrayList<VendingMachine>> myVMachinesMap;
+    private Map<String, ArrayList<Machine>> myVMachinesMap;
 
     Oraganization() {
         this.password = "password";
-        this.myVMachinesMap = new HashMap<String, ArrayList<VendingMachine>>();
+        this.myVMachinesMap = new HashMap<String, ArrayList<Machine>>();
     }
 
-    public boolean checkPassWord(String password) { return this.password.equals(password); }
+    public boolean checkPassWord(String password) {
+        return this.password.equals(password);
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
 
-    public void addVendingMachineToMap(VendingMachine vm) {
-        ArrayList<VendingMachine> machinesInThisLocation = new ArrayList<>();
+    public void addVendingMachineToMap(Machine vm) {
+        ArrayList<Machine> machinesInThisLocation = new ArrayList<>();
 
         if (myVMachinesMap.containsKey(vm.getLocation())) {
             machinesInThisLocation = myVMachinesMap.get(vm.getLocation());
@@ -30,11 +33,12 @@ public class Oraganization {
         machinesInThisLocation.add(vm);
         myVMachinesMap.put(vm.getLocation(), machinesInThisLocation);
     }
-    public void removeVendingMachineFromMap(VendingMachine vm, String machine_id){
+
+    public void removeVendingMachineFromMap(Machine vm, String machine_id){
 
         if(myVMachinesMap.containsKey(vm.getLocation())){
-            ArrayList<VendingMachine> locationList = myVMachinesMap.get(vm.getLocation());
-            for(VendingMachine machine : locationList) {
+            ArrayList<Machine> locationList = myVMachinesMap.get(vm.getLocation());
+            for(Machine machine : locationList) {
                 if(machine.getMachine_id().equalsIgnoreCase(machine_id)) {
                     locationList.remove(machine);
                     if(locationList.size() == 0){
@@ -45,11 +49,11 @@ public class Oraganization {
         }
     }
 
-    public void checkThisMachineTotalMoney(VendingMachine machine) {
-        System.out.printf("Total cash in" + machine.getMachine_id()+ ": %.pa02f\n\n", machine.getCoin().getTotalAmountMoney());
+    public void checkThisMachineTotalMoney(Machine machine) {
+        System.out.printf("Total cash in" + machine.getMachine_id()+ ": %.02f\n\n", machine.getCoin().getTotalAmountMoney());
     }
 
-    public void checkThisMachineCoins(VendingMachine machine) {
+    public void checkThisMachineCoins(Machine machine) {
         System.out.println("This Machine amount of Coins");
         System.out.println("\tNumber of Nickels: " + machine.getCoin().getTotalNumNickels());
         System.out.println("\tNumber of Dimes: " + machine.getCoin().getTotalNumDimes());
@@ -59,8 +63,8 @@ public class Oraganization {
     public void totalMoneyInAllMyMachines() {
         Double total = 0.0;
 
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
-            for (VendingMachine machine : map.getValue()) {
+        for (Map.Entry<String, ArrayList<Machine>> map : myVMachinesMap.entrySet()) {
+            for (Machine machine : map.getValue()) {
                 total += machine.getCoin().getTotalAmountMoney();
             }
         }
@@ -73,8 +77,8 @@ public class Oraganization {
         int totalDime = 0;
         int totalQuarter = 0;
 
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
-            for (VendingMachine machine : map.getValue()) {
+        for (Map.Entry<String, ArrayList<Machine>> map : myVMachinesMap.entrySet()) {
+            for (Machine machine : map.getValue()) {
                 totalNickel += machine.getCoin().getTotalNumNickels();
                 totalDime += machine.getCoin().getTotalNumDimes();
                 totalQuarter += machine.getCoin().getTotalNumQuarters();
@@ -93,8 +97,8 @@ public class Oraganization {
 
         System.out.println("Total Money at location " + location);
         if (myVMachinesMap.containsKey(location)) {
-            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesMap.get(location);
-            for (VendingMachine vm : machinesInThisLocation) {
+            ArrayList<Machine> machinesInThisLocation = myVMachinesMap.get(location);
+            for (Machine vm : machinesInThisLocation) {
                 total += vm.getCoin().getTotalAmountMoney();
             }
             System.out.println("--> " + total +"\n");
@@ -112,8 +116,8 @@ public class Oraganization {
 
         System.out.println("Total Coins at location " + location);
         if (myVMachinesMap.containsKey(location)) {
-            ArrayList<VendingMachine> machinesInThisLocation = myVMachinesMap.get(location);
-            for (VendingMachine vm : machinesInThisLocation) {
+            ArrayList<Machine> machinesInThisLocation = myVMachinesMap.get(location);
+            for (Machine vm : machinesInThisLocation) {
                 totalNickel += vm.getCoin().getTotalNumNickels();
                 totalDime += vm.getCoin().getTotalNumDimes();
                 totalQuarter += vm.getCoin().getTotalNumQuarters();
@@ -128,7 +132,7 @@ public class Oraganization {
         }
     }
 
-    public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, VendingMachine thisMachine) {
+    public void setTotalNumCoins(int numNickels, int numDimes, int numQuarters, Machine thisMachine) {
         thisMachine.getCoin().setTotalNumNickels(numNickels);
         thisMachine.getCoin().setTotalNumDimes(numDimes);
         thisMachine.getCoin().setTotalNumQuarters(numQuarters);
@@ -136,9 +140,9 @@ public class Oraganization {
 
     public void printMyVendingMachines() {
         System.out.println("My vending Machines");
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
+        for (Map.Entry<String, ArrayList<Machine>> map : myVMachinesMap.entrySet()) {
             System.out.println(map.getKey());
-            for (VendingMachine machine : map.getValue()) {
+            for (Machine machine : map.getValue()) {
                 System.out.println("\tVending Machine: [" +machine.getMachine_id()+"] " + machine.getCoin().getTotalAmountMoney());
                 System.out.println();
             }
@@ -147,12 +151,12 @@ public class Oraganization {
 
     public void printLocations() {
         System.out.println("Locations where I have machines");
-        for (Map.Entry<String, ArrayList<VendingMachine>> map : myVMachinesMap.entrySet()) {
+        for (Map.Entry<String, ArrayList<Machine>> map : myVMachinesMap.entrySet()) {
             System.out.println("\t" + map.getKey());
         }
     }
 
-    public void operatorUI_SwitchCase(int selection, VendingMachine vm) {
+    public void operatorUI_SwitchCase(int selection, Machine vm) {
         String str;
 
         switch (selection) {
