@@ -18,6 +18,24 @@ public class Product {
 
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public double getRetailPrice() {
+        return retailPrice;
+    }
+
+    public double getWholesalePrice() {
+        return wholesalePrice;
+    }
+
+    public int getInStock() {
+        return inStock;
+    }
 
 }

@@ -13,9 +13,14 @@ public class Coin {
 
     }
 
-    Coin quarter = new Coin(.25);
-    Coin dime = new Coin(.10);
-    Coin nickel = new Coin(.05);
+
+    public static void main(String[] args) {
+        Coin quarter = new Coin(.25);
+        Coin dime = new Coin(.10);
+        Coin nickel = new Coin(.05);
+        System.out.println(quarter.value+dime.value);
+
+    }
 
 //
 //   double  quarter = new double (0.25);

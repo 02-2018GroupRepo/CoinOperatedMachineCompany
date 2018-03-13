@@ -8,11 +8,11 @@ public class DrinkMachine extends VendingMachine{
     Product a2 = new Product("Mountain Dew","Canned Soda", 1.00,.25,12);
     Product a3 = new Product("Sprite","Canned Soda", 1.00,.25,12);
     Product a4 = new Product("Pepsi Blue","Canned Soda", 1.00,.25,12);
-    Product a5 = new Product("Schelppe's","Canned Soda", 1.00,.25,12);
-    Product a6 = new Product("Pepsi","Canned Soda", 1.00,.25,12);
+    Product a5 = new Product("Schweppes","Canned Soda", 1.00,.25,12);
+    Product a6 = new Product("Ting","Canned Soda", 1.00,.25,12);
 
     Product b1 = new Product("Coca Cola","Canned Soda", 1.00,.25,12);
-    Product b2 = new Product("Pepsi","Canned Soda", 1.00,.25,12);
+    Product b2 = new Product("Mellow Yellow","Canned Soda", 1.00,.25,12);
     Product b3 = new Product("Sierra Mist","Canned Soda", 1.00,.25,12);
     Product b4 = new Product("Black Cherry Coke","Canned Soda", 1.00,.25,12);
     Product b5 = new Product("Vanilla Coke","Canned Soda", 1.00,.25,12);
@@ -33,9 +33,9 @@ public class DrinkMachine extends VendingMachine{
 
     Product e1 = new Product("PoweRade","Bottled Drink", 1.25,.50,8);
     Product e2 = new Product("Flavored Water","Bottled Drink", 1.25,.50,8);
-    Product e3 = new Product("Pepsi","Bottled Drink", 1.25,.50,8);
-    Product e4 = new Product("Pepsi","Bottled Drink", 1.25,.50,8);
-    Product e5 = new Product("Pepsi","Bottled Drink", 1.25,.50,8);
+    Product e3 = new Product("Sparkling Ice","Bottled Drink", 1.25,.50,8);
+    Product e4 = new Product("Minute Maid","Bottled Drink", 1.25,.50,8);
+    Product e5 = new Product("Naked","Bottled Drink", 1.25,.50,8);
 
     double moneyTotal = 0;
     double moneyReceived = 0;

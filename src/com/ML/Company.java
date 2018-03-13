@@ -1,5 +1,4 @@
 package com.ML;
-
 public class Company {
 
     String companyName;
