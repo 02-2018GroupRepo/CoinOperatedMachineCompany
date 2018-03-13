@@ -2,6 +2,7 @@ package com.fileCreating;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Oraganization {
@@ -34,23 +35,41 @@ public class Oraganization {
         myVMachinesMap.put(vm.getLocation(), machinesInThisLocation);
     }
 
-    public void removeVendingMachineFromMap(Machine vm, String machine_id){
+    public void removeVendingMachineFromMap(Machine vm, String machine_id) {
 
-        if(myVMachinesMap.containsKey(vm.getLocation())){
+        int count = 0;
+
+        if (myVMachinesMap.containsKey(vm.getLocation())) {
             ArrayList<Machine> locationList = myVMachinesMap.get(vm.getLocation());
-            for(Machine machine : locationList) {
-                if(machine.getMachine_id().equalsIgnoreCase(machine_id)) {
-                    locationList.remove(machine);
-                    if(locationList.size() == 0){
-                        myVMachinesMap.remove(locationList);
+
+
+            if (locationList.size() > 0) {
+                System.out.println("l: " + locationList.size());
+                for(Iterator<Machine> locationIterator = myVMachinesMap.get(vm.getLocation()).iterator(); locationIterator.hasNext();){
+                    Machine machine = locationIterator.next();
+                    if(machine.getMachine_id().equalsIgnoreCase(machine_id)){
+                        locationIterator.remove();
                     }
                 }
+
+                // Apparently you can't remove inside a foreach
+//
+//                for (Machine machine : locationList) {
+//                    if (machine.getMachine_id().equalsIgnoreCase(machine_id)) {
+//                        System.out.println("count " + count);
+//                        break;
+//                        locationList.remove(count);
+//                    }
+//                    count++;
+//                }
+            } else {
+                myVMachinesMap.remove(locationList);
             }
         }
     }
 
     public void checkThisMachineTotalMoney(Machine machine) {
-        System.out.printf("Total cash in" + machine.getMachine_id()+ ": %.02f\n\n", machine.getCoin().getTotalAmountMoney());
+        System.out.printf("Total cash in" + machine.getMachine_id() + ": %.02f\n\n", machine.getCoin().getTotalAmountMoney());
     }
 
     public void checkThisMachineCoins(Machine machine) {
@@ -101,7 +120,7 @@ public class Oraganization {
             for (Machine vm : machinesInThisLocation) {
                 total += vm.getCoin().getTotalAmountMoney();
             }
-            System.out.println("--> " + total +"\n");
+            System.out.println("--> " + total + "\n");
         } else {
             System.out.println("Invalid Location\n");
         }
@@ -143,10 +162,11 @@ public class Oraganization {
         for (Map.Entry<String, ArrayList<Machine>> map : myVMachinesMap.entrySet()) {
             System.out.println(map.getKey());
             for (Machine machine : map.getValue()) {
-                System.out.println("\tVending Machine: [" +machine.getMachine_id()+"] " + machine.getCoin().getTotalAmountMoney());
-                System.out.println();
+                System.out.println("\tVending Machine: [" + machine.getMachine_id() + "] " + machine.getCoin().getTotalAmountMoney());
             }
         }
+        System.out.println();
+
     }
 
     public void printLocations() {
