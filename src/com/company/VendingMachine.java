@@ -65,13 +65,39 @@ public abstract class VendingMachine {
         Product productToPurchase = shelves.get(numShelf).getSpecificProduct(compartment);
         if(total >= productToPurchase.getRetailSalePrice()){
             System.out.println("Thank you, enjoy your " + productToPurchase.getName());
-            wallet.addNickels(nickels);
-            wallet.addDimes(dimes);
-            wallet.addQuarters(quarters);
-            System.out.println("Please take your change of $" + (productToPurchase.getRetailSalePrice() - total));
+            calculateChange(productToPurchase, nickels, dimes, quarters);
         } else {
             System.out.println("Sorry, not enough money. Here is your $" + total + "back.");
         }
+    }
+
+    public void calculateChange(Product product, int nickels, int dimes, int quarters){
+        double temp = product.getRetailSalePrice();
+        int changeN = 0;
+        int changeD = 0;
+        int changeQ = 0;
+        while(temp > 0.00){
+            if (temp > Coins.QUARTER && quarters >= 1){
+                temp -= Coins.QUARTER;
+                quarters -= 1;
+                changeQ += 1;
+                wallet.addQuarters(1);
+            } else if(temp > Coins.DIME && dimes >= 1){
+                temp -= Coins.DIME;
+                dimes -= 1;
+                changeD += 1;
+                wallet.addDimes(1);
+            } else if(temp > Coins.NICKEL && nickels >= 1){
+                temp -= Coins.NICKEL;
+                nickels -= 1;
+                changeN += 1;
+                wallet.addNickels(1);
+            }
+        }
+        System.out.println("Here is your change");
+        System.out.println("Quarters: " + changeQ);
+        System.out.println("Dimes: " + changeD);
+        System.out.println("Nickels: " + changeN);
     }
 
     public double getCurrentTotal(int nickels, int dimes, int quarters){
@@ -79,5 +105,4 @@ public abstract class VendingMachine {
                 (dimes * Coins.DIME) +
                 (quarters * Coins.QUARTER));
     }
-
 }
