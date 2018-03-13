@@ -2,10 +2,16 @@ package bootCamp;
 
 import java.util.ArrayList;
 
-public class LittleThingsCompany extends ArrayList<LittleThingsCompany> {
+public class LittleThingsCompany  {
     String location;
      int numberOfVending;
-    String typeOfVending;
+     String typeOfVending;
+
+    private Inventory<Coin> coinInventory= new Inventory<Coin>();
+    private Inventory<SnackItems> itemInventory= new Inventory<SnackItems>();
+    private double totalSale;
+    private SnackItems currentItem;
+    private double  currentItemBal;
 
     private ArrayList<LittleThingsCompany> littleThingsList = new ArrayList<LittleThingsCompany>();
 
@@ -43,18 +49,15 @@ public class LittleThingsCompany extends ArrayList<LittleThingsCompany> {
     public void setTypeOfVending(String typeOfVending) {
         this.typeOfVending = typeOfVending;
     }
-
-    public  void viewLocation(ArrayList<LittleThingsCompany> myLocation) {
-        for (LittleThingsCompany location : myLocation) {
-            System.out.println("We have machine in: " + location.location + "  Number of vending machine: " + location.numberOfVending + "  Type of Vending: " + location.typeOfVending);
-        }
-    }
-    public void addNewMachine(ArrayList<LittleThingsCompany> myLocation){
-        for (LittleThingsCompany location: myLocation )
-            littleThingsList.add(location);
-
+    public double getCurrentItemBal() {
+        return currentItemBal;
     }
 
+
+    public void insertCoin(Coin coin) {
+        currentItemBal= currentItemBal+ coin.getValue();
+        coinInventory.add(coin);
+    }
 
 
 }

@@ -7,9 +7,10 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] agrs) {
+        String str="  *****Welcome To LTC Company*****";
         ArrayList<String> location = new ArrayList<String>();
         ArrayList<LittleThingsCompany> locationDetails = new ArrayList<>();
-        LittleThingsCompany totalLocation = new LittleThingsCompany();
+        Location totalLocation = new Location();
         ArrayList<Product> productDetails = new ArrayList<>();
         Product product = new Product();
         location.add("Mid Town");
@@ -43,7 +44,7 @@ public class Main {
        productDetails.add(twix);
 
        product.viewProduct(productDetails);
-
+       totalLocation.addNewDrinkMachine("Mid Town");
 //        System.out.println("Enter 1 to view Little Things Locations");
 //        boolean found = false;
 //        int select = 1;
