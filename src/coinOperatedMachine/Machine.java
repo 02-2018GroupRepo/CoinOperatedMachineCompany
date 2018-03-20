@@ -2,6 +2,18 @@ package coinOperatedMachine;
 import java.text.DecimalFormat;
 import java.util.*;
 
+
+/**
+ * This class represents the 5*5 (5 rows and 5 columns) vending machine for candy and snacks
+ * Each compartment of the shelf has the capacity of 10 spaces to hold the items
+ * The first item will be removed from the compartment every single time customer purchases it
+ * Vending machine also has a coin cart so operator can get the total of the vending machine
+ * Indices are from A0 to A4, B0 to B4, C0 to C4, D0 to D4, and E0 to E4
+ * Each compartment has unique ID
+ * Each compartment will hold the unique product
+ */
+
+
 public class Machine {
 
     int [][] shelvesCompartment;
@@ -147,7 +159,7 @@ public class Machine {
         }
     }
 
-    public void printItem (String index) {
+    public void viewItem (String index) {
         shelvesValue();
         char [] indexChar = index.toCharArray();
         int firstChr = 0;

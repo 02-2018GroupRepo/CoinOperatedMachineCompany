@@ -52,12 +52,26 @@ public class Main {
 
 //        candyMachine.removeItemFromMachine();
 //        candyMachine.viewCoinCart();
-//        candyMachine.printItem("B2");
+//        candyMachine.viewItem("B2");
 //        candyMachine.removeItemFromMachine();
 //        candyMachine.viewCoinCart();
 
+        DrinkMachine drinkMachine = new DrinkMachine();
+        drinkMachine.setName("Drink Machine");
 
+        drinkMachine.addItemToMachine(twix, "D1", 2);
+        drinkMachine.addItemToMachine(kitKat, "A2", 4);
+        //drinkMachine.addItemToMachine(twix, "D1", 3);
 
+        //drinkMachine.viewItem("D1");
+        //drinkMachine.getSizeOfCompt("D1");
+
+         drinkMachine.removeItem();
+//        drinkMachine.removeItem();
+
+         drinkMachine.viewItem("D1");
+         drinkMachine.getSizeOfCompt("D1");
+         drinkMachine.viewCoinCart();
 
     }
 }
