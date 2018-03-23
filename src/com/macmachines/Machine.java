@@ -67,7 +67,7 @@ public abstract class Machine {
         money = money - quarters * Coin.QUARTER;
         int dimes = (int) Math.floor(money / Coin.DIME);
         money = money - dimes * Coin.DIME;
-        int nickels = (int) (money / Coin.NICKEL);
+        int nickels = Math.round((float)(money / Coin.NICKEL));
         int[] coinArray = {quarters, dimes, nickels};
         return coinArray;
     }
