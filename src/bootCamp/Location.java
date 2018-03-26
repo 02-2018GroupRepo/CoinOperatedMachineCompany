@@ -60,6 +60,7 @@ public class Location {
     }
     public void viewUpdate(LittleThingsCompany vending, String name) {
         location.put(name, vending);
+        System.out.println(vending.typeOfVending + " has been added to " + locationName);
     }
 
 }

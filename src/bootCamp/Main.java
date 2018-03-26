@@ -21,30 +21,36 @@ public class Main {
         LittleThingsCompany dunwoody = new LittleThingsCompany("Dunwoody", 2, "Drink");
         LittleThingsCompany symra = new LittleThingsCompany("Smyrna", 1, "Snack");
         LittleThingsCompany buford = new LittleThingsCompany("Buford HWY", 1, "Drink");
-
+        LittleThingsCompany newLocation = new LittleThingsCompany();
         System.out.println("Location of the company: " + location);
         locationDetails.add(midtown); //adding machine to location
         locationDetails.add(dunwoody);
         locationDetails.add(symra);
         locationDetails.add(buford);
-        //locationDetails.remove(buford);//removing machine to location
+      //  locationDetails.remove(buford);//removing machine to location
+       //locationDetails.add(new LittleThingsCompany("Decator", 1,"Drink"));
+       totalLocation.setLocationName("Decator");
+       totalLocation.addNewDrinkMachine("Decator");
+
 
         totalLocation.viewLocation(locationDetails);
 
-       Product granola = new Product("1", "Granola", 2.0, 1.5);
-       Product almond = new Product("2", "Almond", 2.5, 1.0);
-       Product sunchips = new Product("3", "Sun Chips", 2.0, 1.5);
-       Product cheese = new Product("4", "Cheese", 2.0, 1.5);
-       Product twix = new Product("5", "Twix", 2.0, 1.5);
+//       Product granola = new Product("1", "Granola", 2.0, 1.5);
+//       Product almond = new Product("2", "Almond", 2.5, 1.0);
+//       Product sunchips = new Product("3", "Sun Chips", 2.0, 1.5);
+//       Product cheese = new Product("4", "Cheese", 2.0, 1.5);
+//       Product twix = new Product("5", "Twix", 2.0, 1.5);
 
-       productDetails.add(granola);
-       productDetails.add(almond);
-       productDetails.add(sunchips);
-       productDetails.add(cheese);
-       productDetails.add(twix);
-
+       productDetails.add(new Product("1","Granola", 2.0, 1.5));
+       productDetails.add(new Product("2", "Almond", 2.5, 1.0));
+       productDetails.add(new Product("3", "Sun Chips", 2.0, 1.5));
+       productDetails.add(new Product("4", "Cheese", 2.0, 1.5));
+       productDetails.add(new Product("5", "Twix", 2.0, 1.5));
+       SnackMachine sm = new SnackMachine();
        product.viewProduct(productDetails);
-       totalLocation.addNewDrinkMachine("Mid Town");
+
+
+
 //        System.out.println("Enter 1 to view Little Things Locations");
 //        boolean found = false;
 //        int select = 1;
