@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2ba512a-bfca-4139-a9b5-0c3f4a2fb94b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/bootCamp/DrinkMachine.java" afterPath="$PROJECT_DIR$/src/bootCamp/DrinkMachine.java" />
-      <change beforePath="$PROJECT_DIR$/src/bootCamp/Location.java" afterPath="$PROJECT_DIR$/src/bootCamp/Location.java" />
-      <change beforePath="$PROJECT_DIR$/src/bootCamp/Main.java" afterPath="$PROJECT_DIR$/src/bootCamp/Main.java" />
-    </list>
+    <list default="true" id="d2ba512a-bfca-4139-a9b5-0c3f4a2fb94b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
